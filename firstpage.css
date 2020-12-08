@@ -1,0 +1,47 @@
+header{
+    font-size: 20px;
+    color: maroon;
+    text-align: center;
+}
+
+nav {
+   padding-top: 10px;
+   float: left;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(232, 235, 240);
+}
+a{
+    margin: 20px;
+    color: brown;
+ text-decoration: none;
+}
+
+article{
+    padding-top: 30px;
+    font-size: x-large;
+    text-align: center;
+    color: yellowgreen;
+}
+aside {
+    
+    padding-left: 15px;
+    margin-left: 15px;
+    float: right;
+    background-color: lightgray;
+  }
+
+  details{
+    padding-left: 15px;
+    margin-left: 15px;
+    float: left;
+    background-color: lightcyan;
+  }
+  footer{
+    background-color: lightsteelblue;
+      text-align: center;
+      font-size: 20px;
+  }
+  #empty{
+      padding-top: 20%;
+  }
