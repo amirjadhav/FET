@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body>
+    <button id="clickme" onclick="clickCounter()"> clickme</button>
+
+
+    <script>
+        function clickCounter(){
+            if(typeof(Storage !== "undefined"))
+            {
+                if(localStorage.clickcount){
+                    localStorage.clickcount =Number(localStorage.clickcount +1);
+                }
+                else
+                {
+                    localStorage.clickcount = 1;
+                }
+                document.getElementById("result").innerHTML = "You have clicked the button" +localStorage.clickcount
+            }
+        }
+
+    </script>
+</body>
+</html>
