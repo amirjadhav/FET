@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector example</title>
+
+    <style>
+        a[href ^="https"]
+        {
+            background: aqua;
+        }
+        /* a[href $="in"]
+        {
+            background: rgb(197, 20, 159);
+        } */
+        /* a[href *="www"]
+        {
+            background: rgb(207, 152, 50);
+        } */
+    </style>
+</head>
+<body>
+    <a href="https://www.google.com">Google</a>
+    <a href="http://www.facebook.com">facebook</a>
+    <a href="http://www.Google.co.in">Google india</a>
+
+</body>
+</html>
