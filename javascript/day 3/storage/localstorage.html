@@ -6,24 +6,49 @@
     <title>Local Storage</title>
 </head>
 <body>
-    <button id="clickme" onclick="clickCounter()"> clickme</button>
+    <button onclick="clickLocalCounter()"> clickme</button>
+    <p id="result"> result</p>
+
+
+    <button onclick="clickSessionCounter()"> clickme</button>
+    <p id="result1"> result</p>
 
 
     <script>
-        function clickCounter(){
+        function clickLocalCounter(){
             if(typeof(Storage !== "undefined"))
             {
+                
                 if(localStorage.clickcount){
-                    localStorage.clickcount =Number(localStorage.clickcount +1);
+                    localStorage.clickcount =Number(localStorage.clickcount) + 1;
                 }
                 else
                 {
                     localStorage.clickcount = 1;
                 }
-                document.getElementById("result").innerHTML = "You have clicked the button" +localStorage.clickcount
+                document.getElementById("result").innerHTML = "You have clicked the button  " +localStorage.clickcount
+            }
+            else
+            {
+                
+            }
+        }
+
+        function clickSessionCounter(){
+            if(typeof(Storage !== "undefined"))
+            {
+                if(sessionStorage.clickcount1){
+                    sessionStorage.clickcount1 =Number(sessionStorage.clickcount1) + 1;
+                }
+                else
+                {
+                    sessionStorage.clickcount1 = 1;
+                }
+                document.getElementById("result1").innerHTML = "You have clicked the button  " +sessionStorage.clickcount1
             }
         }
 
     </script>
 </body>
+
 </html>
