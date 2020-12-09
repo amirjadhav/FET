@@ -1,0 +1,41 @@
+#test{
+    text-align: center;
+    font-size: 500%;
+    color: rgb(26, 198, 241);
+}
+* {box-sizing: border-box}
+body {font-family: Arial, Helvetica, sans-serif;}
+
+nav {
+    margin-top: 2%;
+  width: 100%;
+  background-color: rgb(209, 162, 162);
+  overflow: auto;
+}
+
+nav a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 25%; /* Four links of equal widths */
+  text-align: center;
+}
+
+nav a:hover {
+  background-color: rgba(236, 216, 216, 0.767);
+}
+
+nav a.active {
+  background-color: #3edae6;
+}
+
+@media screen and (max-width: 500px) {
+    nav a {
+    /* float: none; */
+    /* display: block; */
+    /* width: 100%; */
+    /* text-align: left; */
+  }
+}
