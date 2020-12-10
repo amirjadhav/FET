@@ -1,0 +1,38 @@
+/* .abc{
+    display: flex;
+    background-color: rgb(219, 217, 66);
+    flex: 3;
+    flex-direction: column-reverse;
+    flex-flow: row-reverse;
+}
+
+.abc > div{
+    background-color: rgb(226, 33, 139);
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+    display: flex;
+} */
+
+div{
+    width: 100px;
+    height: 100px;
+    padding-left: 100px;
+    background-color: violet;
+    box-shadow: 10px,10px,10px,tomato;
+    text-shadow: 3px,3px,3px,teal;
+    transition: width 3s ease 0.2ms, background-color 2s, height 5s,transform 14s;
+
+}
+div:hover{
+    background-color: tomato;
+    width: 300px;
+    height: 150px;
+    transform: skew(20deg,10deg);
+}
+.threecol{
+column-count:4 ;
+column-gap: 5%;
+column-width: 100%;
+column-rule: 1px dashed black;
+}

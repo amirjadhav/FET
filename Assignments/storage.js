@@ -12,10 +12,10 @@ function showData() {
   var y = document.forms["myForm"]["value"].value;
 
   console.log(x + "   " + y);
-  SaveLocalStorageData(x, y);
+  SaveStorageData(x, y);
 }
 
-function SaveLocalStorageData(x, y) {
+function SaveStorageData(x, y) {
   if (typeof (Storage !== "undefined")) {
     localStorage.setItem(x, y);
     sessionStorage.setItem(x, y);
@@ -32,7 +32,7 @@ function refreshTableLocal() {
       tbl = document.createElement("table");
     tbl.style.position = "absolute";
     tbl.style.top = "250px";
-    tbl.style.left = "200px";
+    tbl.style.left = "100px";
     tbl.style.cssFloat = "left";
     tbl.style.width = "500px";
     tbl.style.border = "1px solid black";
@@ -70,7 +70,7 @@ function refreshTableSession() {
       tbl = document.createElement("table");
     tbl.style.position = "absolute";
     tbl.style.top = "250px";
-    tbl.style.right = "200px";
+    tbl.style.right = "100px";
     tbl.style.cssFloat = "right";
     tbl.style.width = "500px";
     tbl.style.border = "1px solid black";
@@ -89,7 +89,7 @@ function refreshTableSession() {
           if (j == 1)
             td.appendChild(document.createTextNode(sessionStorage.getItem(key)));
           if (j == 2)
-            td.innerHTML = '<input type="button" value="Clear key" name=key onclick="deletesessionitem()"/>';
+            td.innerHTML = '<input type="button" value="Clear key" name=key onclick="deletesessionitem(key)"/>';
           td.style.border = "1px solid black";
           console.log(key);
         }
@@ -115,13 +115,15 @@ function resetSession(){
 }
 function deletelocalitem(key){
     console.log('delete item pressed');
+    var x = document.getElementById(key); 
     //var key =document.getElementsByName("key");
-    console.log(key);
-    localStorage.removeItem(key);
+    console.log(x);
+    localStorage.removeItem(x);
 }
 function deletesessionitem(key){
     console.log('delete item pressed');
+    var x = document.getElementById(key).name; 
     //var key =document.getElementsByName("key");
-    console.log(key);
-    sessionStorage.removeItem(key);
+    console.log(x);
+    sessionStorage.removeItem(x);
 }
