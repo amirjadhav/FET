@@ -13,10 +13,10 @@
     <br>
     <br>
     <nav>
-        <a class="active" href="#"><b>Add Book</b></a><br>
-        <a href="#"><b>Search Book</b></a><br>
-        <a href="#"><b>Requested Books</b></a><br>
-        <a href="#"><b>Fine calculation</b></a><br>
+        <a href="#" onclick="addbook()"><b>Add Book</b></a><br>
+        <a href="#" onclick="searchbook()"><b>Search Book</b></a><br>
+        <a href="#" onclick="requestbook()"><b>Request New Book</b></a><br>
+        <a href="#" onclick="fineCalculate()"><b>Fine calculation</b></a><br>
     </nav>
 
     <aside>
@@ -27,8 +27,9 @@
         <p> 4. what is maximun time to return book ?</p>    
     </aside>
 
-    <div class="content">
-        content
+    <div id="content">
+        <H3 id="contentheading"><h3>Add Book</h3> Book Name: <input type="text"><br><br> Auther: <input type="text"><br><br> date of issue :<input type="date"><br><br> student id: <input type="number"><br><br> <button type="submit"> Save</button>
+        </H3>
     </div>
     <footer>
         <h4>Library Management System @cybage.com</h4> 
