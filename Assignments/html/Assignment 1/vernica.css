@@ -1,0 +1,32 @@
+body{
+  background-color: antiquewhite;
+}
+.heading {
+  padding: 5px;
+  background-color: rgb(231, 226, 226);
+  height: 120px;
+  text-align: center;
+  font-size: 500%;
+  color: rgb(26, 97, 85);
+}
+h2 {
+  text-align: center;
+  font-size: 40px;
+  color: rgb(48, 228, 198);
+  
+}
+.form {
+  text-align: justify;
+  padding-left: 40%;
+  font-size: 18px;
+}
+input {
+  height: 10px;
+  flex: 10 0 200px;
+  margin-left: 20px;
+}
+button {
+  font-size: 15px;
+  background-color: rgb(226, 245, 245);
+  color: rgba(241, 15, 15, 0.582);
+}

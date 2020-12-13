@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drag and Drop</title>
+    <link rel="stylesheet" href="drag.css">
+  </head>
+  <body>
+    <div id="divimange" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <img
+      id="drag1"
+      src="./logo.webp"
+      draggable="true"
+      ondragstart="drag(event)"
+      width="300"
+      height="200"
+    />
+    <script src="drag.js"></script>
+  </body>
+</html>

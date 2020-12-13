@@ -1,0 +1,12 @@
+body {
+  text-align: start;
+}
+#divimange {
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  width: 350px;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}

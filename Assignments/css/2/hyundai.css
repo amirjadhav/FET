@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: rgb(139, 173, 187);
+}
+body {
+  padding-top: 100px;
+  margin: auto;
+  width: 1000px;
+}
+
+/* header*/
+
+.header a.logo img {
+  height: 70px;
+  width: 180px;
+}
+
+.header-right {
+  float: right;
+}
+.header-right a img {
+  height: 70px;
+  width: 300px;
+}
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+/*nav*/
+.nav1 ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(231, 222, 85);
+}
+
+.nav1 li {
+  float: left;
+}
+
+.nav1 li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.nav1 li input {
+  display: block;
+  color: white;
+  text-align: center;
+  width: 100px;
+  margin-top: 15px;
+  height: 20px;
+}
+
+.nav1 li a:hover {
+  background-color: white;
+}
+/* body part 1-----3 col*/
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 250px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column img {
+  height: 250px;
+  width: 100%;
+}
+
+.column1 {
+  float: left;
+  width: 80%;
+  padding: 10px;
+  height: 250px;
+}
+.column1 img {
+  height: 250px;
+  width: 100%;
+  margin-top: 10px;
+}
+.row1:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column2 {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  height: 250px;
+  margin-top: 20px;
+  text-decoration: none;
+}
+.column2 ul {
+  list-style: none;
+}

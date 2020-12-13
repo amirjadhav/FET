@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registration Form</title>
     <link rel="stylesheet" href="vernica.css">
 </head>
 <body>
-    <header class="heading">Vernica Creators</header>
+    <header class="heading">Veronica Creators</header>
     <h2>Registration Form</h2>
     <div>
         <form action="" method="post" class="form">
@@ -17,13 +17,15 @@
             Username: <input type="name" required> <br><br>
             Password: <input type="password" required> <br><br>
             Confirm password: <input type="password" required> <br><br>
-            Price: 1200$ <br><br>
+            Price: 2000 $ <br><br>
             Card details: <input type="number" required> <br><br>
-            Referral code: <input type="number" required min="1000" max="2000">&nbsp;&nbsp;&nbsp;&nbsp; <button type="button"><b>Apply</b></button><br><br>
-            Discounted Price: <input type="name" required disabled> <br><br>
+            Referral code: <input type="number" required id="referral">&nbsp;&nbsp;&nbsp;&nbsp; <button type="button" onclick="isValid()"><b>Apply</b></button><br><br>
+            Discounted Price: <input type="name" required disabled value="2000 $" id="discount"> <br><br>
             <button type="submit"><b>Register</b></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="reset"><b>Reset</b></button>
         </form>
     </div>
+
+    <script src="veronica.js"></script>
 </body>
 </html>
