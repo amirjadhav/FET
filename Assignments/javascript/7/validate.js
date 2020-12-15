@@ -17,7 +17,7 @@ reading.addEventListener('change', (event) => {
     x.style.display = "none"
   }
 })
-movies.addEventListener('change', (event) => {
+movies.addEventListener('change', (event) => {  
   if (event.target.checked) {
     count++;
 
@@ -90,3 +90,26 @@ function checkValidation(){
 
   init();
 })();
+
+
+document.getElementById("appname").innerHTML = detectBrowser();
+
+
+
+
+//gets the type of browser
+function detectBrowser() { 
+  if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+      return 'Opera';
+  } else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+      return 'Chrome';
+  } else if(navigator.userAgent.indexOf("Safari") != -1) {
+      return 'Safari';
+  } else if(navigator.userAgent.indexOf("Firefox") != -1 ){
+      return 'Firefox';
+  } else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
+      return 'IE';//crap
+  } else {
+      return 'Unknown';
+  }
+} 

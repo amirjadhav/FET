@@ -2,6 +2,10 @@ body{
     margin-left: 40%;
 }
 
+input:invalid{
+    border: 1px solid red;
+}
+
 .dateid {
     position: relative;
     width: 150px; height: 20px;
