@@ -1,7 +1,6 @@
 const reading = document.getElementById('reading')
 const movies = document.getElementById('movies')
 const photo = document.getElementById('photo')
-var count =0;
 var x = document.getElementById("writer");
 
 
@@ -11,27 +10,21 @@ x.setAttribute("type", "hidden");
 reading.addEventListener('change', (event) => {
   if (event.target.checked) {
     x.style.display = "block"
-    count++;
   } else {
-      count--;
     x.style.display = "none"
   }
 })
 movies.addEventListener('change', (event) => {  
   if (event.target.checked) {
-    count++;
 
   } else {
-    count--;
 
   }
 })
 photo.addEventListener('change', (event) => {
   if (event.target.checked) {
-    count++;
 
   } else {
-    count--;
 
   }
 })
