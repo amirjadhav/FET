@@ -57,6 +57,12 @@ function checkValidation(){
       }
   }
 
+  var d = new Date();
+  var m = parseInt(d.getMonth())+1;
+  var day = d.getDate();
+  var yy = d.getFullYear();
+
+  //console.log(day + " " + m+ " " + yy)
 
   $(".dateid").on("change", function() {
     this.setAttribute(
@@ -64,6 +70,8 @@ function checkValidation(){
         moment(this.value, "YYYY-MM-DD")
         .format( this.getAttribute("data-date-format") )
     )
+    this.max = yy+"-"+m+"-"+day
+    //console.log(" dateid:" +yy+"-"+day+"-"+m)
 }).trigger("change")
 
 
