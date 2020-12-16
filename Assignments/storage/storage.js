@@ -65,7 +65,7 @@ function refreshTableLocal() {
   }
   tableCreate();
 }
-refreshTableLocal();
+refreshTableLocal();  
 
 function refreshTableSession() {
   var rowdata = ["Key", "value", "Action"];
@@ -96,7 +96,7 @@ function refreshTableSession() {
              console.log("Value of key is :"+key)
              var r=key;
              console.log("r value"+r);
-            td.innerHTML = `<input type="button" value=${key} id=${key} onclick="deletesessionitem(${r})"/>`
+            td.innerHTML = `<input type="button" value="Clear key" name=${key} id=${key} onclick="deletesessionitem(${r})"/>`
           }
           td.style.border = "1px solid black";
           console.log(key);
@@ -124,17 +124,17 @@ function resetSession(){
 function deletelocalitem(key){
   //console.log(key)
     console.log('delete item pressed');
-    var x = document.getElementById(key.value); 
+   // var x = document.getElementById(key.value); 
     //var key =document.getElementsByName("key");
    // console.log(x);
-    localStorage.removeItem(key.value);
+    localStorage.removeItem(key.name);
 }
 function deletesessionitem(key){
     console.log("Hello")
-    console.log("inside delete"+key.value)
+    console.log("inside delete"+key.name)
     console.log('delete item pressed');
    // var x = document.getElementById(key); 
     //var key =document.getElementsByName("key");
   //  console.log(x);
-    sessionStorage.removeItem(key.value);
+    sessionStorage.removeItem(key.name);
 }
