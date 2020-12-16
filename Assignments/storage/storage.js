@@ -50,8 +50,12 @@ function refreshTableLocal() {
           if (j == 0) td.appendChild(document.createTextNode(key));
           if (j == 1)
             td.appendChild(document.createTextNode(localStorage.getItem(key)));
-          if (j == 2)
-          td.innerHTML = '<input type="button" value="Clear key" onclick="deletelocalitem(key)"/>';
+          if (j == 2){
+            console.log("Value of key is :"+key)
+            var r=key;
+            console.log("r value"+r);
+          td.innerHTML = `<input type="button" value="Clear key"  onclick="deletelocalitem(${r})"/>`;
+          }
           td.style.border = "1px solid black";
         }
       }
@@ -88,8 +92,12 @@ function refreshTableSession() {
           if (j == 0) td.appendChild(document.createTextNode(key));
           if (j == 1)
             td.appendChild(document.createTextNode(sessionStorage.getItem(key)));
-          if (j == 2)
-            td.innerHTML = '<input type="button" value="Clear key" name=key onclick="deletesessionitem(key)"/>';
+          if (j == 2){
+             console.log("Value of key is :"+key)
+             var r=key;
+             console.log("r value"+r);
+            td.innerHTML = `<input type="button" value=${key} id=${key} onclick="deletesessionitem(${r})"/>`
+          }
           td.style.border = "1px solid black";
           console.log(key);
         }
@@ -114,16 +122,19 @@ function resetSession(){
     window.location.reload();
 }
 function deletelocalitem(key){
+  //console.log(key)
     console.log('delete item pressed');
-    var x = document.getElementById(key); 
+    var x = document.getElementById(key.value); 
     //var key =document.getElementsByName("key");
-    console.log(x);
-    localStorage.removeItem(x);
+   // console.log(x);
+    localStorage.removeItem(key.value);
 }
 function deletesessionitem(key){
+    console.log("Hello")
+    console.log("inside delete"+key.value)
     console.log('delete item pressed');
-    var x = document.getElementById(key).name; 
+   // var x = document.getElementById(key); 
     //var key =document.getElementsByName("key");
-    console.log(x);
-    sessionStorage.removeItem(x);
+  //  console.log(x);
+    sessionStorage.removeItem(key.value);
 }
