@@ -1,0 +1,48 @@
+body {
+  text-align: center;
+}
+body {
+  margin-left: 35%;
+  margin-top: 15%;
+}
+
+.title {
+  margin-bottom: 10px;
+  font-size: 40px;
+  text-align: center;
+  width: 430px;
+  color: #cc6600;
+  border: solid black 2px;
+}
+
+input[type="button"] {
+  background-color:  #fff2e6;
+  color: black;
+  font-size: 35px;
+  width: 100%;
+  height: 100%;
+}
+input:hover {
+  background-color:  #cc6600;
+}
+td {
+  height: 80px;
+  width: 80px;
+}
+input[type="text"] {
+  background-color: white;
+  border: solid black 2px;
+  font-size: 40px;
+  width: 100%;
+  height: 100%;
+}
+
+.sci{
+    display: none;
+}
+
+p{
+    position: fixed;
+    bottom: 0;
+    right: 10;
+}

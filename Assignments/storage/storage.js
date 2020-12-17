@@ -54,7 +54,7 @@ function refreshTableLocal() {
             console.log("Value of key is :"+key)
             var r=key;
             console.log("r value"+r);
-          td.innerHTML = `<input type="button" value="Clear key"  onclick="deletelocalitem(${r})"/>`;
+          td.innerHTML = `<input type="button" value="Clear key" id=${key} onclick="deletelocalitem(${r})"/>`;
           }
           td.style.border = "1px solid black";
         }
@@ -96,7 +96,7 @@ function refreshTableSession() {
              console.log("Value of key is :"+key)
              var r=key;
              console.log("r value"+r);
-            td.innerHTML = `<input type="button" value="Clear key" name=${key} id=${key} onclick="deletesessionitem(${r})"/>`
+            td.innerHTML = `<input type="button" value="Clear key" name=${key} onclick="deletesessionitem(${r})"/>`
           }
           td.style.border = "1px solid black";
           console.log(key);
@@ -124,10 +124,11 @@ function resetSession(){
 function deletelocalitem(key){
   //console.log(key)
     console.log('delete item pressed');
+    console.log("inside delete"+key.id)
    // var x = document.getElementById(key.value); 
     //var key =document.getElementsByName("key");
    // console.log(x);
-    localStorage.removeItem(key.name);
+    localStorage.removeItem(key.id);
 }
 function deletesessionitem(key){
     console.log("Hello")

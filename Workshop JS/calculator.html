@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="calStyle.css" />
+  </head>
+  <!-- create table -->
+  <body>
+    <div class="title">Calculator</div>
+    <table border="1">
+      <tr>
+        <td colspan="3"><input type="text" autofocus id="result" /></td>
+        <!-- clr() function will call clr to clear all value -->
+        <td><input type="button" value="c" onclick="clr()" /></td>
+        <!-- del() function will remove last char -->
+        <td><input type="button" value="d" onclick="del()" /></td>
+          <td class="sci"><input type="button" value="log" onclick="findLog()" /></td>
+      </tr>
+      <tr>
+        <!-- create button and assign value to each button -->
+        <!-- display("1") will call function display to display value -->
+        <td><input type="button" value="7" onclick="display('7')" /></td>
+        <td><input type="button" value="8" onclick="display('8')" /></td>
+        <td><input type="button" value="9" onclick="display('9')" /></td>
+        <td><input type="button" value="/" onclick="display('/')" /></td>
+        <td><input type="button"  id="mode" value="sci" onclick="sci()" /></td>
+        <td class="sci"><input type="button" value="sin" /></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="4" onclick="display('4')" /></td>
+        <td><input type="button" value="5" onclick="display('5')" /></td>
+        <td><input type="button" value="6" onclick="display('6')" /></td>
+        <td><input type="button" value="-" onclick="display('-')" /></td>
+        <td><input type="button" value="√" onclick="sqr()" /></td>
+        <td class="sci"><input type="button" value="cos" /></td>
+
+      </tr>
+      <tr>
+        <td><input type="button" value="1" onclick="display('1')" /></td>
+        <td><input type="button" value="2" onclick="display('2')" /></td>
+        <td><input type="button" value="3" onclick="display('3')" /></td>
+        <td><input type="button" value="+" onclick="display('+')" /></td>
+        <td><input type="button" value="x&#178;" onclick="squ()" /></td>
+        <td class="sci"><input type="button" value="tan" /></td>
+
+      </tr>
+      <tr>
+        <td><input type="button" value="." onclick="display('.')" /></td>
+        <td><input type="button" value="0" onclick="display('0')" /></td>
+        <!-- solve function call function solve to evaluate value -->
+        <td><input type="button" value="=" onclick="solve()" /></td>
+        <td><input type="button" value="*" onclick="display('*')" /></td>
+        <td><input type="button" value="x&#179;" onclick="cub()" /></td>
+        <td class="sci"><input type="button" value="mod" onclick="display('%')"/></td>
+
+      </tr>
+    </table>
+
+    <p id="me">Created by Amir Jadhav</p>
+    <script src="cal.js"></script>
+  </body>
+</html>
