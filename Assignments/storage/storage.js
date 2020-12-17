@@ -51,10 +51,7 @@ function refreshTableLocal() {
           if (j == 1)
             td.appendChild(document.createTextNode(localStorage.getItem(key)));
           if (j == 2){
-            console.log("Value of key is :"+key)
-            var r=key;
-            console.log("r value"+r);
-          td.innerHTML = `<input type="button" value="Clear key" id=${key} onclick="deletelocalitem(${r})"/>`;
+          td.innerHTML = `<input type="button" value="Clear key" name=${key} onclick="deletelocalitem(${key})"/>`;
           }
           td.style.border = "1px solid black";
         }
@@ -93,13 +90,9 @@ function refreshTableSession() {
           if (j == 1)
             td.appendChild(document.createTextNode(sessionStorage.getItem(key)));
           if (j == 2){
-             console.log("Value of key is :"+key)
-             var r=key;
-             console.log("r value"+r);
-            td.innerHTML = `<input type="button" value="Clear key" name=${key} onclick="deletesessionitem(${r})"/>`
+            td.innerHTML = `<input type="button" value="Clear key" id=${key}  onclick="deletesessionitem(${key})"/>`
           }
           td.style.border = "1px solid black";
-          console.log(key);
         }
       }
     }
@@ -122,20 +115,12 @@ function resetSession(){
     window.location.reload();
 }
 function deletelocalitem(key){
-  //console.log(key)
-    console.log('delete item pressed');
-    console.log("inside delete"+key.id)
-   // var x = document.getElementById(key.value); 
-    //var key =document.getElementsByName("key");
-   // console.log(x);
     localStorage.removeItem(key.id);
+    window.location.reload();
+
 }
 function deletesessionitem(key){
-    console.log("Hello")
-    console.log("inside delete"+key.name)
-    console.log('delete item pressed');
-   // var x = document.getElementById(key); 
-    //var key =document.getElementsByName("key");
-  //  console.log(x);
-    sessionStorage.removeItem(key.name);
+    
+    sessionStorage.removeItem(key.id);
+    window.location.reload();
 }
