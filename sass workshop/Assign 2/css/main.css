@@ -1,0 +1,37 @@
+.button1, .primary, .primary:hover, .primary:disabled, .secondary, .secondary:hover, .secondary:disabled {
+  border-radius: 3px;
+  padding: 12px 15px 12px 15px;
+  min-width: 110px;
+  width: fit-content;
+  font-family: "SegoeUI SemiBold";
+  font-size: 16px; }
+
+.primary {
+  background-color: #74bd20;
+  color: #ffffff;
+  border: 1px solid #74bd20; }
+
+.primary:hover {
+  background-color: #345805;
+  color: #ffffff;
+  border: 1px solid #345805; }
+
+.primary:disabled {
+  background-color: #b6cca3;
+  color: #c2acac;
+  border: 1px solid #949e8b; }
+
+.secondary {
+  background-color: #ffffff;
+  color: #3979ad;
+  border: 1px solid #407eb1; }
+
+.secondary:hover {
+  background-color: #155d97;
+  color: #c2afaf;
+  border: 1px solid #165d97; }
+
+.secondary:disabled {
+  background-color: #f3eded;
+  color: #382626;
+  border: 1px solid #301c1c; }
