@@ -1,0 +1,17 @@
+
+  li {
+    display: inline-block;
+    font: {
+        family: serif;
+        weight: bold;
+        size : 1.3em;
+    }
+  }
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+     &:hovor{
+        color:green;
+    }
+  }

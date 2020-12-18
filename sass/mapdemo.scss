@@ -1,0 +1,9 @@
+@use "sass:map";
+$font-weights: ("regular": 400, "medium": 500, "bold": 700);
+.test{
+    border: 2px solid green;
+    margin:map.get($font-weights,"regular");
+}
+
+
+// <p class="test">Log in with your GitHub account to save gists</p>

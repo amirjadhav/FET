@@ -1,0 +1,25 @@
+$colors: red, green, blue;
+$count: 1;
+$height: 300px;
+$width: 400px;
+
+@each $color in $colors {
+  #div-#{$count} {
+    position: absolute;
+    background-color: $color;
+    width: $width;
+    height: $height;
+    padding: 50px;
+  }
+  $height: $height - 100px;
+  $width: $width - 100px;
+  $count: $count + 1;
+}
+
+// <div id="div-1">
+//     <div id="div-2">
+//         <div id="div-3">
+
+//         </div>
+//     </div>
+// </div>

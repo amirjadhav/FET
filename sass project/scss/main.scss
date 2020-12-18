@@ -1,0 +1,19 @@
+@import "demo";
+$colors: red, green, blue;
+$count: 1;
+$height: 300px;
+$width: 400px;
+
+@each $color in $colors {
+  #div-#{$count} {
+    position: absolute;
+    background-color: $color;
+    width: $width;
+    height: $height;
+    padding: 50px;
+    @include headers(10px);
+  }
+  $height: $height - 100px;
+  $width: $width - 100px;
+  $count: $count + 1;
+}
