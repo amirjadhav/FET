@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Layout</title>
+    <script src="../lib/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="../css/map.css" />
+    <!-- <script src="../js/map.js"></script> -->
+  </head>
+  <body>
+    <p><b> Values: </b></p>
+    <input type="text" name="name" value="john" />
+    <input type="text" name="password" value="password" />
+    <input type="text" name="url" value="https://john.org" />
+
+    <button>Send</button>
+
+    <ul>
+      <li>foo</li>
+      <li>bar</li>
+      <li>foo</li>
+      <ul>
+        <li>foo</li>
+        <li>bar</li>
+      </ul>
+      <li>bar</li>
+      <li>foo</li>
+      <li>bar</li>
+    </ul>
+
+    <div>Click here</div>
+    <div>to iterate through</div>
+    <div>these divs.</div>
+
+    <p>Test</p>
+    <script>
+
+    $('p').append(`<span> Hello World</span>`) ;
+
+      $(document.body).click(function () {
+        $("div").each(function (i) {
+          if (this.style.color !== "blue") {
+            this.style.color = "blue";
+          } else {
+            this.style.color = "red";
+          }
+        });
+      });
+
+      $("button").click(function () {
+        console.log("button clicked");
+        $("p").append(
+          $("input")
+            .map(function () {
+              console.log($(this).val());
+              return $(this).val();
+            })
+            .get()
+            .join(", ")
+        );
+      });
+    </script>
+  </body>
+</html>
