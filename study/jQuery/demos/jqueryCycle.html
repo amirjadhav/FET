@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>JQuery Cycle Plugin - Basic Demo</title>
+<style type="text/css">
+.slideshow { height: 232px; width: 232px; margin: auto }
+.slideshow img { padding: 15px; border: 1px solid #ccc; background-color: #eee; }
+</style>
+
+
+<!-- include jQuery library -->
+<script src="/jquery-3.5.1.js"></script>
+<!-- include Cycle plugin -->
+<script src="/jquery.cycle.all.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx:     'shuffle',
+    
+    delay:  -4000// choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+});
+</script>
+</head>
+<body>
+	<div class="slideshow">
+		<img  src="/tree-736885__340.webp" >
+		
+	</div>
+</body>
+</html>
