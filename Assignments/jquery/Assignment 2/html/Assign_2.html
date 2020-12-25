@@ -1,75 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Form</title>
-    <script src="../lib/jquery-3.5.1.js"></script>
-    <link rel="stylesheet" href="../css/style.css" />
-    <link
+<html>
+<head>
+<title>Form validation using jQuery</title>
+<script type="text/javascript" src="../lib/jquery-3.5.1.js"></script>
+<link rel="stylesheet" href="../css/style.css">
+<link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
     />
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="../js/Assign2.js"></script>
-  </head>
-  <body>
-    <h2>Registration Form</h2>
-    <form action="">
-      <table>
-        <tr>
-          <td>Username</td>
-          <td>
-            <input type="text" autofocus placeholder="Username" />
-          </td>
-        </tr>
-        <tr>
-          <td>Password</td>
-          <td>
-            <input
-              type="password"
-              name="password"
-              id="pass"
-              placeholder="Enter the password"
-            />
-            <span class="far fa-eye" id="togglePassword"></span>
-          </td>
-        </tr>
-        <tr>
-          <td>Email</td>
-          <td>
-            <input type="email" placeholder="Enter Email"/>
-          </td>
-        <tr>
-
-          <tr>
-            <td>Phone</td>
-            <td>
-              <input type="tel " placeholder="Mobile Number" pattern="[0-9]{10}"/>
-            </td>
-          <tr>
-
-            <tr>
-              <td>Skills</td>
-              <td>
-                <input type="text" placeholder="Enter Skills like c,  java"  id="tags"/>
-              </td>
-            <tr>
-
-              <tr>
-                <td>City</td>
-                <td>
-                  <input type="text" placeholder="Type City" />
-                </td>
-              <tr>
-          <td>
-            <button type="submit">Submit</button>
-          </td>
-          <td>
-            <button type="reset">Reset</button>
-          </td>
-        </tr>
-      </table>
-    </form>
-  </body>
+<script type="text/javascript" src="../js/Assign2.js"></script>
+</head>
+<body>
+	<h1><center>Form validation using jQuery</center></h1>
+<form action="" method="post" onsubmit="return validate();" id="form_submission_ajax">
+	<table class="form-table">
+		<tr>
+			<td><label>Firstname:</label></td>
+			<td><input type="text" name="f_name" id="f_name">
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td id="f_name_error" class="error"></td>
+		</tr>
+		<tr>
+			<td><label>Lastname:</label></td>
+			<td><input type="text" name="l_name" id="l_name"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td id="l_name_error" class="error"></td>
+		</tr>
+		<tr>
+			<td><label>Email:</label></td>
+			<td><input type="email" name="email" id="email"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td id="email_error" class="error"></td>
+		</tr>
+		<tr>
+			<td><label>Password:</label></td>
+      <td><input type="password" name="password" id="pass">
+        <span class="far fa-eye" id="togglePassword"></span>
+      </td>
+      
+		</tr>
+		<tr>
+			<td></td>
+			<td id="password_error" class="error"></td>
+		</tr>
+		<tr>
+			<td><label>Known Language:</label></td>
+			<td>
+				<input type="checkbox" name="language[]"  class="language" value="hindi">Hindi
+				<input type="checkbox" name="language[]"  class="language" value="english">English
+				<input type="checkbox" name="language[]"  class="language" value="gujarati">Gujarati
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td id="language_error" class="error"></td>
+		</tr>
+		<tr>
+			<td><label>City:</label></td>
+			<td>
+				<select name="City" id="City">
+					<option value="">Select City</option>
+					<option value="IN">Solapur</option>
+					<option value="UK">Pune</option>
+					<option value="US">Mumbai</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td id="City_error" class="error"></td>
+		</tr>
+		<tr>
+			<td><label>Phone No:</label></td>
+			<td><input type="telephone" name="phone" id="phone"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td id="phone_error" class="error"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" name="submit" value="Submit"></td>
+		</tr>
+	</form>
+</body>
 </html>

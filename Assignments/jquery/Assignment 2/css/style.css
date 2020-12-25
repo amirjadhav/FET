@@ -1,28 +1,22 @@
-h2 {
-  text-align: center
+.form-table
+{
+	width:400px;
+	margin-left: auto;
+	margin-right: auto;
 }
-table {
-  margin-top: 2%;
-  border-collapse: separate;
-  border-spacing: 0 1em;
-  margin-left: auto;
-  margin-right: auto;
+label{
+	font-weight: bold;
 }
+#form_submission_ajax{
+	background-color: #eee;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.error{
+	color: #ff0000;
+}
+
 #togglePassword {
-  display: inline;
-  margin-left: -25px;
-}
-td {
-  width: 200px;
-}
-tr {
-    padding: 10px;
-  margin: 20px;
-}
-button {
-  margin-top: 20px;
-}
-input{
-    height:25px;
-    width: 220px;
-}
+	display: inline;
+	margin-left: -25px;
+  }
