@@ -29,7 +29,7 @@ function validate() {
   var email = $("#email").val();
   var password = $("#password").val();
   var checkedData = [];
-  $(".language").each(function (i) {
+  $(".skills").each(function (i) {
     if ($(this).is(":checked")) {
       checkedData.push($(this).val());
     }
@@ -63,9 +63,9 @@ function validate() {
   }
   if (checkedData == "" || checkedData == null) {
     valid = false;
-    $("#language_error").html("* Please choose any language.");
+    $("#skills_error").html("* Please choose Skill.");
   } else {
-    $("#language_error").html("");
+    $("#skills_error").html("");
   }
   if (City == "" || City == null) {
     valid = false;

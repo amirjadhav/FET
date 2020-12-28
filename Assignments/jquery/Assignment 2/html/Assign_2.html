@@ -33,11 +33,19 @@
 		</tr>
 		<tr>
 			<td><label>Email:</label></td>
-			<td><input type="email" name="email" id="email"></td>
+			<td><input type="email" name="email" id="email" autocomplete="ON"></td>
 		</tr>
 		<tr>
 			<td></td>
 			<td id="email_error" class="error"></td>
+		</tr>
+		<tr>
+			<td><label>Phone No:</label></td>
+			<td><input type="telephone" name="phone" id="phone"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td id="phone_error" class="error"></td>
 		</tr>
 		<tr>
 			<td><label>Password:</label></td>
@@ -51,40 +59,42 @@
 			<td id="password_error" class="error"></td>
 		</tr>
 		<tr>
-			<td><label>Known Language:</label></td>
+			<td><label>Skills:</label></td>
 			<td>
-				<input type="checkbox" name="language[]"  class="language" value="hindi">Hindi
-				<input type="checkbox" name="language[]"  class="language" value="english">English
-				<input type="checkbox" name="language[]"  class="language" value="gujarati">Gujarati
+			<input list="skill" name="skill" id="skillss">
+			<datalist id="skill">
+				<option value="C">
+				<option value="java">
+				<option value="javascript">
+				<option value="Android">
+				<option value="mysql">
+			  </datalist>
+
 			</td>
 		</tr>
 		<tr>
 			<td></td>
-			<td id="language_error" class="error"></td>
+			<td id="skills_error" class="error"></td>
 		</tr>
 		<tr>
 			<td><label>City:</label></td>
 			<td>
-				<select name="City" id="City">
-					<option value="">Select City</option>
-					<option value="IN">Solapur</option>
-					<option value="UK">Pune</option>
-					<option value="US">Mumbai</option>
-				</select>
+				<input list="cities"  id="city">
+				<datalist id="cities">
+					<option value="Pune">
+					<option value="Mumbai">
+					<option value="solapur">
+					<option value="kolhapur">
+					<option value="malinagar">
+				  </datalist>
+			
 			</td>
 		</tr>
 		<tr>
 			<td></td>
 			<td id="City_error" class="error"></td>
 		</tr>
-		<tr>
-			<td><label>Phone No:</label></td>
-			<td><input type="telephone" name="phone" id="phone"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td id="phone_error" class="error"></td>
-		</tr>
+		
 		<tr>
 			<td></td>
 			<td><input type="submit" name="submit" value="Submit"></td>
