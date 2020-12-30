@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .item1 { grid-area: 1 / span 3 / 2 / 4; }
+  
+  .item3 { grid-area: 2 / 1/ span 2 / 2; }
+  .item4 { grid-area: 2 / 2 / span 2 / 3; }
+  
+  .item6 { grid-area: 2 / 3 / span 2 / 4; }
+  .item7{ grid-area: 4 / span 3 / 5 / 4; }
+}
+</style>
+</head>
+<body>
+
+
+<div class="grid-container">
+  <div class="item1">1</div>
+ 
+  <div class="item3">3</div>  
+  <div class="item4">4</div>
+ 
+  <div class="item6">6</div>
+   <div class="item7">7</div>
+</div>
+
+</body>
+</html>

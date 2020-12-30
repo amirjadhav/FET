@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="form1.css">
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body onload="startWorker()">
+    <p>
+        You are using <span id="appname"></span>
+    since <output id="result"> </output> sec
+</p>
+
+    <h2>Register yourself</h2>  
+   
+
+    <form id="check" action="" onsubmit="checkValidation()"                                                            >
+        First Name: <input type="text" required autofocus> <br><br>
+        Last Name: <input type="text" required> <br><br>
+        Date of Birth: <input type="date" data-date="" data-date-format="DD-MM-YYYY" value="2020-12-15" max="2020-12-15" class="dateid"> <br><br>
+        Email: <input type="email" required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"> <br><br>
+        <div id="hobby">
+        Hobby: <br>
+            <input type="checkbox"  value="reading" id="reading">
+            <label for="reading">Reading</label><br>
+
+            <input type="checkbox"  value="movies" id="movies">
+            <label for="movies"> Watching Movies</label><br>
+
+            <input type="checkbox"  value="photography" id="photo"> 
+            <label for="photography">Photography</label><br>
+        </div>
+        <br><br>
+        <div id="writer">
+        Favorite Writer: <input type="text" > <br><br>
+        </div>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button> 
+    </form>
+
+    <!-- for datepicker -->
+    <script>
+        
+    </script>
+
+<script src="validate.js"></script>
+<script src="web.js"></script>
+
+
+</body>
+</html>
