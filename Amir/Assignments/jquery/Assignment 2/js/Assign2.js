@@ -1,14 +1,10 @@
 $(document).ready(function () {
- 
-  $("#togglePassword").click(function(){
-    if($('#pass').prop('type')==="password")
-      $('#pass').prop('type','text');
-    else{
-      $('#pass').prop('type','password');
+  $("#togglePassword").click(function () {
+    if ($("#pass").prop("type") === "password") $("#pass").prop("type", "text");
+    else {
+      $("#pass").prop("type", "password");
     }
   });
-  
- 
 });
 
 function phoneNumberValidation(phoneNumber) {
@@ -22,6 +18,10 @@ function phoneNumberValidation(phoneNumber) {
     return false;
   }
 }
+$(function () {
+  $(".chzn-select").chosen();
+});
+
 function validate() {
   var valid = true;
   var f_name = $("#f_name").val();

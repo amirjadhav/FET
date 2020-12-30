@@ -1,0 +1,44 @@
+@mixin themedata($name,$bgcolor, $font, $color1, $color2, $bcolor) {
+  #{$name} .theme {
+    display: inline-block;
+    border: 1px solid red;
+    height: 93%;
+    font-family: $font;
+    font-size: 100%;
+    width: 46%;
+    margin-top:1%;
+    margin-left: 2%
+  }
+
+  #{$name} #themediv1 {
+    @extend .theme;
+    background-color: $color1;
+  }
+  #{$name} #themediv2 {
+    @extend .theme;
+    background-color: $color2;
+    position: relative;
+    #b1{
+        position: absolute;
+        right: 30%;
+        bottom: 5%;
+        font-family: $font;
+        font-size: 150%;
+        background-color: $bcolor;
+    }
+    #b1:hover{
+     background-color: black;
+  }
+  }
+  #{$name} {
+    background-color: $bgcolor;
+    height: 50%;
+    width: 70%;
+    margin: auto;
+  }
+
+}
+
+@include themedata("#maindiv1",#cc99ff, "Verdana", #ffcc99, #ff99b3, #c0a9d6);
+
+@include themedata("#maindiv2",#d5f549, "Verdana", #6f8be9, #5be6a5, #f19e4f);

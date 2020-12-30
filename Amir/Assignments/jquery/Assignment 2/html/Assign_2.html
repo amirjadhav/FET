@@ -1,104 +1,120 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Form validation using jQuery</title>
-<script type="text/javascript" src="../lib/jquery-3.5.1.js"></script>
-<link rel="stylesheet" href="../css/style.css">
-<link
+  <head>
+    <title>Form validation using jQuery</title>
+    <script type="text/javascript" src="../lib/jquery-3.5.1.js"></script>
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"
+    />
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
     />
-<script type="text/javascript" src="../js/Assign2.js"></script>
-</head>
-<body>
-	<h1><center>Form validation using jQuery</center></h1>
-<form action="" method="post" onsubmit="return validate();" id="form_submission_ajax">
-	<table class="form-table">
-		<tr>
-			<td><label>Firstname:</label></td>
-			<td><input type="text" name="f_name" id="f_name">
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td id="f_name_error" class="error"></td>
-		</tr>
-		<tr>
-			<td><label>Lastname:</label></td>
-			<td><input type="text" name="l_name" id="l_name"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td id="l_name_error" class="error"></td>
-		</tr>
-		<tr>
-			<td><label>Email:</label></td>
-			<td><input type="email" name="email" id="email" autocomplete="ON"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td id="email_error" class="error"></td>
-		</tr>
-		<tr>
-			<td><label>Phone No:</label></td>
-			<td><input type="telephone" name="phone" id="phone"></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td id="phone_error" class="error"></td>
-		</tr>
-		<tr>
-			<td><label>Password:</label></td>
-      <td><input type="password" name="password" id="pass">
-        <span class="far fa-eye" id="togglePassword"></span>
-      </td>
-      
-		</tr>
-		<tr>
-			<td></td>
-			<td id="password_error" class="error"></td>
-		</tr>
-		<tr>
-			<td><label>Skills:</label></td>
-			<td>
-			<input list="skill" name="skill" id="skillss">
-			<datalist id="skill">
-				<option value="C">
-				<option value="java">
-				<option value="javascript">
-				<option value="Android">
-				<option value="mysql">
-			  </datalist>
 
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td id="skills_error" class="error"></td>
-		</tr>
-		<tr>
-			<td><label>City:</label></td>
-			<td>
-				<input list="cities"  id="city">
-				<datalist id="cities">
-					<option value="Pune">
-					<option value="Mumbai">
-					<option value="solapur">
-					<option value="kolhapur">
-					<option value="malinagar">
-				  </datalist>
-			
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td id="City_error" class="error"></td>
-		</tr>
-		
-		<tr>
-			<td></td>
-			<td><input type="submit" name="submit" value="Submit"></td>
-		</tr>
-	</form>
-</body>
+    <script type="text/javascript" src="../js/Assign2.js"></script>
+  </head>
+  <body>
+    <h1><center>Form validation using jQuery</center></h1>
+    <form
+      action=""
+      method="post"
+      onsubmit="return validate();"
+      id="form_submission_ajax"
+    >
+      <table class="form-table">
+        <tr>
+          <td><label>Firstname:</label></td>
+          <td><input type="text" name="f_name" id="f_name" /></td>
+        </tr>
+        <tr>
+          <td id="f_name_error" class="error"></td>
+        </tr>
+        <tr>
+          <td><label>Lastname:</label></td>
+          <td><input type="text" name="l_name" id="l_name" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td id="l_name_error" class="error"></td>
+        </tr>
+        <tr>
+          <td><label>Email:</label></td>
+          <td>
+            <input type="email" name="email" id="email" autocomplete="ON" />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td id="email_error" class="error"></td>
+        </tr>
+        <tr>
+          <td><label>Phone No:</label></td>
+          <td><input type="telephone" name="phone" id="phone" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td id="phone_error" class="error"></td>
+        </tr>
+        <tr>
+          <td><label>Password:</label></td>
+          <td>
+            <input type="password" name="password" id="pass" />
+            <span class="far fa-eye" id="togglePassword"></span>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td id="password_error" class="error"></td>
+        </tr>
+        <tr>
+          <td><label>Skills:</label></td>
+          <td>
+            <select
+              class="chzn-select"
+              multiple="true"
+              name="faculty"
+              style="width: 200px"
+            >
+              <option value="AC">C</option>
+              <option value="AD">Java</option>
+              <option value="AM">Android</option>
+              <option value="AP">Web development</option>
+              <option value="AP">Mysql</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td id="skills_error" class="error"></td>
+        </tr>
+        <tr>
+          <td><label>City:</label></td>
+          <td>
+            <input list="cities" id="city" />
+            <datalist id="cities">
+              <option value="Pune"></option>
+              <option value="Mumbai"></option>
+              <option value="solapur"></option>
+              <option value="kolhapur"></option>
+              <option value="malinagar"></option>
+            </datalist>
+          </td>
+        </tr>
+        <tr>
+          <td id="City_error" class="error"></td>
+        </tr>
+
+        <tr>
+          <td><input type="submit" name="submit" value="Submit" /></td>
+        </tr>
+      </table>
+    </form>
+  </body>
 </html>
