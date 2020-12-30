@@ -1,0 +1,16 @@
+@media all and (min-width:800px){
+    img{
+        max-width: 90%;
+    }
+    .wrapper{
+        background-color: purple;
+    }
+}
+@media all and (min-width:480px) and (max-width:799px){
+    img{
+        max-width: 60%;
+    }
+    .wrapper{
+        background-color: orange;
+    }
+}

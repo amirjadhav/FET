@@ -31,3 +31,15 @@
     width: 90%;
   }
 }
+
+@media all and (orientation:portrait){
+  .wrapper{
+    background: #dae8f0;
+  }
+}
+
+@media all and (orientation:landscape){
+  .wrapper{
+    background: #1ed46a;
+  }
+}

@@ -1,0 +1,39 @@
+.wrappr{
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 0 auto;
+    text-align: center;
+}
+
+.banner{
+    background: url("naure.jpg") 0 rgb(233, 171, 171) ;
+    background-repeat: no-repeat;
+    width: 960px;
+    height: 400px;
+    margin: 0 auto;
+    color: aqua;
+    font-size: larger;
+}
+
+.banner1{
+    background: url("google.png") 0 rgb(211, 228, 163) ;
+    background-repeat: no-repeat;
+    width: 960px;
+    height: 400px;
+    margin: 0 auto;
+    color: aqua;
+    font-size: larger;
+}
+
+
+@media all and (max-width:1000px){
+    .banner{
+        width: 100%;
+        background-size: contain;
+    }
+    .banner1{
+        width: 100%;
+        background-size: cover;
+    }
+}
+
