@@ -39,12 +39,12 @@ aside ul {
 aside li {
   padding-bottom: 10%;
 }
-p {
+/* p {
   column-count: 3;
   column-gap: 30px;
   margin-top: 2%;
   padding-left: 4%;
-}
+} */
 
 .card1 {
   text-align: center;
@@ -64,17 +64,17 @@ footer {
   bottom: 0;
 }
 @media all and (max-width: 600px) {
-  p {
-    column-count: 1;
-    padding-left: 10%;
-    padding-right: 10%;
-  }
+  
   #header1 {
     margin-right: 0px;
     display: block;
     float: left;
     width: 100%;
   }
+  img {
+  height: 90%;
+  width: 90%;
+}
   aside {
     display: none;
   }
