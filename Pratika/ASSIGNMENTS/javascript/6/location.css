@@ -1,0 +1,14 @@
+body{
+    position:absolute;
+    left: 300px;
+}
+table{
+    border: 1px solid black;
+}
+th,tr,td{
+    width: 200px;
+    border: 1px solid black;
+}
+td{
+    width: 400px;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+      
+ 
+<script src="../jquery-3.5.1.js"></script>
+
+<script src="../jquery.cycle.all.js"> </script>
+<script>
+    $(document).ready(function() {
+    $('.slideshow').cycle({
+		fx:     'shuffle',
+    
+    delay:  -4000// choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+});
+</script>
+<body>
+
+    <div class="slideshow">
+		<img src="../img/1.jpg" width="600" height="400" />
+		<img src="../img/2.jfif" width="600" height="400" />
+		<img src="../img/3.jfif" width="600" height="400" />
+	
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <title>Embedding script tag in Html Document</title>
+    <script>
+        var headParam=20;
+      //   document.write("headParam is:"+headParam);
+     </script>
+   </head>
+   <body>
+      <p> Script is located in external script file named "mathFunction .js"</p>
+       <br>
+       <script>
+          var  bodyParam=30;
+         //  document.write("bodyParam is:"+bodyParam);
+       </script>
+       <hr>
+       <script src="mathFunction.js"></script>
+<script>
+        addNumbers1(headParam,bodyParam);
+</script>
+
+   </body>
+</html>

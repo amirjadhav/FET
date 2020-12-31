@@ -1,0 +1,17 @@
+html{
+    background-color: beige;
+}
+
+form{
+   
+    margin-left: 50px;
+}
+.container{
+    width:300px;
+    clear: both;
+
+}
+.container input{
+    width: 100%;
+    clear: both;
+}
