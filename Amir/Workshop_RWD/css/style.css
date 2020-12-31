@@ -1,0 +1,142 @@
+#header {
+  text-align: center;
+  color: rgb(14, 128, 143);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.headingdiv {
+  margin-bottom: 2%;
+  font-size: 200%;
+  text-align: center;
+  color: rgb(12, 148, 103);
+}
+
+.item3 ul {
+  list-style-type: none;
+}
+.item3 a {
+  text-decoration: none;
+  color: rgb(14, 53, 41);
+  font-size: 200%;
+}
+
+img {
+  display: block;
+  margin: auto;
+  height: 50%;
+  width: 50%;
+}
+.info {
+  margin: 2%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 100%;
+  color: rgb(19, 27, 14);
+}
+
+@media all and (min-width: 1001px) {
+  #menu {
+    display: none;
+  }
+  nav li {
+    display: inline;
+    margin-left: 2%;
+  }
+  nav {
+    background-color: rgb(236, 219, 219);
+  }
+
+  nav a {
+    color: rgb(66, 49, 49);
+    text-decoration: none;
+    font-size: 150%;
+  }
+
+  .grid-container {
+    display: grid;
+    background-color: #d3eafd;
+    grid-template-columns: 2fr 4fr;
+    grid-gap: 2px;
+    padding: 2px;
+    grid-template-rows: max-content max-content;
+  }
+
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 0;
+  }
+  .item3 a:hover {
+    color: aquamarine;
+  }
+  .item3 li:hover {
+    background-color: rgb(44, 150, 114);
+  }
+}
+@media all and (min-width: 661px) and (max-width: 1000px) {
+  nav {
+    display: none;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-gap: 2px;
+    padding: 2px;
+    grid-template-rows: max-content max-content;
+  }
+  #menu select {
+    width: 100%;
+  }
+
+  .grid-container > div {
+    background-color: rgba(211, 255, 255, 0.8);
+    padding: 20px 0;
+  }
+  .item3 a:hover {
+    color: aquamarine;
+  }
+  .item3 li:hover {
+    background-color: rgb(44, 150, 114);
+  }
+}
+@media all and (max-width: 660px) {
+  nav {
+    display: none;
+  }
+  #menu option {
+    float: right;
+  }
+  #menu select {
+    width: 100%;
+  }
+  grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 2px;
+    padding: 2px;
+    grid-template-rows: max-content max-content;
+  }
+  header {
+    color: black;
+  }
+  .grid-container > div {
+    background-color: #dbebf7;
+    padding: 20px 0;
+    border: 1px solid #5998c9;
+  }
+  .item3 a:hover {
+    color: aquamarine;
+  }
+  .item3 li:hover {
+    background-color: rgb(44, 150, 114);
+  }
+}
+select {
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+    height: 34px;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #ddd;
+    -webkit-appearance: none;
+    background-position-x: right;
+}
