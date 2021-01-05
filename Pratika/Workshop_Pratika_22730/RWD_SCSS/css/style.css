@@ -1,0 +1,118 @@
+/*header*/
+#header1 {
+  float: right;
+  background-color: #66b3fa;
+  width: 100%; }
+  #header1 ul {
+    text-align: center; }
+  #header1 li {
+    display: inline-block;
+    margin-left: 3%; }
+    #header1 li a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 130%; }
+
+/*menu for mobile view*/
+.icon {
+  display: none; }
+
+/*hr*/
+hr {
+  clear: both; }
+
+/*mixin for first row in main*/
+/*include mixing*/
+#about {
+  border: 1px solid black;
+  width: 48%;
+  float: left;
+  height: 300px;
+  text-align: center; }
+  #about img {
+    width: 80%;
+    height: 75%; }
+
+#description {
+  border: 1px solid black;
+  width: 48%;
+  float: left;
+  height: 300px;
+  text-align: center;
+  margin-left: 2%; }
+  #description img {
+    width: 80%;
+    height: 75%; }
+
+#aside {
+  border: 1px solid black;
+  width: 48%;
+  float: left;
+  height: 300px;
+  text-align: center;
+  margin-top: 1%;
+  height: 250px;
+  width: 30%;
+  background-color: #d3ebee; }
+  #aside img {
+    width: 80%;
+    height: 75%; }
+
+#aside ul {
+  list-style-type: none; }
+
+#aside li {
+  padding-bottom: 5%; }
+  #aside li:hover {
+    background-color: #6d98c9; }
+
+#quick_fact {
+  border: 1px solid black;
+  width: 48%;
+  float: left;
+  height: 300px;
+  text-align: center;
+  margin-top: 1%;
+  margin-left: 2%;
+  width: 67%;
+  height: 250px; }
+  #quick_fact img {
+    width: 80%;
+    height: 75%; }
+  #quick_fact img {
+    height: 70%; }
+
+/*footer*/
+footer {
+  font-size: 130%;
+  text-align: center;
+  font-weight: bold;
+  height: 50px;
+  background-color: #3c97ec;
+  bottom: 0; }
+
+/*Media Query*/
+@media all and (max-width: 600px) {
+  .icon {
+    display: block;
+    float: right;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 10px; }
+  #mylist {
+    display: none; }
+  #header1 {
+    margin-right: 0px;
+    display: block;
+    float: left;
+    width: 100%; }
+    #header1 ul {
+      margin-left: 2%; }
+    #header1 li {
+      display: block;
+      font-size: 80%; }
+  #about, #description, #aside, #quick_fact {
+    width: 100%; }
+  footer {
+    font-size: 80%; } }

@@ -1,0 +1,152 @@
+
+/*header*/
+#header1 {
+ 
+  float: right;
+  background-color:rgb(102, 179, 250);
+  width: 100%;
+ 
+  ul{
+    text-align: center;
+  }
+  li {
+    display: inline-block;
+    margin-left:3%;
+   
+    a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      font-size:130%;
+    }
+  }
+  
+}
+/*menu for mobile view*/
+.icon{
+  display: none;
+}
+
+
+/*hr*/
+hr {
+  clear: both;
+}
+
+
+
+
+/*mixin for first row in main*/
+
+@mixin basic{
+  border: 1px solid black;
+  width:48%;
+  float:left;
+  height:300px;
+  text-align: center;
+
+  img{
+    width:80%;
+    height:75%;
+  }
+}
+
+
+/*include mixing*/
+#about{
+  @include basic;
+}
+#description{
+  @include basic;
+  margin-left:2%;
+}
+
+
+#aside{
+  @include basic;
+  margin-top:1%;
+  height:250px;
+  width:30%;
+ background-color: rgb(211, 235, 238);
+
+}
+#aside ul {
+  list-style-type: none;
+}
+#aside li{
+    padding-bottom:5%;
+    &:hover{
+      background-color: rgb(109, 152, 201);
+
+    }
+}
+
+#quick_fact{
+@include basic;
+  margin-top:1%;
+ margin-left:2%;
+  width:67%;
+height: 250px;
+
+
+img{
+   height:70%;
+  }
+}
+
+
+
+
+
+
+/*footer*/
+footer{
+  font-size:130%;
+  text-align: center;
+  font-weight: bold;
+  height:50px;
+  background-color: rgb(60, 151, 236);
+  bottom: 0;
+
+}
+
+
+
+/*Media Query*/
+@media all and (max-width: 600px) {
+  .icon{
+    display:block;
+    float:right;
+       height:30px;
+          margin-right:20px;
+          margin-top:10px;
+  }
+
+  #mylist{
+    display:none;
+  }
+  #header1 {
+    margin-right: 0px;
+    display: block;
+    float: left;
+    width: 100%;
+    ul {
+      margin-left: 2%;
+    }
+    li {
+      display: block;
+      font-size:80%;
+      
+    }
+
+  }
+  #about,#description,#aside,#quick_fact{
+  
+   width: 100%;
+  }
+  footer{
+    font-size:80%;
+  }
+ 
+
+}

@@ -1,0 +1,50 @@
+.navbar{
+    background-color:#828ce9;
+    color:#fff
+}
+.nav-link{
+color: white;
+}
+.jumbotron
+{
+  
+    background:url(../img/puppie.jpeg) no-repeat;
+    width:100%;
+    background-size:cover;
+    background-position:center;
+    height:500px;
+}
+.jumbotron p{
+    color:rgb(243, 237, 237)
+}
+.jumbotron h1{
+    color:#6a0e94
+}
+
+
+.jumbotron .btn
+{    border:#000000 1px solid;
+    background-color:#742b74;
+    
+}
+
+footer
+{
+   position: fixed;;
+    height:10%;
+    bottom:0px;
+ 
+   width: 100%;
+   background-color:#828ce9;
+   color: rgb(247, 226, 226);
+   text-align: center;
+}
+footer a{
+    color:#333;
+    font-weight: bold;
+    }
+    @media all and (max-width: 700px){
+        footer{
+           position:relative;
+        }
+    }

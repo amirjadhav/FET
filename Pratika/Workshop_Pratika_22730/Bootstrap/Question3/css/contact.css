@@ -1,0 +1,38 @@
+.navbar{
+    background-color:#828ce9;
+    color:#fff
+}
+.nav-link{
+color: white;
+}
+
+
+#form{
+    height:95%;
+
+    box-shadow: 5px 10px 5px 10px #cfc8c8;
+}
+#submit{
+    margin-bottom: 15px;
+}
+footer
+{
+    bottom:0px;
+
+    height:10%;
+  position:fixed;
+ 
+   width: 100%;
+   background-color:#828ce9;
+   color: rgb(247, 226, 226);
+   text-align: center;
+}
+footer a{
+    color:#333;
+    font-weight: bold;
+    }
+    @media all and (max-width: 600px){
+        footer{
+           position:relative;
+        }
+    }
