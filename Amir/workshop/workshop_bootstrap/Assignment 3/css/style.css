@@ -1,0 +1,15 @@
+h6 {
+  color: white;
+}
+.contact-form button {
+  background: #4a52e2;
+  color: #fff;
+  font-weight: 600;
+  width: 25%;
+}
+.contact-form button:focus {
+  box-shadow: none;
+}
+form{
+ margin-left: 30%;
+}

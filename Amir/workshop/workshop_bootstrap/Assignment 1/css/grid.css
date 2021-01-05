@@ -1,0 +1,10 @@
+.col-lg-4,
+.col-md-6 {
+  background-color: rgb(165, 220, 241);
+  border: 1px solid black;
+}
+
+.card {
+  height: fit-content;
+  width: auto;
+}

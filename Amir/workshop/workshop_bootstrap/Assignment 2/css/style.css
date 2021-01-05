@@ -1,0 +1,15 @@
+h6 {
+  color: white;
+}
+.jumbotron {
+  background-color: aquamarine;
+  background: url("../images/jumbo.jpg") no-repeat center center;
+}
+
+.btn {
+  margin: auto;
+  display: block;
+}
+.jumbotron .container{
+  color: aliceblue;
+}

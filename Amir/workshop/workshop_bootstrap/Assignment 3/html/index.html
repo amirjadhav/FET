@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nav and jumbotron</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <!-- Brand/logo -->
+      <a class="navbar-brand" href="#">Jumbo</a>
+
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container contact">
+      <form>
+        <br>
+        <h1>Contact us</h1>
+        <br>
+        <div class="row">
+          <div class="col-md-9">
+            <div class="contact-form">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="fname"
+                  >First Name:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fname"
+                    placeholder="Enter First Name"
+                    name="fname"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="lname"
+                  >Last Name:</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lname"
+                    placeholder="Enter Last Name"
+                    name="lname"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-10">
+                  <input
+                    id="emailid"
+                    type="email"
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter email"
+                    name="email"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="comment"
+                  >Comment:</label
+                >
+                <div class="col-sm-10">
+                  <textarea
+                    class="form-control"
+                    rows="5"
+                    id="comment"
+                  ></textarea>
+                </div>
+              </div>
+              <br />
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button
+                    type="submit"
+                    class="btn btn-default"
+                    onclick="sendMail();"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+      <!-- Brand/logo -->
+      <a class="navbar-brand" href="#">Address: kalyani nagar, pune </a
+      >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <h6>Follow us on</h6>
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Instagram</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Twitter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Facebook</a>
+        </li>
+      </ul>
+    </nav>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      function sendMail() {
+        var mailid = document.getElementById("emailid").value;
+        if (mailid != "") {
+          alert("Mail send to " + mailid);
+        }
+        console.log(mailid);
+      }
+    </script>
+  </body>
+</html>
