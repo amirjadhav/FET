@@ -3,6 +3,7 @@ var resultsContainer;
 $(document).ready(function () {
  
   function buildQuiz() {
+    console.log("Quizz called")
     // variable to store the HTML output
     const output = [];
 
