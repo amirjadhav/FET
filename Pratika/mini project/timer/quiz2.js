@@ -11,7 +11,8 @@ var questions = [];
 $(document).ready(function () {
   $("#js").click(function (e) {
     var id = this.id
-    clickEvent(id)
+    clickEvent(id);
+    $(".quizContainer").show()
     e.preventDefault();
   });
 
@@ -45,26 +46,7 @@ $(document).ready(function () {
     });
   }
 
-  // $.ajax({
-  //   method: "GET",
-  //   url: "db.json",
-  //   success: function (x) {
-
-  //     x.forEach((items) => {
-  //       console.log("items"+items);
-  //       questions.push(items);
-  //     });
-  //    // console.log("question"+myQuestions);
-
-  //   },
-  //   complete: function (data) {
-  //     displayCurrentQuestion();
-
-  //    },
-  //   error: (e) => {
-  //     alert("Error" + e);
-  //   },
-  // });
+ 
 
   $(this).find(".quizMessage").hide();
   $(this).find(".preButton").attr("disabled", "disabled");
