@@ -1,3 +1,6 @@
+h1{
+  text-align: center;
+}
 body{
 	font-size: 20px;
 	font-family: sans-serif;
@@ -41,6 +44,7 @@ body{
   z-index: 2;
 }
 .quiz-container{
+
   position: relative;
   height: 200px;
   margin-top: 40px;
