@@ -224,7 +224,7 @@ function displayCurrentQuestion() {
 
     if (iSelectedAnswer[currentQuestion] == i) {
       $(
-        '<li><input type="radio" class="radio-inline" checked="checked"  value=' +
+        '<li><input type="radio" class="radio-inline " checked="checked"  value=' +
           i +
           ' name="dynradio" />' +
           " " +
