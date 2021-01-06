@@ -1,4 +1,5 @@
-[{
+[
+  {
   "question": "Who invented JavaScript?",
   "answers": {
       "a": "Douglas Crockford",
