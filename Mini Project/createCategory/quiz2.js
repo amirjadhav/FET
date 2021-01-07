@@ -1,14 +1,4 @@
 $(document).ready(function () {
-  // $.ajax({
-  //   method: "POST",
-  //   url: "db.json",
-  //   success: function (x) {},
-  //   data: {},
-  //   complete: function (data) {},
-  //   error: (e) => {
-  //     alert("Error" + e);
-  //   },
-  // });
 
   $("#addQuestion").click(function (e) {
     var person = {

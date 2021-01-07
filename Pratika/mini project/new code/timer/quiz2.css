@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 body{
-  background: linear-gradient(#c1d2ec, #c58fe4);
+  background: linear-gradient(#84adeb, #bf5ff7);
 }
 .h1 {
   font-family:'Gabriola', serif;
@@ -163,7 +163,7 @@ font-weight:bold;
   /*clear: both;*/
   color: rgb(255, 255, 255);
   font-family:'serif';
-  position: relative;
+
   border: 1px solid rgb(113, 105, 226);
 font-size:20px;
 font-weight:bold;
