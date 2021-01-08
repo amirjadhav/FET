@@ -9,6 +9,15 @@ var t;
 var questions = [];
 
 $(document).ready(function () {
+  $(".preButton").click(function (e) {
+    if ($(".preButton").text() == "View Answer") {
+      alert("view answer clicked");
+
+      viewResults();
+    }
+    e.preventDefault();
+  });
+
   $("#js").click(function (e) {
     var id = this.id;
     clickEvent(id);
@@ -18,6 +27,16 @@ $(document).ready(function () {
   $("#c").click(function (e) {
     var id = this.id;
     clickEvent(id);
+    e.preventDefault();
+  });
+
+  $(".submit").click(function (e) {
+    displayScore();
+    c = 185;
+    $(document).find(".preButton").text("View Answer");
+    $(document).find(".nextButton").text("Play Again?");
+    quizOver = true;
+    return false;
     e.preventDefault();
   });
 
@@ -36,7 +55,7 @@ $(document).ready(function () {
       },
       complete: function (data) {
         console.log(data);
-        displayCurrentQuestion();
+        displayCurrentQuestion(currentQuestion);
       },
       error: (e) => {
         alert("Error" + e);
@@ -44,28 +63,7 @@ $(document).ready(function () {
     });
   }
 
-  // $.ajax({
-  //   method: "GET",
-  //   url: "db.json",
-  //   success: function (x) {
-
-  //     x.forEach((items) => {
-  //       console.log("items"+items);
-  //       questions.push(items);
-  //     });
-  //    // console.log("question"+myQuestions);
-
-  //   },
-  //   complete: function (data) {
-  //     displayCurrentQuestion();
-
-  //    },
-  //   error: (e) => {
-  //     alert("Error" + e);
-  //   },
-  // });
-
-  $(this).find(".quizMessage").hide();
+  // $(this).find(".quizMessage").hide();
   $(this).find(".preButton").attr("disabled", "disabled");
 
   timedCount();
@@ -85,13 +83,13 @@ $(document).ready(function () {
 
         currentQuestion--; // Since we have already displayed the first question on DOM ready
         if (currentQuestion < questions.length) {
-          displayCurrentQuestion();
+          displayCurrentQuestion(currentQuestion);
         }
       } else {
         if (viewingAns == 3) {
           return false;
         }
-        currentQuestion = 0;
+        // currentQuestion = 0;
         viewingAns = 3;
         // viewResults();
       }
@@ -116,18 +114,19 @@ $(document).ready(function () {
           $(".preButton").prop("disabled", false);
         }
         if (currentQuestion < questions.length) {
-          displayCurrentQuestion();
+          displayCurrentQuestion(currentQuestion);
         } else {
-          displayScore();
+          //   displayScore();
           $("#iTimeShow").html("Quiz Time Completed!");
-          $("#timer").html(
+          /* $("#timer").html(
             "You scored: " + correctAnswers + " out of: " + questions.length
-          );
+          );*/
           c = 185;
-          $(document).find(".preButton").text("View Answer");
-          $(document).find(".nextButton").text("Play Again?");
-          quizOver = true;
-          return false;
+          //    $(document).find(".preButton").text("View Answer");
+          //   $(document).find(".nextButton").text("Play Again?");
+          // quizOver = true;
+          //return false;
+          alert("quiz completed");
         }
       } else {
         // quiz is over and clicked the next button (which now displays 'Play Again?'
@@ -164,7 +163,7 @@ function timedCount() {
   if (c == 0) {
     displayScore();
     $("#iTimeShow").html("Quiz Time Completed!");
-  /*  $("#timer").html(
+    /*  $("#timer").html(
       "You scored: " + correctAnswers + " out of: " + questions.length
     );*/
     c = 185;
@@ -181,7 +180,7 @@ function timedCount() {
 }
 
 // This displays the current question AND the choices
-function displayCurrentQuestion() {
+function displayCurrentQuestion(currentQuestion) {
   if (c == 185) {
     c = 180;
     timedCount();
@@ -249,7 +248,6 @@ function viewResults() {
     return false;
   }
 
- 
   var question = questions[currentQuestion].question;
   var questionClass = $(document).find(".quizContainer > .question");
   var choiceList = $(document).find(".quizContainer > .choiceList");
