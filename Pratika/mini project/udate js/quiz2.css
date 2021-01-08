@@ -51,6 +51,8 @@ font-weight:bold;
   padding-top: 5px;
 float:right;
 right:30%;
+
+
 }
 
 .preButton {
@@ -63,13 +65,21 @@ right:30%;
   /*clear: both;*/
   color: red;
   font-family:'serif';
-  position: relative;
+ 
   margin: auto;
 font-size:20px;
 font-weight:bold;
   padding-top: 5px;
 float:left;
 left:20%;
+}
+.submit{
+  margin-top:50px;
+ 
+  width:50%;
+  background-color: lightgrey;
+  /*clear: both;*/
+  color: red;
 }
 
 .question {
