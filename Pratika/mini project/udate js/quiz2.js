@@ -21,6 +21,7 @@ $(document).ready(function () {
   $("#js").click(function (e) {
     var id = this.id;
     clickEvent(id);
+    $(".quizContainer").show();
     e.preventDefault();
   });
 
@@ -202,20 +203,20 @@ function displayCurrentQuestion(currentQuestion) {
     if (iSelectedAnswer[currentQuestion] == i) {
       $(
         '<li><input type="radio" class="radio-inline" checked="checked"  value=' +
-          i +
-          ' name="dynradio" />' +
-          " " +
-          choice +
-          "</li>"
+        i +
+        ' name="dynradio" />' +
+        " " +
+        choice +
+        "</li>"
       ).appendTo(choiceList);
     } else {
       $(
         '<li><input type="radio" class="radio-inline" value=' +
-          i +
-          ' name="dynradio" />' +
-          " " +
-          choice +
-          "</li>"
+        i +
+        ' name="dynradio" />' +
+        " " +
+        choice +
+        "</li>"
       ).appendTo(choiceList);
     }
   }
@@ -239,74 +240,127 @@ function hideScore() {
 }
 
 // This displays the current question AND the choices
-function viewResults() {
-  if (currentQuestion == 10) {
-    currentQuestion = 0;
-    return false;
-  }
-  if (viewingAns == 1) {
-    return false;
-  }
+function viewResults1() {
+  // if (currentQuestion == 10) {
+  //   currentQuestion = 0;
+  //   return false;
+  // }
+  // if (viewingAns == 1) {
+  //   return false;
+  // }
+  currentQuestion = 0;
 
-  var question = questions[currentQuestion].question;
+  //var question = questions[currentQuestion].question;
   var questionClass = $(document).find(".quizContainer > .question");
   var choiceList = $(document).find(".quizContainer > .choiceList");
-  var numChoices = questions[currentQuestion].choices.length;
+ // var numChoices = questions[currentQuestion].choices.length;
   // Set the questionClass text to the current question
-  $(questionClass).text(question);
-  // Remove all current <li> elements (if any)
-  $(choiceList).find("li").remove();
-  var choice;
+ // $(".view_result").append("hello");
+  console.log("questions length" + questions.length)
 
-  for (i = 0; i < numChoices; i++) {
-    choice = questions[currentQuestion].choices[i];
+  for (var j = 0; j< questions.length; j++) {
+  //  console.log("hiiiiii");
+  //  alert("hiiiiii");
+  ///  $(".view_result").append(i);
+    var question = questions[currentQuestion].question;
+    var numChoices = questions[currentQuestion].choices.length;
+    $(".view_result").append($(questionClass).text(question));
 
-    if (iSelectedAnswer[currentQuestion] == i) {
-      if (questions[currentQuestion].correctAnswer == i) {
-        $(
-          '<li style="border:2px solid green;margin-top:10px;"><input type="radio" class="radio-inline" checked="checked"  value=' +
+    // Remove all current <li> elements (if any)
+    $(choiceList).find("li").remove();
+    var choice;
+
+    for (i = 0; i < numChoices; i++) {
+      choice = questions[currentQuestion].choices[i];
+
+      if (iSelectedAnswer[currentQuestion] == i) {
+        if (questions[currentQuestion].correctAnswer == i) {
+          $(
+            '<li style="border:2px solid green;margin-top:10px;"><input type="radio" class="radio-inline" checked="checked"  value=' +
             i +
             ' name="dynradio" />' +
             " " +
             choice +
             "</li>"
-        ).appendTo(choiceList);
+          ).appendTo(choiceList);
+        } else {
+          $(
+            '<li style="border:2px solid red;margin-top:10px;"><input type="radio" class="radio-inline" checked="checked"  value=' +
+            i +
+            ' name="dynradio" />' +
+            " " +
+            choice +
+            "</li>"
+          ).appendTo(choiceList);
+        }
       } else {
-        $(
-          '<li style="border:2px solid red;margin-top:10px;"><input type="radio" class="radio-inline" checked="checked"  value=' +
+        if (questions[currentQuestion].correctAnswer == i) {
+          $(
+            '<li style="border:2px solid green;margin-top:10px;"><input type="radio" class="radio-inline" value=' +
             i +
             ' name="dynradio" />' +
             " " +
             choice +
             "</li>"
-        ).appendTo(choiceList);
-      }
-    } else {
-      if (questions[currentQuestion].correctAnswer == i) {
-        $(
-          '<li style="border:2px solid green;margin-top:10px;"><input type="radio" class="radio-inline" value=' +
+          ).appendTo(choiceList);
+        } else {
+          $(
+            '<li><input type="radio" class="radio-inline" value=' +
             i +
             ' name="dynradio" />' +
             " " +
             choice +
             "</li>"
-        ).appendTo(choiceList);
-      } else {
-        $(
-          '<li><input type="radio" class="radio-inline" value=' +
-            i +
-            ' name="dynradio" />' +
-            " " +
-            choice +
-            "</li>"
-        ).appendTo(choiceList);
+          ).appendTo(choiceList);
+        }
       }
     }
+    $(".view_result").append(choiceList);
+
+    currentQuestion++;
   }
 
-  currentQuestion++;
+  // setTimeout(function () {
+  //   viewResults();
+  // }, 3000);
+}
 
-  setTimeout(function () {
-    viewResults();
-  }, 3000);
+
+function viewResults() {
+  console.log("in view result");
+  
+  // variable to store the HTML output
+  const output = [];
+
+  // for each question...
+  questions.forEach(
+    (currentQuestion, questionNumber) => {
+      console.log("current question"+currentQuestion);
+      console.log("current question no"+questionNumber);
+
+      // variable to store the list of possible answers
+      const answers = [];
+       console.log("ans"+currentQuestion.choices)
+      // and for each available answer...
+      for(letter in currentQuestion.choices){
+
+        // ...add an HTML radio button
+        answers.push(
+          `<label>
+            <input type="radio" name="question${questionNumber}" value="${letter}">
+            ${letter} :
+            ${currentQuestion.choices[letter]}
+          </label>`
+        );
+      }
+      console.log("answers"+answers);
+
+      // add this question and its answers to the output
+     // $(".view_result").append(i);
+      $(".view_result").append(
+        `<div class="question"> ${currentQuestion.question} </div>
+        <div class="answers"> ${answers.join('')} </div>`
+      );
+    }
+  );
 }
