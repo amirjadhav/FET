@@ -1,8 +1,7 @@
 {
-  "name": "new-code",
+  "name": "admin",
   "version": "1.0.0",
-  "description": "",
-  "main": "quiz2.js",
+  "main": "src/admin.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,5 +9,7 @@
   "license": "ISC",
   "dependencies": {
     "json-server": "^0.16.3"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
