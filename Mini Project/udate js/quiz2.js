@@ -1,96 +1,98 @@
-var type = {
-  0: "a",
-  1: "b",
-  2: "c",
-  3: "d",
-};
-
-var currentQuestion = 1;
-var qLength = 0;
+var currentQuestion = 0;
 var viewingAns = 0;
 var correctAnswers = 0;
 var quizOver = false;
 var iSelectedAnswer = [];
-var correctAns = [];
-var c = 600;
+var c = 180;
 var t;
 
 var questions = [];
 
 $(document).ready(function () {
-  $('#view_result').hide();
+  $(".preButton").click(function (e) {
+    if ($(".preButton").text() == "View Answer") {
+      alert("view answer clicked");
 
-  $("#CPP").click(function (e) {
+      viewResults();
+    }
+    e.preventDefault();
+  });
+
+  $("#js").click(function (e) {
+    var id = this.id;
+    clickEvent(id);
+    $(".quizContainer").show();
+    e.preventDefault();
+  });
+
+  $("#c").click(function (e) {
     var id = this.id;
     clickEvent(id);
     e.preventDefault();
   });
 
-  $("#C").click(function (e) {
-    var id = this.id;
-    clickEvent(id);
+  $(".submit").click(function (e) {
+    displayScore();
+    c = 185;
+    $(document).find(".preButton").text("View Answer");
+    $(document).find(".nextButton").text("Play Again?");
+    quizOver = true;
+    return false;
     e.preventDefault();
   });
 
   function clickEvent(id) {
     $.ajax({
       method: "GET",
-      url: "http://localhost:3000/Category/" + "C",
+      url: "db.json",
       success: function (x) {
-        c = x["questionset1"][0]["time"] * 60;
-        c = 10;
-        //   console.log(x["questionset1"][0]["time"]);
-        x["questionset1"].forEach((items) => {
-          correctAns.push(JSON.stringify(items["answer"]));
+        console.log(id);
+        x[id].forEach((items) => {
+          console.log("items" + items);
           questions.push(items);
+          console.log(questions);
         });
-        console.log(correctAns);
+        // console.log("question"+myQuestions);
       },
       complete: function (data) {
-        qLength = questions.length - 1;
-        displayCurrentQuestion();
-        navButtons();
+        console.log(data);
+        displayCurrentQuestion(currentQuestion);
       },
       error: (e) => {
         alert("Error" + e);
       },
     });
   }
-  $(document).on("click", ".questionNav button", function () {
-    currentQuestion = this.id;
-    displayCurrentQuestion();
-    if (qLength === currentQuestion + 2) {
-      $(document).find(".nextButton").attr("disabled", true);
-    } else {
-      $(document).find(".nextButton").attr("disabled", false);
-    }
-  });
+
   // $(this).find(".quizMessage").hide();
+  $(this).find(".preButton").attr("disabled", "disabled");
 
   timedCount();
+  hideScore();
 
   $(this)
     .find(".preButton")
     .on("click", function () {
-      // console.log("current in prev"+currentQuestion)
       if (!quizOver) {
+        if (currentQuestion == 0) {
+          return false;
+        }
+
+        if (currentQuestion == 1) {
+          $(".preButton").attr("disabled", "disabled");
+        }
+
         currentQuestion--; // Since we have already displayed the first question on DOM ready
         if (currentQuestion < questions.length) {
-          displayCurrentQuestion();
+          displayCurrentQuestion(currentQuestion);
         }
       } else {
         if (viewingAns == 3) {
           return false;
         }
-        currentQuestion = 1;
+        // currentQuestion = 0;
         viewingAns = 3;
         // viewResults();
-      }
-
-      if (qLength === currentQuestion + 2) {
-        $(document).find(".nextButton").attr("disabled", true);
-      } else {
-        $(document).find(".nextButton").attr("disabled", false);
       }
     });
 
@@ -98,39 +100,34 @@ $(document).ready(function () {
   $(this)
     .find(".nextButton")
     .on("click", function () {
-      console.log(this);
-      console.log("Qleng" + qLength);
-      console.log("Current" + currentQuestion);
-      if (qLength === currentQuestion + 1) {
-        $(document).find(".nextButton").attr("disabled", true);
-      } else {
-        $(document).find(".nextButton").attr("disabled", false);
-      }
       if (!quizOver) {
         var val = $("input[type='radio']:checked").val();
-        console.log("value is:" + type[val]);
-        console.log(questions[currentQuestion]["answer"]);
+
         // TODO: Remove any message -> not sure if this is efficient to call this each time....
-        // $(document).find(".quizMessage").hide();
-        if (type[val] == questions[currentQuestion]["answer"]) {
+        $(document).find(".quizMessage").hide();
+        if (val == questions[currentQuestion].correctAnswer) {
           correctAnswers++;
         }
         iSelectedAnswer[currentQuestion] = val;
 
         currentQuestion++; // Since we have already displayed the first question on DOM ready
-
         if (currentQuestion >= 1) {
           $(".preButton").prop("disabled", false);
         }
         if (currentQuestion < questions.length) {
-          displayCurrentQuestion();
+          displayCurrentQuestion(currentQuestion);
         } else {
+          //   displayScore();
           $("#iTimeShow").html("Quiz Time Completed!");
+          /* $("#timer").html(
+            "You scored: " + correctAnswers + " out of: " + questions.length
+          );*/
           c = 185;
-          // $(document).find(".preButton").text("View Answer");
-
-          quizOver = true;
-          return false;
+          //    $(document).find(".preButton").text("View Answer");
+          //   $(document).find(".nextButton").text("Play Again?");
+          // quizOver = true;
+          //return false;
+          alert("quiz completed");
         }
       } else {
         // quiz is over and clicked the next button (which now displays 'Play Again?'
@@ -146,32 +143,7 @@ $(document).ready(function () {
         hideScore();
       }
     });
-
-  $("#submit").click(function (e) {
-    alert(correctAnswers);
-    // console.log(iSelectedAnswer)
-    var r = confirm("Submit test!");
-    if (r == true) {
-      $('#view_result').show();
-      
-    }
-    e.preventDefault();
-  });
 });
-
-// $('#view_result').click(function (e) { 
-//   console.log("view result")
-//   viewResults();
-//   e.preventDefault();
-  
-// });
-
-
-$(document).on("click", "#view_result", function () {
-  console.log("view result");
-  viewResults();
-});
-
 
 function timedCount() {
   if (c == 185) {
@@ -192,12 +164,12 @@ function timedCount() {
   if (c == 0) {
     displayScore();
     $("#iTimeShow").html("Quiz Time Completed!");
-    $("#timer").html(
+    /*  $("#timer").html(
       "You scored: " + correctAnswers + " out of: " + questions.length
-    );
+    );*/
     c = 185;
-    // $(document).find(".preButton").text("View Answer");
-    // $(document).find(".nextButton").text("Play Again?");
+    $(document).find(".preButton").text("View Answer");
+    $(document).find(".nextButton").text("Play Again?");
     quizOver = true;
     return false;
   }
@@ -209,57 +181,49 @@ function timedCount() {
 }
 
 // This displays the current question AND the choices
-function displayCurrentQuestion() {
-  // console.log("current question:" + currentQuestion);
+function displayCurrentQuestion(currentQuestion) {
   if (c == 185) {
     c = 180;
     timedCount();
   }
-
   //console.log("In display current Question");
   var question = questions[currentQuestion].question;
   var questionClass = $(document).find(".quizContainer > .question");
   var choiceList = $(document).find(".quizContainer > .choiceList");
-
-  // console.log(" dfsljkg"+Object.keys(questions[currentQuestion]))
-  //console.log(" dfsljkg"+(Object.keys(questions[1]['answers']).length))
-
-  var numChoices = Object.keys(questions[currentQuestion]["answers"]).length;
+  var numChoices = questions[currentQuestion].choices.length;
   // Set the questionClass text to the current question
-  $(questionClass).text(currentQuestion + ".   " + question);
+  $(questionClass).text(question);
   // Remove all current <li> elements (if any)
   $(choiceList).find("li").remove();
   var choice;
 
   for (i = 0; i < numChoices; i++) {
-    // console.log(questions[currentQuestion]["answers"][type[i]]);
-    //  console.log(i);
-    choice = questions[currentQuestion]["answers"][type[i]];
+    choice = questions[currentQuestion].choices[i];
 
     if (iSelectedAnswer[currentQuestion] == i) {
       $(
         '<li><input type="radio" class="radio-inline" checked="checked"  value=' +
-          i +
-          ' name="dynradio" />' +
-          " " +
-          choice +
-          "</li>"
+        i +
+        ' name="dynradio" />' +
+        " " +
+        choice +
+        "</li>"
       ).appendTo(choiceList);
     } else {
       $(
         '<li><input type="radio" class="radio-inline" value=' +
-          i +
-          ' name="dynradio" />' +
-          " " +
-          choice +
-          "</li>"
+        i +
+        ' name="dynradio" />' +
+        " " +
+        choice +
+        "</li>"
       ).appendTo(choiceList);
     }
   }
 }
 
 function resetQuiz() {
-  currentQuestion = 1;
+  currentQuestion = 0;
   correctAnswers = 0;
   hideScore();
 }
@@ -274,19 +238,91 @@ function displayScore() {
 function hideScore() {
   $(document).find(".result").hide();
 }
-function navButtons() {
-  for (var i = 0; i < qLength; i++) {
-    $(".questionNav").append(`<button id=${i + 1}>${i + 1}</button`);
-  }
-}
 
-function showResult() {
-  console.log(qLength)
-  for (let i = 1; i < qLength; i++) {
-    currentQuestion = i
-    
-    displayCurrentQuestion(i);
+// This displays the current question AND the choices
+function viewResults1() {
+  // if (currentQuestion == 10) {
+  //   currentQuestion = 0;
+  //   return false;
+  // }
+  // if (viewingAns == 1) {
+  //   return false;
+  // }
+  currentQuestion = 0;
+
+  //var question = questions[currentQuestion].question;
+  var questionClass = $(document).find(".quizContainer > .question");
+  var choiceList = $(document).find(".quizContainer > .choiceList");
+ // var numChoices = questions[currentQuestion].choices.length;
+  // Set the questionClass text to the current question
+ // $(".view_result").append("hello");
+  console.log("questions length" + questions.length)
+
+  for (var j = 0; j< questions.length; j++) {
+  //  console.log("hiiiiii");
+  //  alert("hiiiiii");
+  ///  $(".view_result").append(i);
+    var question = questions[currentQuestion].question;
+    var numChoices = questions[currentQuestion].choices.length;
+    $(".view_result").append($(questionClass).text(question));
+
+    // Remove all current <li> elements (if any)
+    $(choiceList).find("li").remove();
+    var choice;
+
+    for (i = 0; i < numChoices; i++) {
+      choice = questions[currentQuestion].choices[i];
+
+      if (iSelectedAnswer[currentQuestion] == i) {
+        if (questions[currentQuestion].correctAnswer == i) {
+          $(
+            '<li style="border:2px solid green;margin-top:10px;"><input type="radio" class="radio-inline" checked="checked"  value=' +
+            i +
+            ' name="dynradio" />' +
+            " " +
+            choice +
+            "</li>"
+          ).appendTo(choiceList);
+        } else {
+          $(
+            '<li style="border:2px solid red;margin-top:10px;"><input type="radio" class="radio-inline" checked="checked"  value=' +
+            i +
+            ' name="dynradio" />' +
+            " " +
+            choice +
+            "</li>"
+          ).appendTo(choiceList);
+        }
+      } else {
+        if (questions[currentQuestion].correctAnswer == i) {
+          $(
+            '<li style="border:2px solid green;margin-top:10px;"><input type="radio" class="radio-inline" value=' +
+            i +
+            ' name="dynradio" />' +
+            " " +
+            choice +
+            "</li>"
+          ).appendTo(choiceList);
+        } else {
+          $(
+            '<li><input type="radio" class="radio-inline" value=' +
+            i +
+            ' name="dynradio" />' +
+            " " +
+            choice +
+            "</li>"
+          ).appendTo(choiceList);
+        }
+      }
+    }
+    $(".view_result").append(choiceList);
+
+    currentQuestion++;
   }
+
+  // setTimeout(function () {
+  //   viewResults();
+  // }, 3000);
 }
 
 
