@@ -8,7 +8,7 @@ body{
 margin-top:0% ;
   font-family:serif;
   text-align: center;
-  font-size: 7rem;
+  font-size: 5rem;
 
 }
 hr {
@@ -64,10 +64,15 @@ font-weight:bold;
  font-weight:bold;
 }
 
+.question li{
+  font-family:'Cambria', serif;
+  font-size: 1em;
+}
 
 ul {
   list-style: none;
 }
+
 li {
   font-family:'Cambria', serif;
   font-size: 1.4em;
@@ -121,7 +126,7 @@ input[type=radio] {
   color: rgb(253, 253, 253);
   font-family:'serif';
   margin-left:2%;
-
+margin-bottom: 1%;
  
   font-size:20px;
   font-weight:bold;
@@ -195,6 +200,9 @@ font-size:20px;
 font-weight:bold;
 
 }
+
+
+
 /* End of Quiz Classes */
 
 @media only screen and (max-width: 900px) {
