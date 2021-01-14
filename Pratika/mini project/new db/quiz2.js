@@ -1,5 +1,5 @@
 var currentQuestion = 0;
-var viewingAns = 0;
+
 var correctAnswers = 0;
 var quizOver = false;
 var iSelectedAnswer = [];
@@ -13,7 +13,7 @@ $(document).ready(function () {
   $(".preButton").click(function (e) {
     if ($(".preButton").text() == "View Answer") {
       currentQuestion = 0;
-     // alert("view answer clicked");
+      // alert("view answer clicked");
       $(".question").text("");
       $(".choiceList").hide();
       viewResults();
@@ -27,6 +27,12 @@ $(document).ready(function () {
     $(".quizContainer").show();
     e.preventDefault();
   });
+  $("#GK").click(function (e) {
+    var id = this.id;
+    clickEvent(id);
+    $(".quizContainer").show();
+    e.preventDefault();
+  });
 
   $("#c").click(function (e) {
     var id = this.id;
@@ -34,11 +40,34 @@ $(document).ready(function () {
     e.preventDefault();
   });
 
-  $(".submit").click(function (e) {
+  $(document).on("click", ".quizContainer > .choiceList ", function () {
+   // console.log("click li");
+    var val = $("input[type='radio']:checked").val();
+    if (val == questions[currentQuestion].correct_option) {
+      correctAnswers++;
+    }
+    console.log("val" + val);
+    iSelectedAnswer[currentQuestion] = val;
+    
+  });
+
+
+  $(".submit").click(function () {
+
+  //   $.ajax({
+  //     type: 'POST',
+  //     url: 'http://localhost:3000/js',
+  //     data: `{"score":"${correctAnswers} "}`, // or JSON.stringify ({name: 'jonas'}),
+  //     success: function(data) { alert('data: ' + data); },
+  //     contentType: "application/json",
+  //     dataType: 'json'
+  // });
+
     displayScore();
     c = 185;
     $(document).find(".preButton").text("View Answer");
     $(".preButton").prop("disabled", false);
+    $(".submit").hide();
     // $(document).find(".nextButton").text("Play Again?");
     $(".nextButton").hide();
     quizOver = true;
@@ -96,11 +125,11 @@ $(document).ready(function () {
           displayCurrentQuestion(currentQuestion);
         }
       } else {
-        if (viewingAns == 3) {
-          return false;
-        }
+        // if (viewingAns == 3) {
+        //   return false;
+        // }
         // currentQuestion = 0;
-        viewingAns = 3;
+        //viewingAns = 3;
         // viewResults();
       }
     });
@@ -110,15 +139,13 @@ $(document).ready(function () {
     .find(".nextButton")
     .on("click", function () {
       if (!quizOver) {
-        var val = $("input[type='radio']:checked").val();
-        console.log("val" + val)
-        iSelectedAnswer[currentQuestion] = val;
+        // var val = $("input[type='radio']:checked").val();
+        // console.log("val" + val);
+        // iSelectedAnswer[currentQuestion] = val;
 
         // TODO: Remove any message -> not sure if this is efficient to call this each time....
         // $(document).find(".quizMessage").hide();
-        if (val == questions[currentQuestion].correct_option) {
-          correctAnswers++;
-        }
+       
         if (currentQuestion + 2 == qlength) {
           $(".nextButton").prop("disabled", true);
         }
@@ -152,7 +179,7 @@ $(document).ready(function () {
         $(document).find(".preButton").text("Previous Question");
         $(".preButton").attr("disabled", "disabled");
         resetQuiz();
-        viewingAns = 1;
+        //viewingAns = 1;
         displayCurrentQuestion();
         hideScore();
       }
@@ -177,12 +204,17 @@ function timedCount() {
 
   if (c == 0) {
     displayScore();
+    $(document).find(".preButton").text("View Answer");
+    $(".preButton").prop("disabled", false);
+    $(".submit").hide();
+    // $(document).find(".nextButton").text("Play Again?");
+    $(".nextButton").hide();
     $("#iTimeShow").html("Quiz Time Completed!");
     /*  $("#timer").html(
       "You scored: " + correctAnswers + " out of: " + questions.length
     );*/
     c = 185;
-    $(document).find(".preButton").text("View Answer");
+  //  $(document).find(".preButton").text("View Answer");
     quizOver = true;
     return false;
   }
@@ -202,11 +234,10 @@ function displayCurrentQuestion(currentQuestion) {
   //console.log("In display current Question");
   var question = questions[currentQuestion].question;
 
-
   //console.log("question"+question);
   //console.log("questions"+JSON.stringify(questions[currentQuestion].option_1))
   var questionClass = $(document).find(".quizContainer > .question");
-  $(questionClass).text((currentQuestion + 1) + "  " + question);
+  $(questionClass).text(currentQuestion + 1 + "  " + question);
   var choiceList = $(document).find(".quizContainer > .choiceList");
   // var numChoices = questions[currentQuestion].choices.length;
   // Set the questionClass text to the current question
@@ -214,43 +245,34 @@ function displayCurrentQuestion(currentQuestion) {
   // Remove all current <li> elements (if any)
   $(choiceList).find("li").remove();
   //var choice="hii";
-  choice1 = []
+  choice1 = [];
   var option_1 = questions[currentQuestion].option_1;
   var option_2 = questions[currentQuestion].option_2;
   var option_3 = questions[currentQuestion].option_3;
   var option_4 = questions[currentQuestion].option_4;
-  choice1.push(option_1)
-  choice1.push(option_2)
-  choice1.push(option_3)
-  choice1.push(option_4)
+  choice1.push(option_1);
+  choice1.push(option_2);
+  choice1.push(option_3);
+  choice1.push(option_4);
 
   //console.log("option1"+option_1)
   //console.log("option2"+option_2)
   //console.log("option3"+option_3)
   //console.log("option4"+option_4)
 
-
-
   //choice = questions[currentQuestion].choices[i];
 
   for (var i = 0; i < 4; i++) {
-
-
     $(
       '<li><input type="radio" class="radio-inline" value=' +
-      (i + 1) +
-      ' name="dynradio" />' +
-      " " +
-      choice1[i] +
-      "</li>"
+        (i + 1) +
+        ' name="dynradio" />' +
+        " " +
+        choice1[i] +
+        "</li>"
     ).appendTo(choiceList);
-
-
   }
-
 }
-
-
 
 function displayScore() {
   $(document)
@@ -263,104 +285,93 @@ function hideScore() {
   $(document).find(".result").hide();
 }
 
-
-
-
-
-
-
 // This displays the current question AND the choices
 function viewResults() {
   if (currentQuestion == 10) {
     currentQuestion = 0;
     return false;
   }
-  if (viewingAns == 1) {
-    return false;
-  }
+  // if (viewingAns == 1) {
+  //   return false;
+  // }
 
   hideScore();
   //currentQuestion=0;
- 
+
   //var questionClass = $(document).find(".quizContainer > .question");
   //var choiceList = $(document).find(".quizContainer > .choiceList");
 
   //var numChoices = questions[currentQuestion].choices.length;
   // Set the questionClass text to the current question
 
-  console.log("qlength"+qlength)
-for(var j=0;j<qlength;j++){
-  var question = questions[currentQuestion].question;
-  choice = [];
-  var option_1 = questions[currentQuestion].option_1;
-  var option_2 = questions[currentQuestion].option_2;
-  var option_3 = questions[currentQuestion].option_3;
-  var option_4 = questions[currentQuestion].option_4;
-  choice.push(option_1)
-  choice.push(option_2)
-  choice.push(option_3)
-  choice.push(option_4)
- // console.log(choice);
-  // Remove all current <li> elements (if any)
-  // $(choiceList).find("li").remove();
+  console.log("qlength" + qlength);
+  for (var j = 0; j < qlength; j++) {
+    var question = questions[currentQuestion].question;
+    choice = [];
+    var option_1 = questions[currentQuestion].option_1;
+    var option_2 = questions[currentQuestion].option_2;
+    var option_3 = questions[currentQuestion].option_3;
+    var option_4 = questions[currentQuestion].option_4;
+    choice.push(option_1);
+    choice.push(option_2);
+    choice.push(option_3);
+    choice.push(option_4);
+    // console.log(choice);
+    // Remove all current <li> elements (if any)
+    // $(choiceList).find("li").remove();
 
-  // console.log("selected ans" + iSelectedAnswer[0])
-  // console.log("selected ans" + iSelectedAnswer[1])
-  // console.log("selected ans" + iSelectedAnswer[2])
-  // console.log("current" + currentQuestion)
+    // console.log("selected ans" + iSelectedAnswer[0])
+    // console.log("selected ans" + iSelectedAnswer[1])
+    // console.log("selected ans" + iSelectedAnswer[2])
+    // console.log("current" + currentQuestion)
 
- // console.log("current" + iSelectedAnswer[currentQuestion])
-  //console.log("current" + questions[currentQuestion].correct_option)
-  $(".question").append('<div>' + question + '</div><ul id="result_ul" style="list-style:none;">');
-  for (var i = 0; i < 4; i++) {
+    //console.log("current" + iSelectedAnswer[currentQuestion]);
+    //console.log("current" + questions[currentQuestion].correct_option);
+    $(".question").append(
+      "<div>" + question + '</div><ul id="result_ul" style="list-style:none;">'
+    );
+    for (var i = 0; i < 4; i++) {
+      //  console.log("choice[i]" + choice[i]);
 
-
-  //  console.log("choice[i]" + choice[i]);
-
-
-    if (iSelectedAnswer[currentQuestion] == i) {
-      if (questions[currentQuestion].correct_option == i) {
-        $(".question").append(
-          '<li style="border:2px solid green;margin-top:10px;">' +
-          " " +
-          choice[i] +
-          "</li>"
+      if (iSelectedAnswer[currentQuestion] == i+1) {
+        if (questions[currentQuestion].correct_option == i+1) {
+        
+          $(".question").append(
+            '<li style="border:2px solid green;margin-top:10px;">' +
+              " " +
+              choice[i] +
+              "</li>"
+          );
+        } 
+        else {
+         // console.log("red")
+         $(".question").append(
+          '<li style="border:2px solid red;margin-top:10px;">' +
+            " " +
+            choice[i] +
+            "</li>"
         );
+        }
       } else {
-        $(".question").append(
-          '<li style="border:2px solid red;margin-top:10px;>'
-           +
-          " " +
-          choice[i] +
-          "</li>"
-        );
-      }
-    } else {
-      if (questions[currentQuestion].correct_option == i) {
-        $(".question").append(
-          '<li style="border:2px solid green;margin-top:10px;">' +
-          " " +
-          choice[i] +
-          "</li>"
-        );
-      } else {
-        $(".question").append(
-          '<li>' +
-          " " +
-          choice[i] +
-          "</li>"
-        );
+        if (questions[currentQuestion].correct_option == i+1) {
+          $(".question").append(
+            '<li style="border:2px solid green;margin-top:10px;">' +
+              " " +
+              choice[i] +
+              "</li>"
+          );
+        } else {
+          $(".question").append("<li>" + " " + choice[i] + "</li>");
+        }
       }
     }
+
+    $(".question").append("</ul><hr>");
+    currentQuestion++;
+    //console.log("incrementing.."+currentQuestion++)
   }
 
-  $(".question").append('</ul><hr>');
-  currentQuestion++;
-  //console.log("incrementing.."+currentQuestion++)
-}
-
-
-//$(this).find("result_ul").addClass('ul');
+  //$(this).find("result_ul").addClass('ul');
   // setTimeout(function () {
   //   viewResults();
   // }, 3000);

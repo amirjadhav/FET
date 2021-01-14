@@ -8,8 +8,11 @@ body{
 margin-top:0% ;
   font-family:serif;
   text-align: center;
-  font-size: 5rem;
+  font-size: 5vw;
 
+}
+#timer,#iTimeShow{
+  font-size: 2vw;
 }
 hr {
   height:1px;
@@ -45,8 +48,8 @@ hr {
 
 .question {
   font-family:'Century', serif;
-  font-size:1.4em;
-font-weight:bold;
+  font-size:1.7vw;
+
   width: 100%;
 
 
@@ -61,12 +64,11 @@ font-weight:bold;
 
   color: #0c0c0c;
 
- font-weight:bold;
 }
 
 .question li{
   font-family:'Cambria', serif;
-  font-size: 1em;
+
 }
 
 ul {
@@ -75,13 +77,17 @@ ul {
 
 li {
   font-family:'Cambria', serif;
-  font-size: 1.4em;
+  font-size: 1.7vw;
+
 }
 li:hover{
   cursor: pointer;
   box-shadow: 0.1rem 0.3rem 0.2rem 0 rgba(86, 185, 235, 0.5);
 
  
+}
+li:nth-child(even) {
+
 }
 input[type=radio] {
   border: 0px;
@@ -205,8 +211,52 @@ font-weight:bold;
 
 /* End of Quiz Classes */
 
-@media only screen and (max-width: 900px) {
+/*extra small*/
+/* @media only screen and (max-width:600px) {
   .quizContainer{
     width: 100%;
   }
+  .question {
+    
+    font-size:4vw;
+ }
+ li {
+  font-family:'Cambria', serif;
+  font-size: 4vw;
 }
+
+
+}
+/* small*/
+@media only screen and (max-width:700px) {
+  .quizContainer{
+    width: 100%;
+  }
+  .question {
+    
+    font-size:3.4vw;
+ }
+ li {
+
+  font-size: 3.6vw;
+}
+#timer,#iTimeShow{
+  font-size: 2.5vw;
+}
+}
+
+@media only screen and (min-width:701px)and (max-width:922px) {
+  .quizContainer{
+    width: 80%;
+  }
+  .question {
+    
+    font-size:3vw;
+ }
+ li {
+  
+  font-size: 3vw;
+}#timer,#iTimeShow{
+  font-size: 2.5vw;
+}
+} */
