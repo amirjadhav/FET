@@ -34,8 +34,7 @@ $(document).ready(function () {
     e.preventDefault();
   });
 
-  $("#C").click(function (e) {
-    console.log(this)
+  $("#c").click(function (e) {
     var id = this.id;
     clickEvent(id);
     e.preventDefault();
@@ -377,4 +376,3 @@ function viewResults() {
   //   viewResults();
   // }, 3000);
 }
-

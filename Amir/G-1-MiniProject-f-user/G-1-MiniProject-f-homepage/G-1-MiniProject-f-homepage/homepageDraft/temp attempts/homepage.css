@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+
+html, body 
+{
+  height: 100%;
+}
+body 
+{
+  display: flex;
+  flex-direction: column;
+}
+.container 
+{ 
+  flex: 1 0 auto;
+  padding: 20px;
+}
+.footer 
+{
+  flex-shrink: 0;
+}
+/*end of css for footer*/
+
+#profile
+{
+  display: none;
+}
+
+.card
+{
+  height: 15em;
+  justify-content: center;
+}
+
+.lead
+{
+  width: auto;
+  margin-top: 20%;
+  margin-bottom: auto;
+}

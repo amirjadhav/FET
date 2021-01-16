@@ -1,0 +1,35 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "name": "Programming-facts"
+    },
+    {
+      "id": 2,
+      "name": "general-knowlege"
+    }
+  ],
+  "Programming-facts": [
+    {
+      "question": "var data = {};\n// either way of changing data will work:\ndata.pageNo = $(this).text();\ndata['sortBy'] = $(\"#sortBy\").val();\n\n$(\"#results\").load(\"jquery-routing.php\", data);",
+      "option_1": "hii",
+      "option_2": "a",
+      "option_3": "b",
+      "option_4": "c",
+      "correct_option": "2",
+      "image_url": "",
+      "id": 1
+    },
+    {
+      "question": "Which tool can you use to ensure code quality?",
+      "option_1": "56",
+      "option_2": "52",
+      "option_3": "45",
+      "option_4": "12",
+      "correct_option": "1",
+      "image_url": "",
+      "id": 2
+    }
+  ],
+  "general-knowlege": []
+}

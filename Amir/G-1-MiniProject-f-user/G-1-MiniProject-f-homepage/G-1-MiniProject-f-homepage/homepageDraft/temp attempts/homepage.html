@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Question page</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+
+
+    <title>Homepage</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">QuizBee</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../G-1-MiniProject-f-dashboard/index.html">Your Dashboard</a>
+          </li>
+
+
+        </ul>
+        <button id="signin" type="button" class="btn btn-primary btn-sm" onclick="signedIn()">Sign In</button>
+        <button id="signup" type="button" class="btn btn-primary btn-lg">Sign Up</button>
+        <div id="profile" class="btn-group" role="group" aria-label="Button group with nested dropdown">
+          <button id="prfbtn" type="button" class="btn btn-success btn-lg">Success</button>
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop2" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop2">
+              <a class="dropdown-item" href="#">Dropdown link</a>
+              <a class="dropdown-item" href="#">Dropdown link</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </nav> 
+  </header>
+
+    <div class="container">
+    <div class="card-columns">
+        <div onclick="" class="card bg-primary">
+          <div class="card-body text-center">
+            <p class="card-text lead">Sports</p>
+          </div>
+        </div>
+        <div onclick="" class="card bg-warning">
+          <div class="card-body text-center">
+            <p class="card-text lead">Entertainment</p>
+          </div>
+        </div>
+        <div onclick="location.href = '../Question_display/quiz2.html?id=SCI '" class="card bg-success">
+          <div class="card-body text-center">
+            <p class="card-text lead">Science</p>
+          </div>
+        </div>
+        <div onclick="location.href = '../Question_display/quiz2.html?id=GEN '" class="card bg-danger">
+          <div class="card-body text-center GK">
+            <p class="card-text lead">
+              General Knowledge</p>
+          </div>
+        </div>  
+        <div onclick="" class="card bg-light">
+          <div class="card-body text-center PF">
+            <p class="card-text lead">Programming Facts</p>
+          </div>
+        </div>
+        <div onclick="" class="card bg-info">
+          <div class="card-body text-center">
+            <p class="card-text lead">Space</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarColor03">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Github</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Facebook</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">LinkedIn</a>
+                </li>
+          
+              </ul>
+            </div>
+          </nav>
+    </footer>
+
+
+</body>
+</html>
