@@ -157,18 +157,6 @@ $(document).ready(function () {
 
         if (currentQuestion < questions.length) {
           displayCurrentQuestion(currentQuestion);
-        } else {
-          //   displayScore();
-          //    $("#iTimeShow").html("Quiz Time Completed!");
-          /* $("#timer").html(
-            "You scored: " + correctAnswers + " out of: " + questions.length
-          );*/
-          c = 185;
-          //    $(document).find(".preButton").text("View Answer");
-          //   $(document).find(".nextButton").text("Play Again?");
-          // quizOver = true;
-          //return false;
-          //  alert("quiz completed");
         }
       } else {
         // quiz is over and clicked the next button (which now displays 'Play Again?'

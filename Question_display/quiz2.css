@@ -1,3 +1,5 @@
+
+
 *{
   box-sizing: border-box;
 }
@@ -119,7 +121,7 @@ input[type=radio] {
 
 
 
-.nextButton {
+.nextButton ,.preButton{
   
   border-radius: 6px;
  /* width: 150px;*/
@@ -140,39 +142,15 @@ margin-bottom: 1%;
 
 }
 
-.preButton {
- 
-  border-radius: 6px;
-  /*width: 150px;*/
-  height:9%;
-  width: 30%;
-  text-align: center;
-  background-color: rgb(39, 154, 231);
-  /*clear: both;*/
-  color: rgb(255, 255, 255);
-  font-family:'serif';
 
-  border: 1px solid rgb(113, 105, 226);
-font-size:20px;
-font-weight:bold;
- 
-  margin-left:2%;
-
-}
-
-.preButton:disabled{
+.preButton:disabled,.nextButton:disabled{
   border-color: rgb(185, 179, 179);
   background-color: rgb(233, 227, 227);
   color: #000;
 
 }
 
-.nextButton:disabled{
-  border-color: rgb(185, 179, 179);
-  background-color: rgb(233, 227, 227);
-  color: #000;
 
-}
 .submit{
 
   border-radius: 6px;
@@ -212,7 +190,7 @@ font-weight:bold;
 /* End of Quiz Classes */
 
 /*extra small*/
-/* @media only screen and (max-width:600px) {
+ @media only screen and (max-width:600px) {
   .quizContainer{
     width: 100%;
   }
@@ -259,4 +237,4 @@ font-weight:bold;
 }#timer,#iTimeShow{
   font-size: 2.5vw;
 }
-} */
+} 
