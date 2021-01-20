@@ -1,0 +1,7 @@
+.carousel-inner img {
+  width: 100%;
+  max-height: 500px !important;
+}
+#test {
+  color: aliceblue;
+}
