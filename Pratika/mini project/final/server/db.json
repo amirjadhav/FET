@@ -12,6 +12,7 @@
       "email": "ram23@gmail.com",
       "password": "ram@4567",
       "phone": "94568595665",
+      "category": "{}",
       "id": 1
     },
     {
@@ -27,7 +28,7 @@
       "email": "pratika11@gmail.com",
       "password": "abc",
       "phone": "9763006251",
-      "category": "{\"Sports\":[{\"score\":0,\"date\":\"17/01/2021\"}],\"Entertainment\":[{\"score\":1,\"date\":\"17/01/2021\"}]}",
+      "category": "{\"Sports\":[{\"score\":0,\"date\":\"18/01/2021\"}]}",
       "id": 3
     }
   ],
@@ -157,6 +158,16 @@
       "correct_option": "2",
       "image_url": "",
       "id": 10
+    },
+    {
+      "question": "The term 'Butterfly Stroke' is associated with",
+      "option_1": "Wrestling",
+      "option_2": "Boxing",
+      "option_3": "Kabaddi",
+      "option_4": "Swimming",
+      "correct_option": "1",
+      "image_url": "",
+      "id": 11
     }
   ],
   "Science": [

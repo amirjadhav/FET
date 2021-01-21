@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./lib/jquery-3.5.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link
+    rel="stylesheet"
+    href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+  />
+  <link rel="stylesheet" href="cart.css" />
+    <script src="cart.js"></script>
+  </head>
+  <body>
+    <div id="header1">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Registration</a></li>
+        <li><a href="#">Video</a></li>
+      </ul>
+    </div>
+    <br />
+    <br />
+    <hr />
+
+    <aside>
+      <ul>
+        <li><a href="#">Quick links</a></li>
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+        <li><a href="#">Link 3</a></li>
+        <li><a href="#">Link 4</a></li>
+      </ul>
+    </aside>
+    <div id="cards">
+      <!-- <div class="card1">
+        <img
+          src="https://via.placeholder.com/150/92c952"
+          alt=""
+          height="100px"
+          width="100px"
+        />
+        <p>accusamus beatae ad facilis cum similique qui sunt</p>
+        <button>Add to cart</button>
+      </div> -->
+    </div>
+
+    <div id="dialog" title="Basic dialog" style="height:1300px;">
+     <form action="" onsubmit=" return alert('Added to cart')">
+      <h2>Add to cart</h2>
+      No. of items: <input type="number" min="1" max="5" value="1" name="itemcount" id="itemcount" required><br><br>
+      Coupon code:<input type="text" name="" id=""><br><br>
+      Price : <input type="text" name="" id="price" disabled><br><br>
+      <button type="submit" value="Submit" id="confirmed">Submit</button>
+      <button type="reset" value="Reset">Reset</button>
+     </form>
+    </div>
+  </body>
+</html>

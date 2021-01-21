@@ -1,10 +1,10 @@
 var currentQuestion = 0;
 var correctAnswers = 0;
-var quizOver = false;
 var iSelectedAnswer = [];
 var qlength = 0;
-var c = 10 * 60;
+var c;
 var t;
+var quizOver = false;
 var category_name;
 var questions = [];
 
@@ -13,7 +13,7 @@ $(document).ready(function () {
  
   clickEvent(category_name);
   $(".quizContainer").show();
-  timedCount();
+  
   hideScore();
 
   //Ajax method to get json data
@@ -26,10 +26,12 @@ $(document).ready(function () {
           questions.push(items);
         });
         qlength = questions.length;
+        c=60*qlength
       },
       complete: function () {
         displayCurrentQuestion(currentQuestion);
         navButtons();
+        timedCount();
       }
     });
   }
@@ -52,9 +54,7 @@ $(document).ready(function () {
     .find(".preButton")
     .on("click", function () {
       if (!quizOver) {
-      
-
-        currentQuestion--;
+       currentQuestion--;
         if (currentQuestion < questions.length) {
           displayCurrentQuestion(currentQuestion);
         }
@@ -72,22 +72,22 @@ $(document).ready(function () {
     .find(".nextButton")
     .on("click", function () {
       if (!quizOver) {
-        
-
         currentQuestion++;
-      
-
-        if (currentQuestion < questions.length) {
+       if (currentQuestion < questions.length) {
           displayCurrentQuestion(currentQuestion);
         } 
+     
       }
-    });
+      });
 
   //update correct answers after select choice
   $(document).on("click", ".quizContainer > .choiceList ", function () {
     var val = $("input[type='radio']:checked").val();
     if (val === questions[currentQuestion].correct_option) {
       correctAnswers++;
+    }
+    if(val!==undefined){
+      $(`#${currentQuestion}`).addClass("answer_selected");
     }
 
     iSelectedAnswer[currentQuestion] = val;
@@ -100,16 +100,53 @@ $(document).ready(function () {
 });
 
 function quizComplete(){
+  $(".quizContainer").css("margin-left","10%");
+  
+  if (window.matchMedia('(max-width: 700px)').matches) {
+    console.log("width less than 700");
+     $(".quizContainer").css("margin-left","1%");
+  }
+  if (window.matchMedia('(min-width:701px)and (max-width: 900px)').matches) {
+    console.log("width less than 900");
+     $(".quizContainer").css("margin-left","15%");
+  }
+  if (window.matchMedia('(min-width:901px)').matches) {
+    console.log("width grater than 900");
+     $(".quizContainer").css("margin-left","20%");
+  }
+
   displayScore();
-  $(".image").hide();
+  $(".image").show();
+
+  if(correctAnswers==0){
+  
+    $(".image").attr("src","./images/shocked.png");
+  }
+  else if(correctAnswers>0 && correctAnswers<4){
+  
+    $(".image").attr("src","./images/sad.png");
+  } 
+  else if(correctAnswers>=4 && correctAnswers<7){
+    $(".image").attr("src","./images/smile.png");
+  }
+  else{
+    
+    $(".image").attr("src","./images/emoji.png");
+  }
+
+
+  //$(".image").hide();
+  $(".questionNav").hide();
+  quizOver = true;
     $(".question").hide();
     $(".choiceList").hide();
     $(document).find(".preButton").text("View Answer");
     $(".preButton").prop("disabled", false);
     $(".submit").hide();
     $("#timer").hide();
+    //$(document).find(".nextButton").text("Close");
    $(".nextButton").hide();
-    quizOver = true;
+  
     return false;
 }
 
@@ -151,10 +188,8 @@ if(currentQuestion===qlength-1){
 else{
   $(".nextButton").prop("disabled", false);
 }
-
  var question = questions[currentQuestion].question;
  var img_url=questions[currentQuestion].image_url;
-// console.log(img_url.length);
  var choiceList = $(document).find(".quizContainer > .choiceList");
   var questionClass = $(document).find(".quizContainer > .question");
   $(questionClass).text((currentQuestion + 1) + " . " + question);
@@ -188,20 +223,15 @@ else{
   }
 }
 
-// view result
 function viewResults() {
-  if (currentQuestion === 10) {
-    currentQuestion = 0;
-    return false;
-  }
-
+  $(".image").hide();
   $("#timer").hide();
   $(".question").show();
   $(".preButton").hide();
     hideScore();
   for (var j = 0; j < qlength; j++) {
     var question = questions[currentQuestion].question;
-    choice = [];
+   var  choice = [];
     var option_1 = questions[currentQuestion].option_1;
     var option_2 = questions[currentQuestion].option_2;
     var option_3 = questions[currentQuestion].option_3;
@@ -250,7 +280,6 @@ function viewResults() {
   }
   $(".question").append("<button class='question_close'>Close</button");
 }
-
 //show score after submit 
 function displayScore() {
   $(document)
@@ -263,6 +292,7 @@ function displayScore() {
 function hideScore() {
   $(document).find(".result").hide();
 }
+
 
 //post score data in user array of json
 

@@ -1,0 +1,1 @@
+document.getElementByClass("column middle").innerHTML = "register.html"
