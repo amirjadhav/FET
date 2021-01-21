@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compound Interest</title>
+    <link rel="stylesheet" href="comp.css" />
+  </head>
+  <body>
+    <h2>Compound Interest Calculator</h2>
+    <div>
+      <form onsubmit="return false">
+        Principle Ammount : <input type="number" id="p" /><br /><br />
+        Rate of Interest : <input type="number" id="r" /><br /><br />
+        Period in Years : <input type="number" id="n" /><br /><br />
+        <button type="submit" onclick="calculate();">Calculate</button> &nbsp;&nbsp;&nbsp;&nbsp; 
+        <button type="reset">Reset</button><br/><br/>
+      </form>
+
+      <p>Compound Interest is :</p>
+      <p id="result"></p>
+    </div>
+    <script src="comp.js"></script>
+  </body>
+</html>
