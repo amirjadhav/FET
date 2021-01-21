@@ -1,0 +1,8 @@
+.main, body {
+  background-color: blue; }
+
+/* Use the variables */
+body {
+  background-color: lightblue;
+  color: darkblue;
+  font-size: 18px; }

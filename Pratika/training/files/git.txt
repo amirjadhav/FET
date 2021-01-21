@@ -1,0 +1,77 @@
+
+
+
+
+config folder:
+git config user.email "pratikagi@cybage.com"
+
+objects folder:
+hooks folder:
+
+git architecture:-
+	git directory--.git folder 
+	staging area--current location(HEAD)
+	working directory-version of project
+
+
+
+$git status
+$git add filenmae
+$git status
+
+
+unstage command :-$git rm --cached<files
+
+git commit -m "<Your message here>"
+
+show commits:-git log
+
+git init
+git add <filename>/git add .
+showing commit :- git log --oneline/git log 
+commit:- git commit -m "message"
+
+
+
+
+branching:-
+         check branch:-git branch
+	create new:- git branch <branchname> 
+	switch branch:- git checkout <branchname>
+
+
+merging:-
+	switch to master:-git checkout master
+	                  git merge master dev
+
+resolve confilct :- git mergetool
+
+
+
+https://lab.github.com/githubtraining/introduction-to-github
+•https://guides.github.com/introduction/git-handbook/
+•https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/about-organizations
+•https://www.atlassian.com/git
+•https://www.datree.io/resources/github-best-practices
+
+
+Create a private repository on your github account.
+2.Initialize  a git repository on your local machine and create some files. [git init]
+3.Add files to staging & commit files to your repository
+4.Add the github url to your git origin
+5.Push your code to github repository.
+6.Create feature branches on github, and make changes in files in that branch.
+7.Create a Pull request from feature branch to master branch.
+8.Merge the pull request with commenting on it.
+9.Add your peer as  collaborator for your repository.
+10.Create a fork of your friend’s repository into your account.
+11.Create a branch in that forked repository and make change in file.
+12.Create a pull request to the original owner of that forked repository.
+
+
+
+
+1. Create a folder and name it AvengersInitiative.
+initialize a git repository in it.
+2. Create file called Ironman1.
+- add Ironman1.txt to staging

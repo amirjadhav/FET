@@ -1,0 +1,13 @@
+@import "_first";
+
+$bgcolor: lightblue;
+$textcolor: darkblue;
+$fontsize: 18px;
+
+/* Use the variables */
+body {
+    @extend .main;
+  background-color: $bgcolor;
+  color: $textcolor;
+  font-size: $fontsize;
+}

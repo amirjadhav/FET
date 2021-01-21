@@ -1,0 +1,36 @@
+MYSQL:
+
+mysql> select concat('P','A','G');
++---------------------+
+| concat('P','A','G') |
++---------------------+
+| PAG                 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select elt(2,'P','G')
+    -> ;
++----------------+
+| elt(2,'P','G') |
++----------------+
+| G              |
++----------------+
+
+//write ans to display without query
+mysql> select elt(2,'P','G') 'ans';
++------+
+| ans  |
++------+
+| G    |
++------
+
+
+// concat in select
+
+mysql> select concat(count(id),'count from branch',branch )from student2 group by branch;
++-----------------------------------------------+
+| concat(count(id),'count from branch',branch ) |
++-----------------------------------------------+
+| 2count from branchCOMP                        |
+| 1count from branchIT                          |
++-----------------------------------------------+

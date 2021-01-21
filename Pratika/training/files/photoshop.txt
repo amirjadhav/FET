@@ -1,0 +1,4 @@
+https://www.npmjs.com/package/less-watch-compiler
+npm install -g less-watch-compiler
+less-watch-compiler
+\\ct-share\PublicShare\Photoshop_html_template
