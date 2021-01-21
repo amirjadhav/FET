@@ -1,0 +1,20 @@
+input:disabled {
+  border: 1px solid #cccccc;
+  background-color: #eeeeee;
+  color: #999999; }
+
+input:invalid {
+  background-color: #fde7e1;
+  border: 2px solid red;
+  color: #f44336; }
+
+input {
+  border-radius:4px;
+  font-style: "SegoUI";
+  height: 36px;
+  width: 300px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  padding-left: 10px;
+  color: #666666;
+  background-color: #ffffff; }

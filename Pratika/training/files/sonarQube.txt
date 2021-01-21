@@ -1,0 +1,2 @@
+write sonar-properties file
+run :- sonar-scanner

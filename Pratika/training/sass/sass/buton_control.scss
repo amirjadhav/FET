@@ -1,0 +1,61 @@
+
+$green:#8bc34a;
+$white:#FFFFFF;
+$blue:#2095f2;
+
+
+@mixin button{
+      
+    border-radius: 3px;
+      padding: 12px 15px 12px 15px;
+    background-color:$green; 
+     border: 0; 
+      min-width: 110px;
+        font-family: "SegoeUI SemiBold";
+          font-size: 16px;
+            color: $white; 
+  }
+
+
+  
+  .button-primary{
+
+    @include  button;
+
+    background-color: $green;  
+    color:$white; 
+     border: 1px solid $green; 
+
+      &:disabled{
+        background-color: #eeeeee; 
+         color: #999999; 
+          border: 1px solid #eeeeee; 
+     
+     
+      }
+  }
+ 
+  
+  .button-secondary{
+
+  @include  button;
+   background-color:$white;  
+   color:$blue;
+     border: 1px solid $blue; 
+     &:disabled{
+        background-color:$white;  
+        color: #999999;
+          border: 1px solid #cccccc; 
+     
+      }
+    
+      &:hover{
+        background-color: $blue;  
+        color: $white; 
+         border: 1px solid $blue; 
+      }
+
+ 
+  }
+
+ 
