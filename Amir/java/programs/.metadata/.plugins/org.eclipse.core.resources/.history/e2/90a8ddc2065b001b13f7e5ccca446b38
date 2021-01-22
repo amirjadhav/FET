@@ -1,0 +1,9 @@
+package com.cybage.threading;
+
+public class Deployeer extends Thread {
+	@Override
+	public void run() {
+		System.out.println("I am Deployeer");
+		super.run();
+	}
+}

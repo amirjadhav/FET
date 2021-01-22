@@ -1,0 +1,9 @@
+package com.cybage;
+
+import java.sql.Connection;
+
+public class DbUtil {
+	public Connection getCon() {
+		
+	}
+}

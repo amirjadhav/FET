@@ -1,0 +1,17 @@
+ package com.cybage;
+
+public class EmployeeServiceImpl implements EmployeeService {
+
+	@Override
+	public void add() {
+		System.out.println("ADD");
+		
+	}
+
+	@Override
+	public void display() {
+		System.out.println("Display");
+		
+	}
+
+}
