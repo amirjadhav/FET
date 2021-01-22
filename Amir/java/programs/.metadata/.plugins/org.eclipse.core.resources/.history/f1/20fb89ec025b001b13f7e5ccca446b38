@@ -1,0 +1,14 @@
+package com.cybage.threading;
+
+public class XYZProject {
+	public static void main(String[] args) {
+		System.out.println("welcome to XYZ project");
+		
+		new Developer().start();
+		new Tester().start();
+		new Deployeer().start();
+		
+		
+		
+	}
+}

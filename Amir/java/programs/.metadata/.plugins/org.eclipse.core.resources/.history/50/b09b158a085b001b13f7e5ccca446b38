@@ -1,0 +1,10 @@
+package com.cybage.threading;
+
+public class Developer extends Thread {
+	
+	@Override
+	public void run(){​​
+		
+        System.out.println("1. i am developing code..." + getName());
+}
+}

@@ -1,0 +1,8 @@
+
+public class Thread1 {
+	private Account account;
+	
+	public Thread1(Account account) {
+		this.account = account
+	}
+}

@@ -1,0 +1,7 @@
+package com.cybage.interthread;
+
+public class Task extends Thread {
+	public Task() {
+		System.out.println(this.getId()+"  " + this.getName());
+	}
+}

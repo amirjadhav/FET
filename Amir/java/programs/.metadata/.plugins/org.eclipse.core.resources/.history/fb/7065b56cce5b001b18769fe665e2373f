@@ -1,0 +1,15 @@
+package functonal_interface;
+
+import java.util.function.BiFunction;
+import java.util.function.Function;
+
+public class Test {
+
+	public static void main(String[] args) {
+		System.out.println("Functonal interface");
+		Function<Integer, Integer> cal = (t) -> t++;
+		System.out.println(cal.apply(10));
+	}
+	BiFunction<Integer, Integer, Integer> biFun = (t,u)-> t+u;
+	
+}

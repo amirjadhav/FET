@@ -1,0 +1,22 @@
+package com.cybage;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class JDBCExample {
+	public void getRecord() throws Exception {
+		// 1. Need to load neccessary class
+		Class.forName("com.mysql.jdbc.Driver");
+
+		// 2. connect to actual database
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cyb", "con", "cybage@123");
+		
+		//3. now we can talk to database using con object
+		
+		Statement statement = con.createStatement();
+		
+		 ResultSet result= statement.executeQuery("select * from emp");
+	}
+}

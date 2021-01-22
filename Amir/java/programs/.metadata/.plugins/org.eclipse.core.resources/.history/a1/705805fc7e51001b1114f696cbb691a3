@@ -1,0 +1,17 @@
+package com.cybage;
+
+public class EmployeeTest {
+	public static void main(String[] args) {
+//		System.out.println("Hello");
+//		Employee e = null;
+//
+//		e = new RegularEmployee("vk", "solapur", 2345);
+//		System.out.println(e.getCompansation());
+//
+//		e = new RetiredEmployee("AM", "pune", 12344);
+//		System.out.println(e.getCompansation());
+		
+		EmployeeServiceImpl empservice = new EmployeeServiceImpl();
+		
+	}
+}

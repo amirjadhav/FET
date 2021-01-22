@@ -1,0 +1,7 @@
+package com.cybage.interthread;
+
+public class Task extends Thead {
+public Task() {
+	
+}
+}
