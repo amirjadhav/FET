@@ -1,11 +1,11 @@
 
-class AccessModifiers {
+class Modifiers {
 	private int number;
 	protected String name;
 	short salary;
 	public int id;
 
-	public AccessModifiers() {
+	public Modifiers() {
 		number = 6749987;
 		name = "Amir";
 		salary = 12537;
@@ -14,12 +14,12 @@ class AccessModifiers {
 }
 
 //Write a program to demonstrate different access modifiers 
-public class assignment3 {
+ class AccessModifiers {
 	public static void main(String[] args) {
 		System.out.println("access modifiers");
 		
 		
-		AccessModifiers oA = new AccessModifiers();
+		Modifiers oA = new Modifiers();
 		
 		// cannot access private data outside class
 		//System.out.println(oA.number);  //gives error

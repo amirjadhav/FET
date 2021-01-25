@@ -8,6 +8,5 @@ public class DataTypes {
         System.out.println("Long : " + Long.SIZE / 8 + " bytes");
         System.out.println("Float : " + Float.SIZE / 8 + " bytes");
         System.out.println("Double : " + Double.SIZE / 8 + " bytes");
-
     }
 }
