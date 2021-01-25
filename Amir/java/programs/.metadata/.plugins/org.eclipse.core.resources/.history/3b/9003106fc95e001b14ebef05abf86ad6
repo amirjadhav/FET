@@ -1,0 +1,20 @@
+package com.cybage;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSetMetaData;
+
+public class JDBCExample {
+
+	public void getResultInfo() throws Exception {
+
+		String sql = "select * from customer";
+
+		// 1. get connection
+		Connection con = DbUtil.getCon();
+
+		PreparedStatement ps = con.prepareStatement(sql);
+		
+		ResultSetMetaData metaData=ps.getMetaData();
+	}
+}
