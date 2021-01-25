@@ -1,13 +1,15 @@
-
 package com.cybage;
+
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Properties;
 
+import org.apache.commons.dbcp2.BasicDataSource;
+
 public class DbUtil {
 
-	private static String className = "com.mysql.cj.jdbc.Driver";
+	private static String className = "com.mysql.jdbc.Driver";
 	private static String dbUrl;
 	private static String dbUser;
 	private static String dbPassword;
@@ -27,11 +29,24 @@ public class DbUtil {
 			e.printStackTrace();
 		}
 	}
+	//// without connection pool
+//    public static Connection getCon() throws Exception{
+//        Class.forName(className);    
+//        Connection con 
+//        = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+//        return con; 
+//    }
 
+	//// without connection pool
 	public static Connection getCon() throws Exception {
-		Class.forName(className);
-		Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+		BasicDataSource ds = new BasicDataSource();
+		ds.setUrl(dbUrl);
+		ds.setUsername(dbUser);
+		ds.setPassword(dbPassword);
+		ds.setMinIdle(5);
+		ds.setMaxIdle(10);
+		ds.setMaxOpenPreparedStatements(100);
 
-		return con;
+		return ds.getConnection();
 	}
 }

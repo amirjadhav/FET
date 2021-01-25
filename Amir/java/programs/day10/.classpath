@@ -7,5 +7,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/BE JAVA 2020/core-java/programs/day9/mysql-connector-java-8.0.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amirj/Downloads/commons-dbcp2-2.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amirj/Downloads/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amirj/Downloads/commons-pool2-2.8.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
