@@ -1,0 +1,18 @@
+package multithreading;
+
+public class Balance {
+	int bal;
+	public Balance() {
+		bal = 5000;
+	}
+
+	public int getBal() {
+		return bal;
+	}
+
+	@Override
+	public String toString() {
+		return "Balance [bal=" + bal + "]";
+	}
+
+}

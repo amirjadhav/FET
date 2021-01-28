@@ -1,8 +1,0 @@
-package com.cybage.threading;
-
-public class Developer extends Thread {
-	​​
-		
-        System.out.println("1. i am developing code..." + getName());
-}
-}

@@ -1,0 +1,80 @@
+package com.cybage;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+import com.cybage.exception.EmployeeException;
+import com.cybage.service.EmployeeService;
+import com.cybage.service.EmployeeServieImpl;
+import com.mysql.cj.xdevapi.AddResult;
+
+public class UI {
+	public static void main(String[] args) throws Exception {
+
+		@SuppressWarnings("unused")
+		int a = 10;
+
+		String name, address, type;
+		int comp;
+
+		System.out.println("Employee Management System...");
+		Scanner sc = new Scanner(System.in);
+
+		EmployeeService empService = new EmployeeServieImpl();
+
+		try {
+
+			System.out.println("*********************** MENU ***********************");
+			System.out.println("1.Insert\n2.Display\n3.Display with ID\n4.Delete\n5.Update\n6.Exit\nEnter your Choice");
+			int choice = sc.nextInt();
+			switch (choice) {
+			case 1:
+				System.out.println("Enter name");
+				name = sc.next();
+				System.out.println("Enter Address");
+				address = sc.next(); 
+				System.out.println("Enter Salary");
+				
+				System.out.println("Enter Type ['REG' or 'RET']");
+				
+				// add one regular employee
+				empService.add("reg101", "reg address", 123, "REG");
+				break;
+
+			case 2:
+
+				break;
+
+			case 3:
+
+				break;
+
+			case 4:
+
+				break;
+
+			case 5:
+
+				break;
+
+			case 6:
+
+				break;
+
+			default:
+				break;
+			}
+//			// add one retired employee
+//			empService.add("ret102", "ret address", 789, "RET");
+
+			empService.displayAll();
+
+			empService.displayWithId(1);
+
+			empService.delete(1);
+		} catch (EmployeeException | IOException ee) {
+			System.err.println(ee.getLocalizedMessage());
+		}
+
+	}
+}

@@ -1,8 +1,0 @@
-package com.cybage.threading;
-
-public class Developer extends Thread {
-	override
-	public void run() {
-		
-	}
-}

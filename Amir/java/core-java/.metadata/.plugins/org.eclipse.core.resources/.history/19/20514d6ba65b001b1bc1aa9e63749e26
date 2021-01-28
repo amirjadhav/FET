@@ -1,0 +1,13 @@
+package multithreading;
+
+public class Person extends Thread {
+	String name ;
+	Bank oB= new Bank();
+	Person(String name){
+		this.name = name;
+	}
+	@Override
+	public void run() {
+		
+	}
+}

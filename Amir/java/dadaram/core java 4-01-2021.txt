@@ -1,0 +1,372 @@
+core java 
+session : 7 
+ppt + programs
+
+software setup
+1. jdk
+2. eclipse / STS
+
+
+project --> package --> classes/files
+
+package --> reverse of domain name
+com.cybage
+com.hsbc
+net.hdfc
+
+
+
+program
+--> type program
+--> compile
+--> run program
+
+
+variables
+--> we can store values 
+--> we can change values
+
+
+data type
+--> it will mention what kind of value will be hold by variables
+
+true / false --> literal 
+
+
+
+2 min --> print values
+
+
+size of data types in java
+
+F11
+
+String 
+System
+Arrays
+
+
+
+
+object oriented programming
+--> object
+--> structure of object --> classes
+
+
+screen size
+ram size
+processor
+sims
+4g/5g
+how many camera
+focus
+charging
+battery size
+cost
+warrenty
+
+
+laptop
+
+
+computer
+
+bike
+
+car
+
+house --> how many floor, how rooms, size of rooms, how many windows, size of windows,etc
+
+structure, template, specification, layout
+
+
+
+
+object oriented programming
+--> object, classes
+--> encapsulation --> hiding properties,  properties should be private and method should be public 
+
+
+--> inheritance 
+	useful to create parent child relationship
+	useful for reusability
+	use property from parent, modification, addition
+
+--> polymorphism
+	ability to act in more than one form
+	static --> function overloading
+	dyanmic --> function overriding
+
+--> abstraction
+	it is about showing essential details and hiding implementation
+	to hide complex/secure code from end users
+
+
+
+
+access modifiers
+--> public --> it is available at project
+--> default --> it is available at package
+--> protected --> it is avaiable between parent and child
+--> private --> it is available in class only
+
+toString()
+--> it is useful to print object
+
+Object class 
+--> it is parent of all classes
+--> it will provide common method for all classes in java
+
+constructor
+--> it is useful to construct
+--> initialize value of object
+--> can have 1 or more constructor
+
+
+constructor overloading
+--> more than one constructor in class
+--> passing parameters should be different
+
+
+this
+--> it will refer to current object
+
+
+instance variables
+local varaiables
+
+
+abstract 
+--> something which is not complete
+--> method 
+
+
+RBI --> define rules --> deposit(cheque, cach, atm, internet banking), withdrawl, checkbalance, sendsms
+HDFC bank --> follows rules
+
+
+
+
+
+Person
+8.00  --> brother/mother/father/sister
+9.00 to 6.00 --> employee
+6.00 to 8.00 --> friend
+after some time --> husband/wife
+
+
+
+exception 
+--> it is nothing but runtime problem
+--> taking corrective action on runtime problem is known as exception handling
+--> try, catch, finally, throw, throws
+
+
+
+exception
+--> runtime problem which can be handled by programmer
+
+
+error
+--> runtime problem which can not be handled by programmer
+--> power failure
+--> network failure
+--> disk failure
+--> out of memory
+
+
+unchecked
+--> it is runtime problem
+--> if problem is due to programming logic then it will come in unchecked category
+--> a = a/0		
+
+checked
+--> it is runtime problem
+--> if program depends on external resources then it will come in checked category
+--> file, database, network , etc
+
+
+one try catch block for one problem
+
+
+debugging
+f6
+getMessage() --> to get predefined message 
+getLocalizedMessage() --> to get overrided message...
+
+
+account balance < 10000
+
+
+custom exception 
+--> we can create our own exception based on business requirement
+--> account balance
+--> voting age
+--> we will extends class from Exception class
+
+
+
+VotingException --> Exception --> Throwable --> Object
+
+
+
+try
+catch
+finally
+ throw
+
+
+input output system (io systems)
+--> it is useful to get input from external source(keyboard, file, network, scanner, mic, handicam, database, touch screen)
+--> it is useful to give output to external source(monitor, file, network, printer, speaker, database, touch screen)
+
+
+english 
+other language
+
+byte stream --> english, binary data like images, object file, .exe file
+character stream --> english + other language, read/write characters from different languages
+
+
+byte stream (java.io)
+InputStream(reading) --> FileInputStream, ByteArrayInputStream, ObjectInputStream, FilterInputStream
+OutputStream(writing) --> FileOutputStream, ByteArrayOutputStream, ObjectOutputStream, FilterOutputStream
+
+
+
+character stream(java.io)
+Reader(reading) --> FileReader, CharArrayReader, FilterReader
+Writer(writing) --> FileWriter, CharArrayWriter, FilterWriter
+
+
+annotations
+--> it is useful for adding more information to method/class/variables
+--> developers, compilers, jvm
+--> predefined annotations
+--> custom annotations
+--> empty annotations, parameterized annotations
+--> @Override, @Depracated, @suppresswarning
+
+
+empty --> without parameter
+parameterized annotation --> we can pass one or more parameters
+
+
+to use value of annotations we have to use reflections
+
+source --> only source
+class--> source + compiler
+runtime --> source + compiler + jvm
+
+
+
+enum
+--> are nothing but typed constant
+--> to improve type safety
+
+
+annotations
+enum
+
+
+wrapper classes
+--> primitive types --> byte, short, int, long, double, float, char, boolean
+--> primitive types are used to perform arithmetic operations
+--> we don't have any methods in primitive types
+
+derived types --> classes
+class for primitive type is known as wrapper class
+we get different to work with value
+
+byte --> Byte
+short --> Short
+int --> Integer
+long --> Long
+double --> Double
+float --> Float
+char --> Character
+boolean --> Boolean
+
+java.util
+java.sql
+
+
+date time classes from java 8
+localdate		--> date
+localtime		--> time
+localdatetime	--> date + time
+period  --> diff between two date
+duration--> diff between two time
+
+
+collection framework
+--> it is about handling group of object
+--> collection api
+
+
+List
+--> collection of elements
+--> sequence of element will be maintained
+--> duplicate elements will be allowed
+--> index based access available
+--> no sorting
+	ArrayList: if you have less add/delete then this is best choice
+	LinkedList: if you have frequent add/deletion then this is best choice
+
+Set
+--> collection of elements
+--> duplicate elements not allowed
+--> no index based access
+	HashSet --> sequence will not maintained, 
+	LinkedHashSet--> sequence will be maintained, 
+	TreeSet --> sorting
+
+Queue
+--> collection of elements
+
+
+Map
+--> collection of elements(key:value)
+--> key should be unique, value can or cannot be unique
+--> only one null is allowed in key, in value any number of null values allowed
+
+
+
+workshop
+consider employee management system
+--> employee(id, name, address), regular employee(salary), retired employee(pension)
+--> you need to create database using collection
+--> you will validate data before adding in collection, if data is invalid then throw exception
+--> add employee, display all employee, update employee, delete employee
+
+
+test(ui) will contain main method --> EmployeeService(add, delete, update, display) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

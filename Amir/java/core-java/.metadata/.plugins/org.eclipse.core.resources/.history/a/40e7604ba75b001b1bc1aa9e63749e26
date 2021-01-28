@@ -1,0 +1,16 @@
+package multithreading;
+
+public class jointaccount {
+	public static void main(String[] args) {
+		System.out.println("Welcome");
+		
+		Thread p1 = new Thread("Person1");
+		Thread p2 = new Thread("Person2");
+		
+		p1.start();
+		p2.start();
+		
+		System.err.println("Program completed")
+	}
+	
+}

@@ -1,0 +1,23 @@
+package multithreading;
+
+public class Balance {
+	int reaming_bal;
+
+	public Balance() {
+		bal = 5000;
+	}
+
+	public int getBal() {
+		return bal;
+	}
+	
+	public void withdraw(int ammount) {
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Balance [bal=" + bal + "]";
+	}
+
+}

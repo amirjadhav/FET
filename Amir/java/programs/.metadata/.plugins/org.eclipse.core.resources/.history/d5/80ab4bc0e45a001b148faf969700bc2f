@@ -1,7 +1,0 @@
-package com.cybage;
-
-public class WrapperExample {
-	public static void main(String[] args) {
-		System.out.println("Wrapper example");
-	}
-}
