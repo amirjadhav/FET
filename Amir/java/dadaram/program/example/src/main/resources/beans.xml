@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="com.cybage.NameProcessor" id="np" />
+	<bean class="com.cybage.StartEventHandler" id="startEvent" />
+	<bean class="com.cybage.StopEventHandler" id="stopEvent" />
+	
+	<bean class="com.cybage.Employee"
+			init-method="myMethod"
+			destroy-method="myDestroyMethod"
+			 id="emp" autowire="no" scope="prototype">
+		<property name="id" value="101" />
+		<property name="name" value="dm101" />
+	</bean>
+
+	 
+	
+</beans>

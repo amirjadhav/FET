@@ -1,9 +1,0 @@
-package com.cybage.interthread;
-
-import java.util.concurrent.ExecutorService;
-
-public class ThreadExecuterTest {
-public static void main(String[] args) {
-	 ExecutorService executor = Executors.newFixedThreadPool(5);
-}
-}

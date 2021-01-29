@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 // Write a Java program to insert an element (specific position) into an array.

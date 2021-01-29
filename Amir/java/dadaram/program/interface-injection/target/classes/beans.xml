@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	>
+ 
+	<bean id="emp" class="com.cybage.Employee">
+		<constructor-arg name="empId" value="101" />
+		<constructor-arg name="name" value="prod" />
+		<constructor-arg name="account" ref="sa"/>
+	</bean>
+
+	<bean id="sa" class="com.cybage.SavingAccount">
+		<constructor-arg name="id" value="1011111" />
+		<constructor-arg name="name" value="saving account" />
+	</bean>
+	<bean id="ca" class="com.cybage.CurrentAccount">
+		<constructor-arg name="id" value="1022222" />
+		<constructor-arg name="name" value="current account" />
+	</bean>	
+	
+</beans>

@@ -1,0 +1,13 @@
+package multithreading;
+
+public class Person extends Thread {
+	String name ;
+	Person(String name){
+		this.name = name;
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+}

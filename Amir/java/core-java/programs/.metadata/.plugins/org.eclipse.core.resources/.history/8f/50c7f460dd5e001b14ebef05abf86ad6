@@ -1,0 +1,15 @@
+package com.cybage;
+
+import java.sql.Connection;
+
+public class ImageUsage {
+
+	public void addImage() {
+		//1. getConnection
+		
+		Connection con = DbUtil.getCon();
+	}
+	public void getImage() {
+
+	}
+}

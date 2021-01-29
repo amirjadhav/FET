@@ -1,6 +1,0 @@
-package com.cybage.java8;
-
-import java.util.Comparator;
-
-public class AgeComparator implements Comparator<T> {
-}
