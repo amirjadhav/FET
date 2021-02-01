@@ -16,7 +16,6 @@ function calculateDistance(edges, points) {
     for (var i_1 = 0; i_1 < edges; i_1++) {
         d[i_1] = Math.sqrt(Math.pow(points[i_1].x - points[(i_1 + 1) % edges].x, 2) +
             Math.pow(points[i_1].y - points[(i_1 + 1) % edges].y, 2));
-        console.log(d[i_1]);
     }
     return d;
 }
@@ -52,6 +51,36 @@ var Traingle = /** @class */ (function (_super) {
     };
     return Traingle;
 }(Shape));
+var Rectangle = /** @class */ (function (_super) {
+    __extends(Rectangle, _super);
+    function Rectangle(edges, points) {
+        if (points === void 0) { points = []; }
+        return _super.call(this, edges, points) || this;
+    }
+    Rectangle.prototype.perimeter = function (p) {
+        console.log("The perimeter of Rectangle is :" + p);
+    };
+    Rectangle.prototype.area = function (d) {
+        var area = d[0] * d[1];
+        console.log("The Area of Rectangle is :" + area);
+    };
+    return Rectangle;
+}(Shape));
+var Square = /** @class */ (function (_super) {
+    __extends(Square, _super);
+    function Square(edges, points) {
+        if (points === void 0) { points = []; }
+        return _super.call(this, edges, points) || this;
+    }
+    Square.prototype.perimeter = function (p) {
+        console.log("The perimeter of Square is :" + p);
+    };
+    Square.prototype.area = function (d) {
+        var area = d[0] * d[1];
+        console.log("The Area of Square is :" + area);
+    };
+    return Square;
+}(Shape));
 var Points = /** @class */ (function () {
     function Points(x, y) {
         this.x = x;
@@ -59,23 +88,36 @@ var Points = /** @class */ (function () {
     }
     return Points;
 }());
-// var inputEdges:any= prompt("Enter Edges: ");
-// // inputEdges=parseInt(inputEdges);
-// // var pointsArray = new Points(inputEdges);
-var pointsArray = {};
+var pointsArray = [];
+// Triangle
 var inputEdges = 3;
-// for (var i = 0; i < inputEdges; i++) {
-//   var x1 = prompt(`Enter x for : ${i + 1}`);
-//   var y1 = prompt(`Enter y for : ${i + 1}`);
-//   pointsArray[i] = new Points(x1, y1);
-// }
-pointsArray[1] = new Points(1, 2);
-pointsArray[2] = new Points(3, 4);
-pointsArray[3] = new Points(5, 6);
-for (var i = 0; i < inputEdges; i++) {
-    console.log(pointsArray[i]);
+for (var i = 0; i < 3; i++) {
+    pointsArray[i] = new Points(i + 1, i + 2);
 }
 var d = calculateDistance(inputEdges, pointsArray);
 var mytraingle = new Traingle(inputEdges, pointsArray);
 var peri = mytraingle.perimeter(d);
 mytraingle.area(peri, d);
+// rectangle
+var inputEdges = 4;
+for (var i = 0; i < 4; i++) {
+    pointsArray[i] = new Points(i + 1, i + 2);
+}
+var d1 = calculateDistance(inputEdges, pointsArray);
+var p1 = 0;
+for (var i_3 = 0; i_3 < inputEdges; i_3++) {
+    p1 += d1[i_3];
+}
+var myRectangle = new Rectangle(inputEdges, pointsArray);
+myRectangle.perimeter(p1);
+myRectangle.area(d1);
+// Square
+var inputEdges = 4;
+var d2 = calculateDistance(inputEdges, pointsArray);
+var p2 = 0;
+for (var i_4 = 0; i_4 < inputEdges; i_4++) {
+    p2 += d2[i_4];
+}
+var mySquare = new Square(inputEdges, pointsArray);
+mySquare.perimeter(p2);
+mySquare.area(d2);
