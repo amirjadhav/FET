@@ -1,0 +1,10 @@
+<html>
+<body>
+<h2>Hello World!</h2>
+
+<form action="Login" method="post">
+username: <input type="text" value="username">
+password: <input type="text" value="password">
+</form>
+</body>
+</html>
