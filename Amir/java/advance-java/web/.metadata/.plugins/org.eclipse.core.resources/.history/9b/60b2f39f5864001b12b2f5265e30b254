@@ -1,0 +1,18 @@
+<html>
+<body>
+	<h2>Hello World!</h2>
+	<!-- it is combination of html and java code -->
+	
+	<!-- Send data using forms -->
+	
+	<form action="first">
+			username: <input type="text" name="username">
+			<br>
+			<input type="submit" value="submit>
+	</form>
+	
+	
+	<a href="hello">Go to hello servlet</a>.
+	<a href="first">Go to First servlet</a>
+</body>
+</html>

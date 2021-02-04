@@ -1,0 +1,19 @@
+package com.cybage;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+
+public class AppTest {
+
+	@Test
+	public void test1() {
+		assertEquals(1, 1);
+	}
+
+	@Test
+    public void test2() {
+        assertEquals(10, 10);
+	}
+}

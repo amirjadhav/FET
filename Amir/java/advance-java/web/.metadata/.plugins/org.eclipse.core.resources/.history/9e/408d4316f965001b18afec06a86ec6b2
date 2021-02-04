@@ -1,0 +1,12 @@
+package com.cybage.service;
+
+import java.util.List;
+
+import com.cybage.model.User;
+
+public interface UserService {
+	public List<User> findUser();
+	public User findById(int id);
+	public boolean deleteUser(int id);
+	public boolean updateUser(User user);
+}
