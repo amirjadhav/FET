@@ -1,5 +1,5 @@
-create database practice;
-use practice;
+create database e_learning;
+use e_learning;
 
 create table user(user_id int primary key, full_name varchar(20),user_name varchar(20) unique, user_password varchar(20), user_role varchar(10), user_security_question varchar(100), user_security_answer varchar(100));
 
