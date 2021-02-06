@@ -242,3 +242,83 @@ dbutil
 --> getting connection through databsource, configuration through property file
 
 
+secure application
+--> authentication --> whether you are right user or not can be checked with authentication, basic, form, token 
+--> authorization --> which part of application will be accessed by user, roles
+
+
+
+login
+--> we enter username/password
+--> when we press login
+--> it will go to j_security_check
+--> it will fetch j_username, j_password from form and check against database(it will check database configuration in server.xml inside realm)
+--> total management done by container --> container security
+--> it will create one object where all information about authenticated user is stored(username, userrole)
+--> it will start session also
+
+
+tomcat/container/servlet container/server
+
+
+
+
+
+
+
+
+
+
+
+
+
+junit
+
+
+exception
+--> SQLEXception --> at dao layer, we will handle this exception inside controller
+--> IOException,  ServletException --> will be handled in seperate error page
+--> UserException --> will be handled by seperate error page
+
+1. create error page
+2. configure error page in web.xml
+3. extend UserException from ServletException
+
+
+junit
+--> combine
+--> take help of service + dao layer and write unit test cases
+
+
+
+integration testing
+end 2 end testing (e2e)
+
+
+
+
+front end
+--> user flow
+--> admin flow
+--> annonymous user
+
+back end
+--> appcontroller
+--> usercontroller
+--> admincontroller
+
+database
+--> user, userrole
+--> category
+--> courses(courseid, name, categoryid, price, duration)
+--> video(videoid, courseid, path)
+--> enrollment (userid, courseid, purchasedate, price)
+
+
+
+
+
+
+
+
+ 
