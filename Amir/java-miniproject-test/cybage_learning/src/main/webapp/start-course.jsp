@@ -4,7 +4,7 @@
 <jsp:include page="header.jsp"></jsp:include>
 
 <h1>Start course-page</h1>
-<% Object currentVideo =session.getAttribute("video_count");
+<% Object currentVideo =session.getAttribute("current_video");
 Object videoCount =session.getAttribute("video_count");
 
 int currentVideo_int =Integer.parseInt(currentVideo.toString());
@@ -12,13 +12,15 @@ int videoCount_int =Integer.parseInt(videoCount.toString());
 
 if(currentVideo == videoCount){
 	System.out.println("Generate certificate");
+	
+
 }
 %>
 <%--  ${(videoCount > 0) ? "some text when true" : "some text when false"} --%>
 
 <div class="container-fluid course-container">
 	<div class="row">
-		<div class="col-sm-8 title">Course Title</div>
+		<div class="col-sm-8 title"><%session.getAttribute("video_count");%></div>
 
 		<div class="col-sm-4 p-bar">Progress bar</div>
 	</div>
@@ -37,14 +39,14 @@ if(currentVideo == videoCount){
 				<div class="row">
 					<div class="container-fluid btn-control">
 						<a href="#" class="btn btn-primary">Prev</a>
-						<a href="<%=request.getContextPath()%>/UserController/start-course/<%=currentVideo_int++%>" class="btn btn-primary">Next</a>
+						<a href="<%=request.getContextPath()%>/UserController/start-course/<%=++currentVideo_int%>" class="btn btn-primary">Next</a>
 						<%System.out.print("Hello"); %>
 					</div>
 				</div>
 			</div>
 
 
-			<div class="col-sm-4 description">desc</div>
+			<div class="col-sm-4 description"><%session.getAttribute("subcourse_desc");%></div>
 		</div>
 	</div>
 </div>

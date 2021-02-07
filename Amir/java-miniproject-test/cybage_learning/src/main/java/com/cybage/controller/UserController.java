@@ -53,13 +53,13 @@ public class UserController extends HttpServlet {
 
 		PrintWriter pw = response.getWriter();
 		String path = request.getPathInfo();
-		System.out.println("inside get method");
-		System.out.println("path:" + path);
-		System.out.println("path:" + path.substring(14));
+//		System.out.println("inside get method");
+//		System.out.println("path:" + path);
+//		System.out.println("path:" + path.substring(14));
 		int currentVideo = Integer.parseInt(path.substring(14));
 
 		if (path.substring(0, 13).equals("/start-course")) {
-			System.out.println("inside nextvideo method");
+		//	System.out.println("inside nextvideo method");
 			log.debug("inside nextvideo method....");
 
 			List<SubCourse> subcourses = null;
@@ -68,17 +68,19 @@ public class UserController extends HttpServlet {
 				subcourses = subCourseService.findSubCourse();
 				request.getSession().setAttribute("video_count", subcourses.size());
 				request.getSession().setAttribute("current_video", currentVideo);
-				System.out.println("size of subcourses" + subcourses.size());
+			//	System.out.println("size of subcourses" + subcourses.size());
 				if (subcourses.size() == 0) {
 					throw new UserException("No SubCourse found in database...");
 				}
-				System.out.println(subcourses.get(currentVideo-1));
+			//	System.out.println(subcourses.get(currentVideo-1));
+				
+				
 				request.getSession().setAttribute("subcourse_id", subcourses.get(currentVideo-1).getSubCourseId());
-
+				request.getSession().setAttribute("subcourse_title",subcourses.get(currentVideo-1).getSubCourseName());
+				request.getSession().setAttribute("subcourse_desc", subcourses.get(currentVideo-1).getSubCourseDescription());
+				
 				response.sendRedirect(request.getContextPath() + "/start-course.jsp");
-				// request.getRequestDispatcher("/user/view-user.jsp").forward(request,
-				// response);
-				// request.getRequestDispatcher("/start-course.jsp").forward(request, response);
+				
 			} catch (SQLException e) {
 				log.error("could not get Subcourse: " + e.getMessage());
 			}
