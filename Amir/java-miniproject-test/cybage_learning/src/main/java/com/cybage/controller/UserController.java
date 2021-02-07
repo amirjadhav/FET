@@ -36,9 +36,9 @@ public class UserController extends HttpServlet {
 	private UserDao userDao = new UserDaoImpl();
 
 	private UserService userService = new UserServiceImpl(userDao);
-	
+
 	private SubCourseDao subCourseDao = new SubCourseDaoImpl();
-	
+
 	private SubCourseService subCourseService = new SubCourseServiceImpl(subCourseDao);
 
 	private static final long serialVersionUID = 1L;
@@ -54,31 +54,32 @@ public class UserController extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		String path = request.getPathInfo();
 		System.out.println("inside get method");
-		System.out.println("path:"+path);
-		System.out.println("path:"+path.substring(14));
-		if (path.substring(0,13).equals("/start-course")) {
+		System.out.println("path:" + path);
+		System.out.println("path:" + path.substring(14));
+		int currentVideo = Integer.parseInt(path.substring(14));
+
+		if (path.substring(0, 13).equals("/start-course")) {
 			System.out.println("inside nextvideo method");
 			log.debug("inside nextvideo method....");
 
 			List<SubCourse> subcourses = null;
-			
 
 			try {
 				subcourses = subCourseService.findSubCourse();
-				request.getSession().setAttribute("video_count",subcourses.size());
-				System.out.println("size of subcourses"+subcourses.size());
+				request.getSession().setAttribute("video_count", subcourses.size());
+				request.getSession().setAttribute("current_video", currentVideo);
+				System.out.println("size of subcourses" + subcourses.size());
 				if (subcourses.size() == 0) {
 					throw new UserException("No SubCourse found in database...");
 				}
-				for(SubCourse s:subcourses) {
-					System.out.println(s);
-					request.getSession().setAttribute("subcourse_id", s.getSubCourseId());
-				}
-				
-				response.sendRedirect(request.getContextPath()+"/start-course.jsp");
-				//request.getRequestDispatcher("/user/view-user.jsp").forward(request, response);
-				//request.getRequestDispatcher("/start-course.jsp").forward(request, response);
-			} catch (SQLException e) { 
+				System.out.println(subcourses.get(currentVideo-1));
+				request.getSession().setAttribute("subcourse_id", subcourses.get(currentVideo-1).getSubCourseId());
+
+				response.sendRedirect(request.getContextPath() + "/start-course.jsp");
+				// request.getRequestDispatcher("/user/view-user.jsp").forward(request,
+				// response);
+				// request.getRequestDispatcher("/start-course.jsp").forward(request, response);
+			} catch (SQLException e) {
 				log.error("could not get Subcourse: " + e.getMessage());
 			}
 		}

@@ -4,11 +4,13 @@
 <jsp:include page="header.jsp"></jsp:include>
 
 <h1>Start course-page</h1>
-<% int i = 0;
+<% Object currentVideo =session.getAttribute("video_count");
 Object videoCount =session.getAttribute("video_count");
-System.out.println(Integer.parseInt(videoCount.toString()));
 
-if(i==Integer.parseInt(videoCount.toString())){
+int currentVideo_int =Integer.parseInt(currentVideo.toString());
+int videoCount_int =Integer.parseInt(videoCount.toString());
+
+if(currentVideo == videoCount){
 	System.out.println("Generate certificate");
 }
 %>
@@ -35,7 +37,7 @@ if(i==Integer.parseInt(videoCount.toString())){
 				<div class="row">
 					<div class="container-fluid btn-control">
 						<a href="#" class="btn btn-primary">Prev</a>
-						<a href="<%=request.getContextPath()%>/UserController/start-course/<%=i%>" class="btn btn-primary">Next</a>
+						<a href="<%=request.getContextPath()%>/UserController/start-course/<%=currentVideo_int++%>" class="btn btn-primary">Next</a>
 						<%System.out.print("Hello"); %>
 					</div>
 				</div>
