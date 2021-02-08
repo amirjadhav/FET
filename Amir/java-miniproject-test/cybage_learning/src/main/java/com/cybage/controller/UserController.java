@@ -59,7 +59,7 @@ public class UserController extends HttpServlet {
 		int currentVideo = Integer.parseInt(path.substring(14));
 
 		if (path.substring(0, 13).equals("/start-course")) {
-		//	System.out.println("inside nextvideo method");
+			System.out.println("inside nextvideo method");
 			log.debug("inside nextvideo method....");
 
 			List<SubCourse> subcourses = null;
@@ -78,6 +78,7 @@ public class UserController extends HttpServlet {
 				request.getSession().setAttribute("subcourse_id", subcourses.get(currentVideo-1).getSubCourseId());
 				request.getSession().setAttribute("subcourse_title",subcourses.get(currentVideo-1).getSubCourseName());
 				request.getSession().setAttribute("subcourse_desc", subcourses.get(currentVideo-1).getSubCourseDescription());
+				request.getSession().setAttribute("subcourse_url", subcourses.get(currentVideo-1).getVideoUrl());
 				
 				response.sendRedirect(request.getContextPath() + "/start-course.jsp");
 				
