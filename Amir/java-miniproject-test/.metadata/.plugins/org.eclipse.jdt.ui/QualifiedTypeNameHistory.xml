@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.cybage.service.UserService"/>
-<fullyQualifiedTypeName name="com.cybage.service.SubCourseService"/>
-<fullyQualifiedTypeName name="com.cybage.service.SubCourseServiceImpl"/>
-<fullyQualifiedTypeName name="com.cybage.dao.SubCourseDao"/>
-<fullyQualifiedTypeName name="com.cybage.dao.SubCourseDaoImpl"/>
-<fullyQualifiedTypeName name="java.util.Iterator"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="com.cybage.model.SubCourse"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.cybage.service.UserService"/>
+    <fullyQualifiedTypeName name="com.cybage.service.SubCourseService"/>
+    <fullyQualifiedTypeName name="com.cybage.service.SubCourseServiceImpl"/>
+    <fullyQualifiedTypeName name="com.cybage.dao.SubCourseDao"/>
+    <fullyQualifiedTypeName name="com.cybage.dao.SubCourseDaoImpl"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.cybage.model.SubCourse"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>
