@@ -1,0 +1,8 @@
+<html>
+<body>
+	<h2>Hello World!</h2>
+	<!-- it is combination of html and java code -->
+	<a href="hello">Go to hello servlet</a>.
+	<a href="hello">Go to First servlet</a>
+</body>
+</html>

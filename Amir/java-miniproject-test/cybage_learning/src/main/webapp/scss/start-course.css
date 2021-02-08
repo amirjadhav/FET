@@ -1,0 +1,21 @@
+@charset "ISO-8859-1";
+
+h1 {
+	color: red;
+}
+
+.video, .description {
+	border: 1px solid black;
+	padding: 1px;
+}
+
+.center {
+	margin: 2% auto;
+	display: block
+}
+.btn-control
+{
+	display: flex;
+    width: 50%;
+    justify-content: space-around;
+}

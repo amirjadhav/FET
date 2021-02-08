@@ -1,0 +1,55 @@
+package com.cybage;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class Login
+ */
+public class Login extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	public Login() {
+		super();
+
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		PrintWriter pw = response.getWriter();
+		pw.print("this is Login servlet (get)");
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		PrintWriter pw = response.getWriter();
+	//	pw.print("this is Login servlet (post)");
+
+		// get username and password
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+
+		if (username.equals("admin") && password.equals("admin")) {
+			// if success redirect to welcome.jsp
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("username", username);
+			request.getRequestDispatcher("Welcome.jsp").forward(request, response);
+		} else {
+			// login failed
+			response.setContentType("text/html");
+			pw.write("<h4 style=color:red>Login Failed</h4>");
+			request.getRequestDispatcher("index.jsp").include(request, response);
+		}
+	}
+
+}
