@@ -1,0 +1,61 @@
+
+.card{
+    width: 400px !important;;
+    margin-top:5%;
+    margin-left:auto;
+   margin-right: auto;
+  
+
+}
+.question-container{
+    float: left;
+    // margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+    width:50%;
+}
+.choice_container{
+     float: right;
+    margin-left:auto;
+    margin-right:auto;
+    width:50%;
+
+}
+.choice{
+    width: 100%;
+    margin-left:10px;
+    background-image:linear-gradient(45deg, #672980, #d9a6e0,#6e3385);
+    color: white;
+    border: 2px solid rgb(39, 104, 190);
+    margin-top:8px;
+    height:40px;
+    &:hover{
+        background-image:linear-gradient(45deg, #c8a2cc,#c8a2cc);
+    }
+}
+
+
+.btn{
+    margin-left:4%;
+    padding:12px;
+    width: 20%;
+    background-image:linear-gradient(45deg, #2d9cf1, #a6c9e0,#1c6dac);
+    &:hover{
+        transform:translateY(-3px);
+       box-shadow: 0 3px 10px 0 rgba(16, 61, 119, 0.3);
+    }
+}
+.btn-wrapper{
+ margin-top:3%;
+}
+.next{
+    margin-left:4%;
+}
+.submit{
+    margin-left:20%;
+}
+
+
+.result_card{
+    // display: none;
+}
