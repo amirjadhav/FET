@@ -1,0 +1,42 @@
+table {
+    
+    width: 50%;
+    margin-left: 30%;
+    margin-top:100px;
+    font-family:sans-serif;
+    border-collapse: collapse;
+  }
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+   
+    background-color:rgb(216, 214, 214);
+    color:black;
+    text-align: left;
+  
+   
+  }
+ td,  th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  
+   tr:nth-child(even){background-color:lightgreen;}
+  
+  
+   tr:hover {background-color: #ddd;}
+  
+  
+   .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .card img{
+    height: 200px;
+  }
+//   .card-text{
+//     height: 50%;
+//   }
+  
