@@ -11,26 +11,22 @@ import org.apache.commons.dbcp2.BasicDataSource;
 public class DbUtil {
 	
 	private static String className = "com.mysql.jdbc.Driver";
-	private static String dbUrl;
-	private static String dbUser;
-	private static String dbPassword;
+	private static String dbUrl="jdbc:mysql://localhost:3306/cybage_learning";
+	private static String dbUser="root";
+	private static String dbPassword="root@123";
 	
-	static {		//if want to execute something during class loading
-		try {
-			FileReader reader = new FileReader("d:\\db.properties");
-			Properties props = new Properties();
-			
-			props.load(reader);
-			dbUrl = props.getProperty("dbUrl");
-			dbUser = props.getProperty("dbUser");
-			dbPassword = props.getProperty("dbPassword");
-			System.out.println(dbUrl + dbUser + dbPassword);
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	/*
+	 * static { //if want to execute something during class loading try { FileReader
+	 * reader = new FileReader("d:\\db.properties"); Properties props = new
+	 * Properties();
+	 * 
+	 * props.load(reader); dbUrl = props.getProperty("dbUrl"); dbUser =
+	 * props.getProperty("dbUser"); dbPassword = props.getProperty("dbPassword");
+	 * System.out.println(dbUrl + dbUser + dbPassword);
+	 * 
+	 * } catch (Exception e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); } }
+	 */
 	
 	////without connection pool
 	public static Connection getCon() throws SQLException  {
