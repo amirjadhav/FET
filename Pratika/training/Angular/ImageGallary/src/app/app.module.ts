@@ -10,6 +10,8 @@ import { ChildComponent } from './components/child/child.component';
 
 import { ConvertSpacePipe } from './utility/convert-space.pipe';
 import { SearchCategoryPipe } from './utility/search-category.pipe';
+import { AddImageComponent } from './components/add-image/add-image.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { SearchCategoryPipe } from './utility/search-category.pipe';
   MainComponent,
   ChildComponent,
     ConvertSpacePipe,
-    SearchCategoryPipe
+    SearchCategoryPipe,
+    AddImageComponent,
+    NavComponent
 
   ],
   imports: [
