@@ -5,18 +5,19 @@
 
 <h1>Start course-page</h1>
 <%
-Object currentVideo = session.getAttribute("current_video");
-Object videoCount = session.getAttribute("video_count");
-int currentVideo_int = Integer.parseInt(currentVideo.toString());
-int videoCount_int = Integer.parseInt(videoCount.toString());
-if (currentVideo_int == videoCount_int + 1) {
-	System.out.println("Generate certificate");
-}
-int progress = ((currentVideo_int - 1) * 100) / videoCount_int;
+	Object currentVideo = session.getAttribute("current_video");
+	Object videoCount = session.getAttribute("video_count");
+	int currentVideo_int = Integer.parseInt(currentVideo.toString());
+	int videoCount_int = Integer.parseInt(videoCount.toString());
+	if (currentVideo_int == videoCount_int + 1) {
+		System.out.println("Generate certificate");
+	}
+	int progress = ((currentVideo_int - 1) * 100) / videoCount_int;
 
-System.out.println("current :" + currentVideo_int + " videoCount_int :" + videoCount_int + "progress: " + progress);
-int next_video = currentVideo_int + 1;
-int prev_video = currentVideo_int - 1;
+	System.out.println(
+			"current :" + currentVideo_int + " videoCount_int :" + videoCount_int + "progress: " + progress);
+	int next_video = currentVideo_int + 1;
+	int prev_video = currentVideo_int - 1;
 %>
 
 <c:out value="${videoCount_int}"></c:out>
@@ -66,8 +67,8 @@ int prev_video = currentVideo_int - 1;
 					</div>
 				</div>
 			</div>
-
-			<div class="col-sm-4 description">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-3 description">
 				<div class="col-md-12">
 					Course Description <br />:<%=session.getAttribute("subcourse_desc")%>
 				</div>
