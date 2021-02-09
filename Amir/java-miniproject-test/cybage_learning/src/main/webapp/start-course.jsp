@@ -32,7 +32,7 @@
 			<div class="progress">
 				<div class="progress-bar" role="progressbar"
 					style="max-width:<%=progress%>%">
-					<span class="title"><%=progress%>%</span>
+					<span class="p-title"><%=progress%>%</span>
 				</div>
 			</div>
 

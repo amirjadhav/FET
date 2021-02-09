@@ -1,52 +1,69 @@
 @charset "ISO-8859-1";
 h1 {
-	color: red;
-}
-.btn{
-	background: rgba(14,209,230,1);
-}
-.container-fluid{
-	padding: 2%;
-}
-.col{
-	padding: 2%;
+  color: red;
 }
 
+.btn {
+  background: rgba(14, 209, 230, 1);
+  width: 20%;
+  margin-left: 5%;
+}
 
-.title{
-	font-size:200%
+a.btn {
+  color: rgb(32, 32, 32);
+  font-weight: bold;
 }
-.description{
-	font-size:150%
+
+a.btn:hover {
+  transform: translateY(-5px);
 }
-.video, .description {
-	border-radius: 3%;
-	padding: 1px;
-	background:#D3D3D3;
+
+.container-fluid {
+  padding: 2%;
+}
+.col {
+  padding: 2%;
+}
+
+.title {
+  font-size: 200%;
+}
+.description {
+  font-size: 150%;
+}
+.video,
+.description {
+  border-radius: 3%;
+  padding: 1px;
+  background: #d3d3d3;
 }
 
 .center {
-	margin: 2% auto;
-	display: block
+  margin: 2% auto;
+  display: block;
 }
-.btn-control
-{
-	display: flex;
-    width: 50%;
-    justify-content: space-around;
+.btn-control {
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
 }
 
 .progress-bar {
-	background: linear-gradient(90deg, rgba(222,221,245,1) 0%, rgba(151,236,231,1) 0%, rgba(95,188,198,1) 28%, rgba(14,209,230,1) 62%);
+  background: linear-gradient(
+    90deg,
+    rgba(222, 221, 245, 1) 0%,
+    rgba(151, 236, 231, 1) 0%,
+    rgba(95, 188, 198, 1) 28%,
+    rgba(14, 209, 230, 1) 62%
+  );
   width: 0;
   animation: progress 1.5s ease-in-out forwards;
-  
-  .title {
-    opacity: 0;
-    animation: show 0.35s forwards ease-in-out 0.5s;
-  }
-} 
-
+}
+.p-title {
+  font-size: 150%;
+  opacity: 0;
+  animation: show 0.35s forwards ease-in-out 0.5s;
+}
 
 @keyframes progress {
   from {
@@ -55,8 +72,8 @@ h1 {
   to {
     width: 100%;
   }
-} 
-@keyframes show  {
+}
+@keyframes show {
   from {
     opacity: 0;
   }
