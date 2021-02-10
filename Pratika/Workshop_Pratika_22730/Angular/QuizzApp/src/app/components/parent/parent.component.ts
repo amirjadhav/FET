@@ -10,6 +10,11 @@ export class ParentComponent implements OnInit {
 
   cities :string[]=["Pune","Mumbai","Delhi","solapur"]
   constructor() { }
+sum=0;
+
+ displaySum(sum:any) {
+        console.log(sum);
+    }
 
   ngOnInit(): void {
   }

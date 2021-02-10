@@ -20,12 +20,15 @@
 </div> -->
 
 
+
+<!-- search by category -->
 <br>
- Search Image:<input type="text"  [(ngModel)]="search" id="category_search"><br>
- <!-- <p>Created on {{ today | date }}</p> -->
- <br>
+ <!-- Search Image:<input type="text"  [(ngModel)]="search" id="category_search"><br>
+ <p>Created on {{ today | date }}</p>
+ <br> -->
 <!-- {{search}} -->
-<br> 
+
+
 
 <!--filter convert space to '--'  -->
 <!-- <h1>{{"Image Gallary"|convertSpace}}</h1>
@@ -33,6 +36,10 @@
     <app-child [cart_count]='current_cart_count' (increment)='onClick_button($event)'> </app-child>
 </div> -->
 
+
+<!-- form  -->
+
+<br> 
 <div *ngIf='images && images.length' class="row cards">
     <div class="card " style="width: 18rem;" *ngFor="let img of images|searchCategory:search">
         <img class="card-img-top" [src]='img.imgSrc' alt="Card image cap">
