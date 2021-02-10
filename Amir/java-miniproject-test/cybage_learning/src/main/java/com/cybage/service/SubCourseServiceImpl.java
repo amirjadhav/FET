@@ -22,4 +22,13 @@ public class SubCourseServiceImpl implements SubCourseService {
 		return subCourseDao.findSubCourse();
 	}
 
+	public int getCurrentVideo(int courseid) throws SQLException {
+		return subCourseDao.getCurrentVideo( courseid);
+	}
+
+	public int updateCurrentVideo(int userid, int courseid, int current_videoInDb) throws SQLException {
+
+		return subCourseDao.updateCurrentVideo(userid, courseid, current_videoInDb);
+	}
+
 }

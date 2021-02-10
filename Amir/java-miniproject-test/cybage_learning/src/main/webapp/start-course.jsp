@@ -76,6 +76,6 @@
 		</div>
 	</div>
 </div>
-
+<a class="btn center certficate-btn" href="#"> Get certificate</a>
 <!--  working   -->
 <jsp:include page="footer.jsp"></jsp:include>

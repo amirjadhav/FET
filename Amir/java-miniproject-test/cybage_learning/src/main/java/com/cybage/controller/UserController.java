@@ -1,14 +1,13 @@
 package com.cybage.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.sql.SQLException;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.HttpConstraint;
-import javax.servlet.annotation.ServletSecurity;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,37 +50,54 @@ public class UserController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, UserException {
 
-		PrintWriter pw = response.getWriter();
 		String path = request.getPathInfo();
-//		System.out.println("inside get method");
-//		System.out.println("path:" + path);
-//		System.out.println("path:" + path.substring(14));
+		// System.out.println("inside get method");
+		// System.out.println("path:" + path);
+		// System.out.println("path:" + path.substring(14));
 		int currentVideo = Integer.parseInt(path.substring(14));
 
+		// working
+
+		int userid = 1001;
+		int courseid = 101;
+
 		if (path.substring(0, 13).equals("/start-course")) {
-			System.out.println("inside nextvideo method");
 			log.debug("inside nextvideo method....");
 
 			List<SubCourse> subcourses = null;
-
 			try {
 				subcourses = subCourseService.findSubCourse();
+
+				int current_videoInDb = subCourseService.getCurrentVideo(courseid);
+				System.out.println("currentVideo:" + currentVideo);
+				System.out.println("From database" + current_videoInDb);
+				if (currentVideo > current_videoInDb) {
+					current_videoInDb = currentVideo;
+					// now update current_video count in db
+
+					int status = subCourseService.updateCurrentVideo(userid, courseid, current_videoInDb);
+					System.out.println("status:" + status);
+				} else {
+					currentVideo = current_videoInDb;
+				}
+
 				request.getSession().setAttribute("video_count", subcourses.size());
 				request.getSession().setAttribute("current_video", currentVideo);
-			//	System.out.println("size of subcourses" + subcourses.size());
+				// System.out.println("size of subcourses" + subcourses.size());
 				if (subcourses.size() == 0) {
 					throw new UserException("No SubCourse found in database...");
 				}
-			//	System.out.println(subcourses.get(currentVideo-1));
-				
-				
-				request.getSession().setAttribute("subcourse_id", subcourses.get(currentVideo-1).getSubCourseId());
-				request.getSession().setAttribute("subcourse_title",subcourses.get(currentVideo-1).getSubCourseName());
-				request.getSession().setAttribute("subcourse_desc", subcourses.get(currentVideo-1).getSubCourseDescription());
-				request.getSession().setAttribute("subcourse_url", subcourses.get(currentVideo-1).getVideoUrl());
-				
+				// System.out.println(subcourses.get(currentVideo-1));
+
+				request.getSession().setAttribute("subcourse_id", subcourses.get(currentVideo - 1).getSubCourseId());
+				request.getSession().setAttribute("subcourse_title",
+						subcourses.get(currentVideo - 1).getSubCourseName());
+				request.getSession().setAttribute("subcourse_desc",
+						subcourses.get(currentVideo - 1).getSubCourseDescription());
+				request.getSession().setAttribute("subcourse_url", subcourses.get(currentVideo - 1).getVideoUrl());
+
 				response.sendRedirect(request.getContextPath() + "/start-course.jsp");
-				
+
 			} catch (SQLException e) {
 				log.error("could not get Subcourse: " + e.getMessage());
 			}
@@ -154,7 +170,7 @@ public class UserController extends HttpServlet {
 				log.error("error occurred: " + e.getMessage());
 			}
 		}
-//		actual updation happens here...
+		// actual updation happens here...
 		if (path.equals("/edit-user")) {
 			log.debug("inside edit-user method....");
 			int id = Integer.parseInt(request.getParameter("id"));

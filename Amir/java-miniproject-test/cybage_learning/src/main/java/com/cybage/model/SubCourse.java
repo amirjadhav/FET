@@ -11,7 +11,6 @@ public class SubCourse {
 
 	public SubCourse() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public SubCourse(int subCourseId, String subCourseName, int subCourseDuration, String subCourseDescription,

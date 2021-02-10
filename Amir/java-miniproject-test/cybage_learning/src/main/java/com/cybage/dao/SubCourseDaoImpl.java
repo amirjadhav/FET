@@ -32,8 +32,32 @@ public class SubCourseDaoImpl implements SubCourseDao {
 			subCourse.setCourseId(rs.getInt(7));
 
 			subCourses.add(subCourse);
-			
+
 		}
 		return subCourses;
+	}
+
+	public int getCurrentVideo(int courseid) throws SQLException {
+		Connection con = DbUtil.getCon();
+
+		String sql = "select current_video from enrolled_course where course_id = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, courseid);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		return rs.getInt(1);
+	}
+
+	public int updateCurrentVideo(int userid, int courseid, int current_videoInDb) throws SQLException {
+		String sql = "update enrolled_course set current_video = ? where user_id = ? and course_id = ? ";
+
+		Connection con = DbUtil.getCon();
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		ps.setInt(1, current_videoInDb);
+		ps.setInt(2, userid);
+		ps.setInt(3, courseid);
+
+		return ps.executeUpdate();
 	}
 }

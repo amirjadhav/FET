@@ -2,7 +2,7 @@ package com.cybage.util;
 
 import java.io.FileReader;
 import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -10,7 +10,6 @@ import org.apache.commons.dbcp2.BasicDataSource;
 
 public class DbUtil {
 
-	private static String className;
 	private static String dbUrl;
 	private static String dbUser;
 	private static String dbPassword;
@@ -26,7 +25,7 @@ public class DbUtil {
 			dbPassword = props.getProperty("dbPassword");
 			System.out.println(dbUrl + dbUser + dbPassword);
 
-		} catch (Exception e) { // TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

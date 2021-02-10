@@ -7,4 +7,6 @@ import com.cybage.model.SubCourse;
 
 public interface SubCourseService {
 	public List<SubCourse> findSubCourse() throws SQLException;
+	public int getCurrentVideo(int courseid) throws SQLException;
+	public int updateCurrentVideo(int userid, int courseid, int current_videoInDb) throws SQLException;
 }
