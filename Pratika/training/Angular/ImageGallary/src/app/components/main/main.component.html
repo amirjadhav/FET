@@ -46,7 +46,9 @@
         <div class="card-body">
         <h5 class="card-title">{{img.imgName}}</h5>
         <p class="card-text">{{img.imgDescription}}</p>
-        <a href="#" class="btn btn-primary" (click)='clickFunction()'>{{img.imgCategory}}</a>
+        <a href="#" class="btn btn-primary" routerLink='/edit/{{img.imgId}}'>Edit</a>
+        <!-- <a href="#" class="btn btn-primary details" routerLink='/detailed/{{img.imgId}}'>Details</a> -->
+        <a href="#" class="btn btn-primary delete"  routerLink='/delete/{{img.imgId}}'>Delete</a>
         </div>
     </div>
 </div>

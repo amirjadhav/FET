@@ -1,40 +1,44 @@
-table {
+// table {
     
-    width: 50%;
-    margin-left: 30%;
-    margin-top:100px;
-    font-family:sans-serif;
-    border-collapse: collapse;
-  }
-  th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+//     width: 50%;
+//     margin-left: 30%;
+//     margin-top:100px;
+//     font-family:sans-serif;
+//     border-collapse: collapse;
+//   }
+//   th {
+//     padding-top: 12px;
+//     padding-bottom: 12px;
    
-    background-color:rgb(216, 214, 214);
-    color:black;
-    text-align: left;
+//     background-color:rgb(216, 214, 214);
+//     color:black;
+//     text-align: left;
   
    
-  }
- td,  th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
+//   }
+//  td,  th {
+//     border: 1px solid #ddd;
+//     padding: 8px;
+//   }
   
   
-   tr:nth-child(even){background-color:lightgreen;}
+//    tr:nth-child(even){background-color:lightgreen;}
   
   
-   tr:hover {background-color: #ddd;}
+//    tr:hover {background-color: #ddd;}
   
   
    .cards {
+     margin-top:0px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content:space-between;
   }
   .card img{
     height: 200px;
+  }
+  .details,.delete{
+    margin-left: 20%;
   }
 //   .card-text{
 //     height: 50%;
