@@ -1,0 +1,12 @@
+package com.cybage;
+
+public class ConfigClass {
+
+	public Employee getEmp() {
+		return new Employee(101, "dm101");
+	}
+
+	public Employee getEmp1() {
+		return new Employee(101, "dm101");
+	}
+}

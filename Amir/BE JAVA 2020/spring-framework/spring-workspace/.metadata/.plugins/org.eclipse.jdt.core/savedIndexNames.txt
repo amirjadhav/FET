@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+D:\BE JAVA 2020\spring-framework\spring-workspace\.metadata\.plugins\org.eclipse.jdt.core
+1762210267.index
+879302139.index
+192303329.index
+1504786524.index
+1238650280.index

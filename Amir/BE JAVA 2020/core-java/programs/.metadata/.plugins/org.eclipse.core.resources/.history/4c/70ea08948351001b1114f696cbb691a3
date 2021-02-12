@@ -1,0 +1,27 @@
+package com.cybage;
+
+class RegularEmployee extends Employee {
+	private int salary;
+
+	public RegularEmployee() {
+		super();
+	}
+
+	public RegularEmployee(String name, String address, int salary) {
+		super(101, name, address);
+		this.salary = salary;
+
+	}
+
+	@Override
+	public String toString() {
+		return "RegularEmployee [salary=" + salary + ", getId()=" + getId() + ", getName()=" + getName()
+				+ ", getAddress()=" + getAddress() + "]";
+	}
+
+	@Override
+	public int getCompansation() {
+		return this.salary;
+	}
+
+}

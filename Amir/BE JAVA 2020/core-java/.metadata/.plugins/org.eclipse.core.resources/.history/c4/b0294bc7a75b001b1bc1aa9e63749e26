@@ -1,0 +1,24 @@
+package multithreading;
+
+public class Person extends Thread {
+	String name;
+	int ammount;
+	Bank oB = null;
+	Person(String name,int ammount,Bank b) {
+		this.name = name;
+		this.ammount = ammount;
+		oB = b
+	}
+
+	@Override
+	public void run() {
+		if(oB.getBal()>this.ammount) {
+			oB.withdraw(ammount);
+			System.out.println(this.name +" withdrawn" +this.ammount);
+		}else
+		{
+			System.out.print("Account balance is low");
+		}
+			
+	}
+}

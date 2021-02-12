@@ -1,0 +1,16 @@
+package multithreading;
+
+public class Person extends Thread {
+	String name;
+	Bank oB = null;
+
+	Person(String name,int ammount) {
+		this.name = name;
+		oB = new Bank();
+	}
+
+	@Override
+	public void run() {
+		if(oB.getBal()>)
+	}
+}

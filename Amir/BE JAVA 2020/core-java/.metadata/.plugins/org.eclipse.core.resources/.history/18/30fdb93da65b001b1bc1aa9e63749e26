@@ -1,0 +1,8 @@
+package multithreading;
+
+public class Person extends Thread {
+	String name ;
+	Person(String name){
+		t
+	}
+}

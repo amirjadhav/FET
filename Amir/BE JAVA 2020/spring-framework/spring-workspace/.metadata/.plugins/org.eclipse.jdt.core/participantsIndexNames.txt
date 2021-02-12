@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+D:\BE JAVA 2020\spring-framework\spring-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3300437809.index
+\sts-demo\src\main\java
+D:\BE JAVA 2020\spring-framework\spring-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1543908648.index
+\spring-mvc-example\src\main\java

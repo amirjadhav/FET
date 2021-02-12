@@ -1,0 +1,7 @@
+package com.cybage;
+
+public class ConfigClass {
+	public Employee getEmp() {
+		return Employee(101,"dm101");
+	}
+}

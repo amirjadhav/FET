@@ -1,0 +1,14 @@
+package com.cybage;
+
+public class ConfigClass {
+	
+	@Bean(name="emp")
+	public Employee getEmp() {
+		return new Employee(101, "dm101");
+	}
+	
+	@Bean(name="emp")
+	public Employee getEmp1() {
+		return new Employee(101, "dm101");
+	}
+}

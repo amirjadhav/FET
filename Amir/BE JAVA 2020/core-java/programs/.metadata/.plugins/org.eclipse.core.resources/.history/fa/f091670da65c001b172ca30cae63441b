@@ -1,0 +1,15 @@
+package com.cybage;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DbUtil {
+	public Connection getCon() throws Exception {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		; // class will be provided by vendor (mysql)
+
+		// 2. connect to actual database using mysql class(mysql driver)
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cyb", "root", "cybage@123");
+		return con;
+	}
+}

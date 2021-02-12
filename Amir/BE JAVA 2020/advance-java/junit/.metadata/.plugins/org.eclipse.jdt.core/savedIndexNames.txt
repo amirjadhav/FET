@@ -1,0 +1,13 @@
+INDEX VERSION 1.131+D:\BE JAVA 2020\core-java\junit\.metadata\.plugins\org.eclipse.jdt.core
+200832073.index
+3566939957.index
+2773645113.index
+2624657927.index
+3596799382.index
+1206672080.index
+3938230075.index
+504993488.index
+3274103830.index
+2459949592.index
+2127462752.index
+51625396.index
