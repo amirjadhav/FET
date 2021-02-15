@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+/home/amir/training/Amir/java-miniproject-test/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1971477809.index
+382032888.index
+4137796220.index
+2029536141.index
+2621369013.index

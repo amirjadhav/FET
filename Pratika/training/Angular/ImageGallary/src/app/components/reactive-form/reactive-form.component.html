@@ -1,0 +1,61 @@
+
+
+<form action=""  [formGroup]="imgForm" (ngSubmit)="onSubmit()" >
+     <h2>Edit Image details</h2>
+     <br>
+    <table>
+        <tr>  
+         <td>  Image Name:</td>
+        <td> <input type="text"  placeholder="{{imgName}}" value="{{imgName}}" formControlName="imgName" name="imgName" required></td>
+      
+       
+     </tr>
+
+  <tr>  
+       <td> 
+         Image Src:</td>
+     <td>  <input type="text"  placeholder="{{imgSrc}}" name="imageSrc" formControlName="imgSrc"></td>
+ 
+  </tr>
+    <tr>
+         <td> 
+         Image Category:</td>
+     <td>    <input type="text"  placeholder="{{imgCategory}}"  name="imgCategory" formControlName="imgCategory"></td>
+     <td>
+     
+     </td>
+ </tr>
+ 
+ 
+   <tr> 
+     <td> 
+         Image Description:</td>
+     <td>    <input type="text"   placeholder="{{imgDescription}}" name="imgDescription" formControlName="imgDescription"></td>
+   </tr>
+ 
+ 
+   <tr>  
+ 
+     <td> 
+         Image Id:</td>
+     <td>    <input type="text"   placeholder="{{imageId}}" name="imgId"  formControlName="imgId" pattern="[0-9]{3}" required></td>
+     <td>
+    
+       
+     </td>
+ </tr>
+ <br>
+  
+   <tr>
+   
+       <td><button (click)='update()'>Update</button></td>
+     <td><input type="reset" value="Reset"></td> </tr>
+     
+  
+ 
+ 
+    
+ 
+ </table>
+ </form>
+ 

@@ -1,4 +1,5 @@
-import { IImage } from './../iimage';
+import { ImageServiceService } from './../../utility/image-service.service';
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
@@ -13,29 +14,28 @@ export class MainComponent implements OnInit,OnDestroy {
   current_cart_count=0;
   onClick_button($event:any){}
 
+ images:any;
 
-images:IImage[]=[
-  
-  {imgId:101,imgName:'Scenery',imgSrc:'./assets/images/nature.jpg',imgCategory:'Nature',imgDescription:"Beautiful Nature"},
-{imgId:102,imgName:'IPL',imgSrc:'./assets/images/ipl.jpg',imgCategory:'Sport',imgDescription:"sports description"},
-{imgId:103,imgName:'Space',imgSrc:'./assets/images/space.jpg',imgCategory:'Universe',imgDescription:"Beautiful Nature"},
-{imgId:104,imgName:'Island',imgSrc:'./assets/images/island.jpg',imgCategory:'Island',imgDescription:"Beautiful Nature"}
-
-]
 
 clickFunction(){
 alert("button clicked")  
 }
 
-  constructor() {
-    console.log("inside constructor")
+  constructor(private imgser:ImageServiceService) {
+     // console.log("constructor")
    }
+   
   ngOnDestroy(): void {
-    console.log("inside destroy")
+    //console.log("inside destroy")
   }
   
   ngOnInit(): void {
-    console.log("inside init")
+  //  console.log("inside init")
+    this.imgser.getImages().subscribe(data=>{
+      this.images=data;
+   //   console.log("images"+JSON.stringify(this.images))
+    }); 
+   
   }
 
 }
