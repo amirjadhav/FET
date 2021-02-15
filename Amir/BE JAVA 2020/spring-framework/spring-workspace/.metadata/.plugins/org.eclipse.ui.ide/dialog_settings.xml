@@ -50,6 +50,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\training\Amir\BE JAVA 2020\spring-framework\spring-workspace\spring-mvc-example.zip_expanded\spring-mvc-example"/>
 			<item value="C:\Users\amirj\Downloads\spring-mvc-example.zip"/>
 		</list>
 	</section>
