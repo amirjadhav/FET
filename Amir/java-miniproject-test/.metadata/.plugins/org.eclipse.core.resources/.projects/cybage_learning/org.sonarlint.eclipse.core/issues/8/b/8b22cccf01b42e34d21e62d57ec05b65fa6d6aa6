@@ -1,85 +1,0 @@
-
-h	java:S106x"9Replace this use of System.out or System.err by a logger.(ãëóèúÿÿÿÿH@RMAJORZ
-CODE_SMELL
-l
-java:S1989ƒ">Handle the "UserException" thrown here in a "try/catch" block.(Íœ¡kHARMINORZVULNERABILITY
-[
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒHRMINORZ
-CODE_SMELL
-•
-java:S1989—"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(æÚ”•ûÿÿÿÿHFRMINORZVULNERABILITY
-q
-java:S3457t"AFormat specifiers should be used instead of string concatenation.(œŞÑìÿÿÿÿÿH?RMAJORZ
-CODE_SMELL
-r
-java:S3457š"AFormat specifiers should be used instead of string concatenation.(œŞÑìÿÿÿÿÿHGRMAJORZ
-CODE_SMELL
-|
-java:S2226*"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(êñ–ÉHQRMAJORZBUG
-m
-java:S1989“">Handle the "UserException" thrown here in a "try/catch" block.(‘ÑÏÌHERMINORZVULNERABILITY
-†
-java:S1989q"SHandle the following exception that could be thrown by "sendRedirect": IOException.(ğÌæÉşÿÿÿÿH>RMINORZVULNERABILITY
-k	java:S125G"<This block of commented-out lines of code should be removed.(¾‚ÃµûÿÿÿÿH4RMAJORZ
-CODE_SMELL
-W
-java:S14816"'Remove this unused "pw" local variable.(“­†·øÿÿÿÿHMRMINORZ
-CODE_SMELL
-r
-java:S3457‰"AFormat specifiers should be used instead of string concatenation.(×ÒòÚøÿÿÿÿHCRMAJORZ
-CODE_SMELL
-k	java:S1258"<This block of commented-out lines of code should be removed.(“»‰®ùÿÿÿÿH/RMAJORZ
-CODE_SMELL
-m
-java:S1989ª">Handle the "UserException" thrown here in a "try/catch" block.(Î¦‡HIRMINORZVULNERABILITY
-ƒ
-java:S19896"PHandle the following exception that could be thrown by "getWriter": IOException.(“­†·øÿÿÿÿH.RMINORZVULNERABILITY
-q
-java:S1989o">Handle the "UserException" thrown here in a "try/catch" block.(ı†…•ùÿÿÿÿH=RMINORZVULNERABILITY
-€
-java:S37763"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(÷¤‹úHRCRITICALZ
-CODE_SMELL
-|
-java:S2226$"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(¡­ôŸHNRMAJORZBUG
-f
-java:S18546"6Remove this useless assignment to local variable "pw".(“­†·øÿÿÿÿHRMAJORZ
-CODE_SMELL
-l
-java:S3457V"AFormat specifiers should be used instead of string concatenation.(»ï‘H8RMAJORZ
-CODE_SMELL
-r
-java:S3457¯"AFormat specifiers should be used instead of string concatenation.(×ÒòÚøÿÿÿÿHKRMAJORZ
-CODE_SMELL
-‡
-java:S1989;"YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(Ÿ˜§ëH2RMINORZVULNERABILITY
-‡
-java:S1989¬"SHandle the following exception that could be thrown by "sendRedirect": IOException.(ğÌæÉşÿÿÿÿHJRMINORZVULNERABILITY
-¢
-java:S1989·"nHandle the following exceptions that could be thrown by "doGet": ServletException, IOException, UserException.(®Ó‘ûÿÿÿÿÿHLRMINORZVULNERABILITY
-
-java:S2226&"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(¾Í¹İüÿÿÿÿHORMAJORZBUG
-‡
-java:S1989l"YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(ˆÛƒH<RMINORZVULNERABILITY
-‡
-java:S1989†"SHandle the following exception that could be thrown by "sendRedirect": IOException.(ğÌæÉşÿÿÿÿHBRMINORZVULNERABILITY
-ˆ
-java:S1989"YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(ˆÛƒHDRMINORZVULNERABILITY
-l
-java:S1989`">Handle the "UserException" thrown here in a "try/catch" block.(ãÜµ²H9RMINORZVULNERABILITY
-†
-java:S1989S"SHandle the following exception that could be thrown by "sendRedirect": IOException.(ö–¹•ùÿÿÿÿH7RMINORZVULNERABILITY
-
-java:S2226("XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ßç°çüÿÿÿÿHPRMAJORZBUG
-e	java:S125K"<This block of commented-out lines of code should be removed.(¦¶ÔH6RMAJORZ
-CODE_SMELL
-ˆ
-java:S1989 "YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(ˆÛƒHHRMINORZVULNERABILITY
-c	java:S106>"9Replace this use of System.out or System.err by a logger.(‰±°›H3RMAJORZ
-CODE_SMELL
-l
-java:S1989I">Handle the "UserException" thrown here in a "try/catch" block.(ó‚¡H5RMINORZVULNERABILITY
-”
-java:S1989c"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(Ü§¢•üÿÿÿÿH:RMINORZVULNERABILITY
-l
-java:S3457e"AFormat specifiers should be used instead of string concatenation.(İôµ©H;RMAJORZ
-CODE_SMELL

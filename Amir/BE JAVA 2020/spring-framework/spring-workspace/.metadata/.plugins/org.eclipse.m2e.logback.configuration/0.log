@@ -1839,3 +1839,4 @@ org.eclipse.jdt.core.JavaModelException: bin/src/main/java/com/example [in sprin
 2021-02-15 11:33:11,646 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-02-15 11:33:11,646 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2021-02-15 11:33:11,646 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\training\Amir\BE JAVA 2020\spring-framework\spring-workspace\spring-mvc-example.zip_expanded\spring-mvc-example\src\test\resources
+2021-02-15 17:37:56,305 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

@@ -1,17 +1,0 @@
-
-k
-java:S1118":Add a private constructor to hide the implicit public one.(ôßüßûÿÿÿÿH€RMAJORZ
-CODE_SMELL
-^
-java:S1128"3Remove this unused import 'java.sql.DriverManager'.(“£°HRMINORZ
-CODE_SMELL
-x
-java:S2095!"MUse try-with-resources or close this "BasicDataSource" in a "finally" clause.(º²™¯øÿÿÿÿH~RBLOCKERZBUG
-i
-java:S1135"2Complete the task associated to this TODO comment.(Ó¾ûşÿÿÿÿ8°öİ•ø.HRINFOZ
-CODE_SMELL
-n	java:S125"<This block of commented-out lines of code should be removed.(¾§ì8°öİ•ø.HŠRMAJORZ
-CODE_SMELL
-Y
-java:S1068"-Remove this unused "className" private field.(±İ»ÈHƒRMAJORZ
-CODE_SMELL
