@@ -47,6 +47,12 @@ public class EmpController {
 		er.deleteById(id);
 	}
 	
+	@RequestMapping(path = "/employee/name/{name}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Employee> findEmployeeByName(@PathVariable String name) {
+		return er.myfindByName(name);
+	}
+	
 	@RequestMapping(path = "/employee/{id}/{name}", method = RequestMethod.PUT)
 	@ResponseBody
 	public String UpdateEmployeeById(@PathVariable int id,@PathVariable String name) {
