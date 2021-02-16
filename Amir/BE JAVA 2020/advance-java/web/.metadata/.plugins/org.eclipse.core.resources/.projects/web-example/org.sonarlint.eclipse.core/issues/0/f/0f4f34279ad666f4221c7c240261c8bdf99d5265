@@ -1,25 +1,0 @@
-
-c
-java:S1161":Add the "@Override" annotation above this method signature(÷¤‹úRMAJORZ
-CODE_SMELL
-
-java:S1989"PHandle the following exception that could be thrown by "getWriter": IOException.(“­†·øÿÿÿÿRMINORZVULNERABILITY
-f	java:S106"9Replace this use of System.out or System.err by a logger.(°æ¯›ùÿÿÿÿRMAJORZ
-CODE_SMELL
-c	java:S125"<This block of commented-out lines of code should be removed.(£ªŒ@RMAJORZ
-CODE_SMELL
-d	java:S125 "<This block of commented-out lines of code should be removed.(Â³‡îRMAJORZ
-CODE_SMELL
-h
-java:S1161$":Add the "@Override" annotation above this method signature(ş³‚”ûÿÿÿÿRMAJORZ
-CODE_SMELL
-
-java:S1989&"PHandle the following exception that could be thrown by "getWriter": IOException.(“­†·øÿÿÿÿRMINORZVULNERABILITY
-f	java:S106*"9Replace this use of System.out or System.err by a logger.(é¥óÚüÿÿÿÿRMAJORZ
-CODE_SMELL
-a	java:S106-"9Replace this use of System.out or System.err by a logger.(¢è¾RMAJORZ
-CODE_SMELL
-f	java:S1061"9Replace this use of System.out or System.err by a logger.(Ñä³ùÿÿÿÿRMAJORZ
-CODE_SMELL
-c	java:S1253"<This block of commented-out lines of code should be removed.(£ªŒ@RMAJORZ
-CODE_SMELL

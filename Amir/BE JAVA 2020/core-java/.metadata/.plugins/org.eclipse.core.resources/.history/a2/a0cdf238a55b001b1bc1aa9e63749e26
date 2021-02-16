@@ -1,8 +1,0 @@
-package multithreading;
-
-public class Balance {
-	int bal;
-	public Balance() {
-		bal = 5000;
-	}
-}

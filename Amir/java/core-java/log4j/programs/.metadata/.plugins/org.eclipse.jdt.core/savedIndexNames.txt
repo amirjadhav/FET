@@ -1,5 +1,0 @@
-INDEX VERSION 1.131+D:\BE JAVA 2020\core-java\log4j\programs\.metadata\.plugins\org.eclipse.jdt.core
-1899864363.index
-1384327694.index
-1238650280.index
-3938230075.index
