@@ -1,0 +1,75 @@
+spring core
+--> technology
+--> basic technique for doing programming
+--> java --> java, jsp, servlet, jpa, web services
+--> html , css , javascript --> angular, react, vue, jquery, bootstrap, rwd, sass, etc
+--> python
+--> php
+--> frameworks
+--> spring, hibernate, struts, jsf, etc
+--> spring framework
+--> spring project
+--> spring core
+--> spring mvc
+--> spring data jpa
+--> spring rest
+--> spring security
+--> spring boot --> useful for rapid spring application development
+
+classes
+model(userid, username, password, address, role) --> DTO(userid, username, password, address, role) --> data transfer object, VO(username, password, address) --> view object
+java beans --> mostly related to java application
+entity
+pojo --> plain old java object, don't implement any interface or extends from other class
+beans --> related to spring application
+
+
+spring 3 
+spring 5
+
+IOC container,  spring container
+ioc container --> jvm --> os --> hw
+
+tomcat container/servlet container --> jvm --> os-> hw
+
+
+eager initialization
+lazy initlialization
+
+
+
+employee
+address
+
+
+address --> employee
+
+class A{
+        private B b;
+}
+
+class B {
+     private A a;
+}
+
+combination of empty constructor and setter based injection
+
+
+singleton bean --> only one copy of bean will be present in memory
+prototype bean --> with every request to ioc container will return new copy of bean
+
+
+
+register.jsp --> AuthenticateServlet --> NextServlet
+
+
+lifecycle method of container
+multilingual application
+
+employee --> india
+employee --> USA
+employee
+--> UK
+
+localization (l10n)
+internationalization (i18n)

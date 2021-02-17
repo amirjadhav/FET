@@ -1,0 +1,70 @@
+--> spring mvc
+--> spring web mvc
+--> we can create mvc based web application
+
+to create spring mvc project
+1. using maven and sts (without spring boot)
+2. using spring boot (sts, maven)
+
+using spring boot 
+1. just using sts
+2. using start.spring.io website
+
+
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp
+
+
+front controller
+front controller design pattern
+
+
+input --> / --> index.jsp (get) --> request
+output --> actual index.jsp (responce)
+
+
+ui -->(model/VO) controller -->(DTO/BO) service  -->(DTO/entity) dao --> database
+
+class
+javabeans
+POJO
+beans
+model
+VO
+BO
+entity
+DTO
+
+
+http://example.com/12/xyz	-- > path/url parameter  --> @pathVariable
+http://example.com?id=12&name=xyz --> request/query param --> @RequestParam
+http://example.com;id=12;name=xyz --> matrix param --> @MatrixVariable
+
+request param and matrix param
+
+
+CRUD operations on employee
+add
+delete
+update
+display
+
+microservices based application
+
+
+exception handling
+method level
+controller level
+appliction level
+
+
+questions?
+-->
+
+
+project feedback
+--> not at all satisfied
+--> i have don't doubt on your iq, communication, time(8 person), problem statement
+--> english, decided flow
+--> identify
+

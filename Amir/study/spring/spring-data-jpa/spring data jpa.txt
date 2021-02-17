@@ -1,0 +1,76 @@
+spring data jpa
+web based application
+user --> ui(view, presentation)  --> service(business) --> dao(database , repository) --> db
+
+entity  --> dao  --> will be saved in database
+
+connection
+preparedstatement
+add value in preparedstatement from entity(extract data from entity)
+execute statement
+
+java 
+db
+
+jpa--> java persistence api
+it is way to directly save/retrieve object from database
+object can be directly stored in database(internally it will extract data from object(entity) and prepared sql statement, execute statement and save into database)
+row from table can be directly map to java object(fetch row/rows from database, extract data from resultset, and map to java object)
+
+
+jdbc is specification and implementation given by different vendors(mysql, oracle)
+servlet/jsp is specification and implementation given by different vendors(tomcat, weblogic, websphere, glassfish)
+jpa is just specification(rules) --> hibernate, toplink, eclipselink, openjpa, iBatis
+jpa with hibernate
+we need to use jpa with hibernate inside spring framework
+spring data --> it is useful to save data in database
+
+spring data jpa
+
+
+spring framework --> spring data --> spring data jpa (jpa with hibernate, sql--> mysql)
+
+
+grandparent ---> parent --> child
+
+jpa + hibernate
+
+
+
+first application
+1. create spring boot project 
+2. add dependency (spring boot web, spring data jpa, mysql, devtools)
+
+
+questions?
+--> 
+findByNameLike
+select * from emp where name like 'a%'
+
+
+
+employee(id, name, phone)
+employee(id, name)
+emp_phone(id, phone)
+
+
+
+
+Repository--> CrudRepository--> PagingAndSortingRepository--> JPARepository --> EmployeeRepository --> RegularRepository 
+
+
+Repository--> CrudRepository--> PagingAndSortingRepository--> JPARepository --> EmployeeRepository --> RetiredRepository 
+
+
+joined table
+
+
+
+relationship mapping
+--> one to one
+--> one to many / many to one
+--> many to many
+
+paging
+
+sorting

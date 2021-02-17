@@ -1,0 +1,4 @@
+--> interface injection not documented on official website of spring
+--> mainly constructor and setter based injections are used
+--> we can inject interface dependency in class just like setter based di or constructor based di. example attached in demo section
+--> 
