@@ -33,7 +33,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [ "node_modules/ngx-toastr/toastr.css",
+            "styles": [ 
               "src/styles.scss"
             ],
             "scripts": []
