@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans">
+
+	<context:component-scan
+		base-package="com.cybage" />
+	<mvc:annotation-driven />
+
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!-- simple url handler mapping  -->
+	 <bean
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="order" value="1"></property>
+		<property name="mappings">
+			<value>
+				/welcome.htm=welcomeController
+				/welcome*=welcomeController
+				/hell*=helloWorldController
+				/helloWorld.htm=helloWorldController
+			</value>
+		</property>
+	</bean>	
+	<bean id="helloWorldController"
+		class="com.cybage.HelloWorldController" />
+	<bean id="welcomeController" class="com.cybage.WelcomeController" />
+
+
+
+
+	<!--using props -->
+
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> 
+		<property name="mappings"> <props> <prop key="/welcome.htm">welcomeController</prop> 
+		<prop key="/welcome*">welcomeController</prop> <prop key="/helloworld">helloWorldController</prop> 
+		<prop key="/hello*">helloWorldController</prop> <prop key="/HELLOworld">helloWorldController</prop> 
+		</props> </property> </bean> -->
+
+
+
+	<!-- bean name url mapping -->
+	<bean
+	class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+	<property name="order" value="2"></property>
+	</bean>
+
+	<bean name="/hello.htm" class="com.cybage.HelloWorldController" />
+
+	<bean name="/hello*" class="com.cybage.HelloWorldController" />
+
+	<bean name="/welcome.htm" class="com.cybage.WelcomeController" />
+	
+	
+	
+	
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="emp" class="com.cybage.Example.Employee">
+		<constructor-arg name="empId" value="101" type="int" />
+		<constructor-arg name="name" value="dmjadhav" />
+		<constructor-arg>
+			<list>
+				<ref bean="add" />
+				<ref bean="add1" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="add1" class="com.cybage.Example.Address">
+		<constructor-arg name="street" value="sb road"
+			type="java.lang.String" />
+		<constructor-arg name="city" value="solapur" />
+	</bean>
+	<bean id="add" class="com.cybage.Example.Address">
+		<constructor-arg name="street" value="mg road"
+			type="java.lang.String" />
+		<constructor-arg name="city" value="pune" />
+	</bean>
+</beans>

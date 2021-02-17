@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="startevent" class="com.cybage.Example.StartEventHandler"/>
+	<bean id="stopevent" class="com.cybage.Example.StopEventHandler"/>
+	
+	<bean id="emp" class="com.cybage.Example.Employee">
+		<constructor-arg name="empId" value="10100" />
+		<constructor-arg name="name" value="dmjadhav" />
+	</bean>
+
+</beans>

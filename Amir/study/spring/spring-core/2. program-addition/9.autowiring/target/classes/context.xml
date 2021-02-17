@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--autowire by constructor  -->
+	<!-- 
+	<bean id="emp" class="com.cybage.Example.Employee" autowire="constructor">
+		<constructor-arg name="empId" value="101" type="int" />
+		<constructor-arg name="name" value="dmjadhav" />
+	</bean>
+	<bean id="address" class="com.cybage.Example.Address" >
+		<constructor-arg name="street" value="mg road"
+			type="java.lang.String" />
+		<constructor-arg name="city" value="pune" />
+	</bean>
+	 -->
+	
+	<!-- autowire by name-->
+	<!-- 
+	<bean id="emp" class="com.cybage.Example.Employee" autowire="byName">
+		<property name="empId" value="101" />
+		<property name="name" value="dmjadhav" />
+	</bean>
+	<bean id="address" class="com.cybage.Example.Address" >
+		<property name="street" value="mg road"/>
+		<property name="city" value="pune" />
+	</bean>
+	 -->
+	
+	<!-- autowire by type-->
+	<bean id="emp" class="com.cybage.Example.Employee" autowire="byType">
+		<property name="empId" value="1011" />
+		<property name="name" value="dmjadhav" />
+	</bean>
+	<bean id="address" class="com.cybage.Example.Address" >
+		<property name="street" value="mg road"/>
+		<property name="city" value="pune" />
+	</bean>
+	<bean id="address1" class="com.cybage.Example.Address" >
+		<property name="street" value="mg road"/>
+		<property name="city" value="pune" />
+	</bean>
+	<bean id="address2" class="com.cybage.Example.Address"  primary="true" >
+		<property name="street" value="mg road"/>
+		<property name="city" value="pune" />
+	</bean>	
+	
+</beans>

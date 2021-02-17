@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--  by default object return by spring container are singleton-->
+<bean id="order1" class="spring.two.Order">
+	<constructor-arg name="orderId" value="101"/>
+	<constructor-arg >
+	<list>
+		<ref bean="item1"/>
+		<ref bean="item2"/>
+		<ref bean="item3"/>
+	</list>	
+	</constructor-arg>
+</bean>
+
+<bean name="item1" class="spring.two.Item">
+	<constructor-arg name="id" value="501"/>
+	<constructor-arg name="name" value="item501"/>
+</bean>
+
+<bean name="item2" class="spring.two.Item">
+	<constructor-arg name="id" value="502"/>
+	<constructor-arg name="name" value="item502"/>
+</bean>
+
+<bean name="item3" class="spring.two.Item">
+	<constructor-arg name="id" value="503"/>
+	<constructor-arg name="name" value="item503"/>
+</bean>
+</beans>

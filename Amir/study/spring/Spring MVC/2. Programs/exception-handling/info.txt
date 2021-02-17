@@ -1,0 +1,3 @@
+•	Using XML based configuration by declaring the SimpleMappingExceptionResolver bean in the Spring’s application context file and mapping the exception types with the respective view-names
+•	Using the @ControllerAdvice annotation for annotating any class to define the global exception handler
+•	Using the @ExceptionHandler annotation for annotating the method(s) to handle the exceptions raised by the Spring controller methods

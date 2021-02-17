@@ -1,0 +1,8 @@
+Spring provides a few primary ways to return custom status codes from its Controller classes:
+
+using a ResponseEntity
+using the @ResponseStatus annotation on exception classes, and
+using the @ControllerAdvice and @ExceptionHandler annotations.
+These options are not mutually exclusive; far from it, they can actually complement one another.
+
+This article will cover the first two ways (ResponseEntity and @ResponseStatus). If you would like to learn more about using @ControllerAdvice and @ExceptionHandler, 

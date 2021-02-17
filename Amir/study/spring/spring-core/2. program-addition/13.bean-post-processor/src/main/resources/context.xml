@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="cp" class="com.cybage.Example.CustomProcessor" />
+	<bean id="cp1" class="com.cybage.Example.CustomProcessor1" />
+	
+
+	<bean id="emp" class="com.cybage.Example.Employee" lazy-init="true">
+		<constructor-arg name="empId" value="10100" />
+		<constructor-arg name="name" value="dmjadhav" />
+	</bean>
+
+</beans>
