@@ -1,6 +1,0 @@
-package com.cybage;
-
-public interface EmployeeService {
-	void add();
-	void display();
-}

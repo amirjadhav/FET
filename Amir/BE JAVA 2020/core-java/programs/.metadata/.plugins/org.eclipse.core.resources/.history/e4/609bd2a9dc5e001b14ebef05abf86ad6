@@ -1,8 +1,0 @@
-package com.cybage;
-
-public class ImageUsage {
-
-public void addImage() {
-	
-}
-}

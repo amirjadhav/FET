@@ -1,8 +1,0 @@
-package com.cybage;
-
-import org.junit.runner.RunWith;
-
-@RunWith
-public class TestSuit {
-
-}
