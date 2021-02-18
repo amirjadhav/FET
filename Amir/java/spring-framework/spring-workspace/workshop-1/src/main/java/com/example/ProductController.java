@@ -1,5 +1,6 @@
 package com.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,21 +10,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/products")
 public class ProductController {
 	@Autowired
 	ProductService productService;
-
-	@RequestMapping(path = "/", method = RequestMethod.GET)
-	public String getProducts() {
-		List<Product> product = productService.findAll();
-		for (Product p : product) {
-			System.out.println(p);
-		}
-		return "index";
+	
+	@RequestMapping()
+	public ModelAndView getProducts() {
+	    ModelAndView model = new ModelAndView("/index");
+	    List<Product> product = productService.findAll();
+	    model.addObject("product", product);
+	    return model;
 	}
-
 	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
 	public String getProductById(@PathVariable int id) {
 		Optional<Product> product = productService.findById(id);
@@ -38,7 +39,7 @@ public class ProductController {
 		return "index";
 	}
 
-	@RequestMapping(path = "/", method = RequestMethod.PUT)
+	@RequestMapping(method = RequestMethod.PUT)
 	public String updateProduct(@RequestBody Product product) {
 		Product p = productService.save(product);
 		System.out.println("Product updated : " + p);
