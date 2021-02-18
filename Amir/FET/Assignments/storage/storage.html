@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Storage Assignment</title>
 
-    <link rel="stylesheet" href="storage.css" />
-  </head>
-  <body>
-    <p id="detectfeatures">Status</p>
     <form name="myForm" onsubmit="showData();">
       Enter key: <input type="text" name="key" id="key" /> &nbsp; Enter Value:
       <input type="text" name="value" id="value" />&nbsp;
@@ -28,3 +24,9 @@
     <script src="storage.js"></script>
   </body>
 </html>
+
+<div id="sessionstorage">
+  <h1>Session Storage</h1>
+  <input type="button" value="reset session storage" onclick="resetSession()">
+</div>
+

@@ -1,0 +1,61 @@
+ <!-- execute when cart is empty -->
+ <!-- <section class="cart mt-3">
+    <div class="empty-cart py-16 ">
+        <div class="container mx-auto text-center">
+          <h1 class="font-weight-bold mb-2">Cart Empty</h1>
+          <p class="text-gray-500">You probably haven't ordered yet.
+              <br>
+            To order go to Home Page. </p>
+         <img  class="empty_cart_img mx-auto" src="/images/empty_cart.jpg" alt="images"><br>
+        
+          <button  class="btn_go_back px-5 py-2 rounded-full font-weight-bold ">
+            Go Back
+          </button>
+        </div>
+     </div>
+</section>  -->
+
+<!-- execute if cart is not empty -->
+<div class="order container mx-auto mt-4"  *ngIf='cartItems && cartItems.length'>
+    <p class="order_summary  mb-5"> Order Summary</p>
+    <div class="align-items-center d-flex border-bottom border-secondary">
+     
+     
+        <span class=" flex-grow-1"> </span>
+        <span class=" flex-grow-1"> Item Name</span>
+            <span class=" flex-grow-1 ml-2" > Quantity</span>
+            <span class="font-weight-bold flex-grow-1 "> Price</span>
+  
+            <span class="font-weight-bold flex-grow-1 "> </span>
+
+      
+    
+    </div>
+
+  
+    <div  class="order-list card mt-4" *ngFor="let item of cartItems; let i = index" [attr.data-index]="i">
+   
+        <div class="d-flex  my-3 " >
+            <img [src]='item.menu.itemname' alt="images" >
+            <div class="ml-4 flex-grow-1 mx-3">
+                <p>{{item.menu.itemname}}
+                    
+                </p>
+              
+            </div>
+            <span class=" flex-grow-1"> {{item.quantity}}</span>
+            <span class="font-weight-bold "> {{item.menu.price}}</span>
+
+            <button type="button" class="btn btn-danger delete_btn" (click)="deleteItem(item.srno)">Delete</button>
+             </div>
+</div>
+ <hr>
+ <div class="text-end">
+     <span class="font-weight-bold ">Total Amount:</span>
+     <span class="amount font-weight-bold ml-1 mx-2">{{sum}}</span>
+ </div>
+
+ <div>
+
+ </div>
+</div>
