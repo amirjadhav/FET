@@ -8,10 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -39,7 +38,7 @@ public class ProductController {
 	public ModelAndView addProduct(Model model) {
 		ModelAndView mv = new ModelAndView("add-product");
 		Product product = new Product();
-		mv.addObject("product",product);
+		mv.addObject("product", product);
 		return mv;
 	}
 
@@ -50,13 +49,13 @@ public class ProductController {
 		return "redirect:/products";
 	}
 
-	@RequestMapping(path = "/edit/{id}",method = RequestMethod.GET)
+	@RequestMapping(path = "/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView updateProduct(@PathVariable int id) {
 		System.out.println("inside edit product");
 		ModelAndView mv = new ModelAndView("edit-product");
-		 Product product = productService.findById(id).get();
-		 System.out.println("optonal "+ product);
-		mv.addObject("product",product);
+		Product product = productService.findById(id).get();
+		System.out.println("optonal " + product);
+		mv.addObject("product", product);
 		return mv;
 	}
 

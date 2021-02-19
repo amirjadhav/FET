@@ -37,29 +37,39 @@ public class UserController {
 	public List<User> getUsers() {
 		return users;
 	}
+
 	@ResponseStatus(code = HttpStatus.FOUND)
 	@RequestMapping("/{id}")
-	public User getUsers(@PathVariable int id) {
+	public User getUsers(@PathVariable int id) throws UserException {
 
 		Optional<User> usr = users.stream().filter(u -> u.getId() == id).findFirst();
+		if (!usr.isPresent()) {
+			throw new UserException("User not found");
+		}
 		return usr.get();
 
 	}
+
 	@PostMapping()
 	public ResponseEntity<String> postUser(@RequestBody User user) {
 		users.add(user);
 		return ResponseEntity.status(HttpStatus.CREATED).body("User added");
 	}
+
 	@DeleteMapping("/{id}")
-	public String deleteUsers(@PathVariable int id) {
-		users.removeIf(u->u.getId() == id);  //java 8 feature
-		return "user deleted";
+	public ResponseEntity<String> deleteUsers(@PathVariable int id) throws UserException {
+		boolean isDeleted = users.removeIf(u -> u.getId() == id); // java 8 feature
+		if (!isDeleted) {
+			throw new UserException("User not delelted..");
+		}
+		return ResponseEntity.status(HttpStatus.OK).body("Deleted record");
 	}
+
 	@PutMapping("/{id}")
-	public String updateUser(@RequestBody User user,@PathVariable int id ) {
-		users.removeIf(u->u.getId() == id);
+	public String updateUser(@RequestBody User user, @PathVariable int id) {
+		users.removeIf(u -> u.getId() == id);
 		users.add(user);
 		return "User updated";
-		
+
 	}
 }
