@@ -1,47 +1,17 @@
-<div class="container">
-    <div class="row row-cols-3">
-        <div class="col">
-            <div class="card restaurant-card" style="padding: 0;">
-                <img src="https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/05/Checking-out-some-of-Indias-most-incredible-restaurants-Image-2.jpg" class="card-img-top" alt="...">
+<app-toprestaurants></app-toprestaurants>
+<div class="container" *ngIf="restaurant_list && restaurant_list.length">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div class="col" *ngFor="let restaurant of restaurant_list">
+            <div class="card restaurant-card shadow" [ngClass]="[time | time: restaurant.starttime: restaurant.endtime: 'disable']" [routerLink]="['/restaurant/', restaurant.name.split(' ').join('-')]">
+                <img [src]="restaurant.image" class="card-img-top image" alt="Restaurant Image">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card restaurant-card" style="padding: 0;">
-                <img src="https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/05/Checking-out-some-of-Indias-most-incredible-restaurants-Image-2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card restaurant-card" style="padding: 0;">
-                <img src="https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/05/Checking-out-some-of-Indias-most-incredible-restaurants-Image-2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card restaurant-card" style="padding: 0;">
-                <img src="https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/05/Checking-out-some-of-Indias-most-incredible-restaurants-Image-2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card restaurant-card" style="padding: 0;">
-                <img src="https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/05/Checking-out-some-of-Indias-most-incredible-restaurants-Image-2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="card-title">
+                        <h3 class="mb-1">{{restaurant.name}}</h3>
+                        <app-rating [size]=1.8 [selected]=restaurant.rating ></app-rating>
+                        <span style="font-size: 1.1rem;"> {{restaurant.rating}}</span>
+                    </div>
+                    <p class="card-text">{{restaurant.perperson | currency:'INR': 'symbol': '1.0-0'}} per person</p>
+                    <div [innerHTML]="time | time: restaurant.starttime: restaurant.endtime: 'message'"></div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="mat-elevation-z10 p-3 mb-2 bg-dark text-white" >
+    <span>{{appname}}</span>
+
+    <div class="spacer"></div>
+
+      <span><a mat-button class="icart" routerLink='/cart'><mat-icon matBadge="15" matBadgeColor="warn"> local_grocery_store</mat-icon></a></span>
+      <button mat-button [matMenuTriggerFor]="belowMenu" class="btnLogin me-2" routerLink="#">Login</button>
+        <mat-menu #belowMenu="matMenu" yPosition="below">
+            
+              <button mat-menu-item routerLink routerLink='/addUser'><mat-icon>person_pin</mat-icon><span>User</span></button>
+              <button mat-menu-item><mat-icon> person_pin_circle</mat-icon><span>Delivery</span></button>
+        </mat-menu>
+
+        <button mat-button [matMenuTriggerFor]="belowMenu" class="btnSignup">Signup</button>
+        <mat-menu #belowMenu="matMenu" yPosition="below" >
+            <button mat-menu-item><mat-icon>person_pin</mat-icon><span>User</span></button>
+            <button mat-menu-item><mat-icon> person_pin_circle</mat-icon><span>Delivery</span></button>
+        </mat-menu>
+</mat-toolbar>

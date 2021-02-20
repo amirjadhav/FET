@@ -6,15 +6,6 @@ module.exports = function(app, Orderitems) {
         // item["status"]="Cart";
 
         res.send(JSON.stringify(await Orderitems.create(item), null, 2)); 
-        
-            // if (obj) {
-            //     // If user already exist, give error
-            //     res.end("address already exist");
-            // } else {
-            //     // If user doesn't exist, create a new user
-            //     res.end(JSON.stringify(await Address.create(address), null, 2));
-            // }
-        
     });
 
     app.delete('/orderitems/:id', async (req, res) => {
@@ -24,7 +15,23 @@ module.exports = function(app, Orderitems) {
                 // status: "Cart"
             }
         }).then(()=>{
-            res.end("deleted")
+            res.end(JSON.stringify({"deleted": "yes"}))
         });
     });
+
+
+   // update quantity
+   app.patch('/orderitems/:id', async (req, res) => {
+    var values = {quantity:req.body.quantity };
+    var condition = { where: { 
+                     srno: req.params.id
+                } }; 
+    options = { multi: true };
+    
+    await Orderitems.update(values, condition , options)
+    .then(()=> {
+        res.end(JSON.stringify({"updated": "yes"}))
+    }) 
+});
+
 }

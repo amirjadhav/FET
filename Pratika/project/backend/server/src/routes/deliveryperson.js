@@ -27,7 +27,7 @@ module.exports = function(app,DeliveryPerson) {
     app.post('/deliveryPerson', async (req, res) => {
         var deliveryPerson = req.body;
         await DeliveryPerson.findOne({
-            attributes: ['did', 'name', 'contact', 'vehicleno', 'address','email','rating'],
+            attributes: ['did', 'name', 'contact', 'vehicleno', 'address','password','email','rating'],
             where: {email: deliveryPerson.email}
         }).then(async (obj) => {
             if (obj) {

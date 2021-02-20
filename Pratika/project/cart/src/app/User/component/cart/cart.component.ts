@@ -1,55 +1,117 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { CartService } from '../../utility/services/cart.service';
-
+import { NgxSpinnerService } from 'ngx-spinner';
+import { CartService } from 'src/app/utility/services/cart/cart.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  cartItems: any;
+  cartItems: any[] = [];
   length: number = 0;
-  sum: number = 0;
+  item_total: number[] = [];
+  subtotal: number = 0;
+  tax: number = 0;
+  total: number = 0;
+  public loading: boolean = false;
+  showLoader: boolean = false;
+  uid: number = 1002;
+  orderid:number=0;
 
   keys(): Array<string> {
     return Object.keys(this.cartItems);
   }
 
-  deleteItem(id:any){
+  //delete item in cart
+  deleteItem(id: any) {
+    alert("hello" + id)
+    this._cartser.getDeleteItems(id).subscribe();
+    location.reload();
+  }
 
-    this._cartser.getDeleteItems(id).subscribe(data => {
-      
-   });
+  //spinner after place order and change status of order
+  orderProcessing() {
+    this.showLoader = true;
+    this.ngxShowLoader.show();
+    setTimeout(() => {
+      this.showLoader = false;
+      this.ngxShowLoader.hide();
+      location.reload();
+    },5000);
+      console.log("orderid"+this.orderid)
+     this._cartser.updateStatus(this.orderid,"Ordered").subscribe();
+     
+  }
 
+  //Change in quantity
+  changeQuantity(srno: number, quantity: number) {
+    console.log("quantity" + quantity)
+    console.log("srno" + srno)
 
+    if (quantity === 0) {
+      this.deleteItem(srno);
+    }
+    this._cartser.updateQuantity(srno, quantity).subscribe(() => {
+     this.subtotal = 0;
+      this.tax = 0;
+      this.total = 0;
+      this.item_total = [];
+      this.getItems();
+    });
+    
+  }
 
-    alert("DELTED")
+  //update status
+  updateStatus(){
+   
   }
 
 
-  constructor(private _cartser: CartService) { }
+  //calculate total and subtotal 
+  calcTotal() 
+  {
+    console.log("calctotal")
+    //find sub total price
+    for (let item of this.cartItems) {
+      this.item_total.push(item.menu.price * item.quantity)
+      this.subtotal += item.menu.price * item.quantity
+      console.log("total" + this.item_total)
 
-  ngOnInit(): void {
+    }
+    //add tax and calculate total price 
+    this.tax = (this.subtotal * 5) / 100;
+    this.total += this.subtotal + this.tax + 150;
+
+  }
+
+  //get data from database
+  getItems() {
 
     this._cartser.getCartItems().subscribe(data => {
+      console.log("get items called")
 
       for (let item of data) {
-        this.cartItems = item.items;
+       
+        if (item.uid ===this.uid) {
+          this.orderid=item.oid
+          this.cartItems = item.items;
+        }
       }
-       //find total price
-      for (let item of this.cartItems) {
-        console.log(JSON.stringify(item.menu));
-        this.sum = item.menu.price + this.sum;
-      }
-
-      console.log("total" + this.sum)
+      this.calcTotal()
 
     });
-
   }
 
 
-  
+
+
+  constructor(private _cartser: CartService, private ngxShowLoader: NgxSpinnerService) { }
+
+  ngOnInit(): void {
+    this.getItems()
+  }
+
+
+
 
 }

@@ -1,23 +1,361 @@
+
+// .btn_go_back{
+//     border: 1px solid rgb(226, 107, 60);
+//     margin-top:20px!important;
+//     border-radius:30%;
+//     width: 20%;
+// }
+// .order_summary{
+//     font-size:large;
+//     font-weight:500;
+//     margin-left: 30%;
+   
+// }
+// .order{
+//     width: 50%;
+// }
+// .delete_btn{
+//     margin-left:25px;
+// }
+
+
+// empty cart
 .empty_cart_img{
-    height:10%;
-    width:50%;
-   
+  height:40%;
+  width:60%;
+ 
 }
-.btn_go_back{
-    border: 1px solid rgb(226, 107, 60);
-    margin-top:20px!important;
-    border-radius:30%;
-    width: 20%;
+
+/* Global settings */
+$color-border: #eee;
+$color-label: rgb(110, 110, 110);
+$font-default: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
+
+
+/* Global "table" column settings */
+.product-image { float: left; width: 20%; }
+.product-details { float: left; width: 37%; }
+.product-price { float: left; width: 12%; }
+.product-quantity { float: left; width: 10%; }
+.product-removal { float: left; width: 9%; }
+.product-line-price { float: left; width: 12%; text-align: right; }
+
+
+/* This is used as the traditional .clearfix class */
+.group:before,
+.group:after {
+    content: '';
+    display: table;
+} 
+.group:after {
+    clear: both;
 }
-.order_summary{
-    font-size:large;
-    font-weight:500;
-    margin-left: 30%;
-   
+.group {
+    zoom: 1;
 }
-.order{
-    width: 50%;
+
+
+/* Apply clearfix in a few places */
+.shopping-cart, .column-labels, .product, .totals-item {
+  @extend .group;
 }
-.delete_btn{
-    margin-left:25px;
+
+
+
+
+/* Body/Header stuff */
+body {
+  padding: 0px 30px 30px 20px;
+  font-family: $font-default;
+  font-weight: 100;
+}
+
+
+
+label {
+  color: $color-label;
+}
+
+
+.cart_container{
+    margin-top:5px;
+    margin-left:10%;
+    margin-right:10%;
+}
+
+/* Column headers */
+.column-labels {
+  label {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid $color-border;
+  }
+  
+  .product-image, .product-details, .product-removal {
+    text-indent: -9999px;
+  }
+}
+
+
+/* Product entries */
+.product {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $color-border;
+  
+  .product-image {
+    text-align: center;
+    img {
+      width: 100px;
+    }
+  }
+  
+  .product-details {
+    .product-title {
+      margin-right: 20px;
+      font-family: $font-bold;
+    }
+    .product-description {
+      margin: 5px 20px 5px 0;
+      line-height: 1.4em;
+    }
+  }
+  
+  .product-quantity {
+    input {
+      width: 40px;
+      
+    }
+  }
+  
+  .remove-product {
+    border: 0;
+    padding: 4px 8px;  
+    
+    color: #fff;
+    font-family: $font-bold;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+  
+  .remove-product:hover {
+    background-color: rgb(117, 32, 32);
+  }
+}
+
+
+/* Totals section */
+.totals {
+  .totals-item {
+    float: right;
+    clear: both;
+    width: 100%;
+    margin-bottom: 10px;
+    
+    label {
+      float: left;
+      clear: both;
+      width: 79%;
+      text-align: right;
+    }
+    
+    .totals-value {
+      float: right;
+      width: 21%;
+      text-align: right;
+    }
+  }
+  
+  .totals-item-total {
+    font-family: $font-bold;
+  }
+  .grand-total{
+    font-size:20px;
+  }
+}
+
+.placeOrder {
+  margin-left: 40%;
+   width:20%;
+  border: 0;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #6b6;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 3px;
+}
+
+.placeOrder:hover {
+  background-color: #494;
+}
+
+/* Make adjustments for tablet (min-width:501px) and */
+@media  (min-width:501px) and (max-width: 900px) {
+  
+  .shopping-cart {
+    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid $color-border;
+  }
+  
+  .column-labels {
+    display: none;
+  }
+  .placeOrder {
+    margin-left:20%;
+    width:300px;
+    padding: 15px 10px;
+  }
+  .product-image {
+    float: right;
+    width: auto;
+    img {
+      margin: 0 0 10px 10px;
+    }
+  }
+  
+  .product-details {
+    float: none;
+    margin-bottom: 10px;
+    width: auto;
+  }
+  
+  .product-price {
+    clear: both;
+    width: 70px;
+  }
+  
+  .product-quantity {
+    width: 100px;
+    input {
+      margin-left: 20px;
+    }
+  }
+  
+  .product-quantity:before {
+    content: 'x';
+  }
+  
+  .product-removal {
+    width: auto;
+  }
+  
+  .product-line-price {
+    float: right;
+    width: 70px;
+  }
+  
+}
+
+
+// /* Make more adjustments for phone */
+@media   (max-width: 500px) {
+  
+  .shopping-cart {
+    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid $color-border;
+  }
+  
+  .column-labels {
+    display: none;
+  }
+  .placeOrder {
+    margin-left:15%;
+    width:200px;
+    padding: 10px 10px;
+  }
+  .product-image {
+    float: right;
+    width: auto;
+    img {
+      margin: 0 0 10px 10px;
+    }
+  }
+  
+  .product-details {
+    float: none;
+    margin-bottom: 10px;
+    width: auto;
+  }
+  
+  .product-price {
+    clear: both;
+    width: 70px;
+  }
+  
+  .product-quantity {
+    width: 100px;
+    input {
+      margin-left: 20px;
+    }
+  }
+  
+  .product-quantity:before {
+    content: 'x';
+  }
+  
+  .product-removal {
+    width: auto;
+  }
+  
+  .product-line-price {
+    float: right;
+    width: 70px;
+  }
+  
+}
+
+
+//quantity
+
+/* confirmation modal for order*/
+.modal-confirm {		
+  margin: 50px auto;
+}
+
+.modal-confirm .modal-content {
+padding: 20px;
+border-radius: 5px;
+border: none;
+text-align: center;
+}
+
+.modal-confirm .modal-header {
+border-bottom: none;   
+position: relative;
+}
+
+.modal-confirm h4 {
+text-align: center;
+font-size: 26px;
+margin: 30px 0 -10px;
+}
+
+.modal-confirm .close {
+position: absolute;
+top: 5px;
+right: 2px;
+}
+
+.modal-confirm .modal-footer {
+border: none;
+text-align: center;		
+border-radius: 5px;
+font-size: 13px;
+padding: 10px 15px 25px;
+}
+
+.modal-confirm .btn, .modal-confirm .btn:active {
+color: #fff;
+text-decoration: none;
+transition: all 0.4s;
+line-height: normal;
+min-width: 120px;
+border: none;
+min-height: 40px;
+border-radius: 3px;
+margin: 0 5px;
 }
