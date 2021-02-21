@@ -37,6 +37,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FormsModule} from '@angular/forms';
 import { TimePipe } from './utility/pipes/time/time.pipe';
 import { QuantityScrollComponent } from './User/component/quantity-scroll/quantity-scroll.component';
+
 // import {MatBadgeModule} from '@angular/material/badge';
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { QuantityScrollComponent } from './User/component/quantity-scroll/quanti
     MenuListComponent,
     TimePipe,
     QuantityScrollComponent
+  
     // MatBadgeModule
   ],
   imports: [
