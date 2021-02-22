@@ -1,0 +1,5 @@
+<div *ngFor="let item of itemList">
+    <app-quantity-scroll [quantity]='item.quantity' (value)="getQuantity(item.id, $event)"></app-quantity-scroll>
+</div>
+{{itemList[0].quantity}}
+{{itemList[1].quantity}}

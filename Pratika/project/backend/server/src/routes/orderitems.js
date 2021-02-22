@@ -11,13 +11,26 @@ module.exports = function(app, Orderitems) {
     app.delete('/orderitems/:id', async (req, res) => {
         await Orderitems.destroy({
             where: {
-                srno: req.params.id,
+                srno: req.params.id
                 // status: "Cart"
             }
         }).then(()=>{
             res.end(JSON.stringify({"deleted": "yes"}))
         });
     });
+
+
+    app.delete('/orderitems/all/:id', async (req, res) => {
+        
+        await Orderitems.destroy({
+            where: {
+                oid:req.params.id
+            }
+        }).then(()=>{
+            res.end(JSON.stringify({"deleted": "yes"}))
+        });
+    });
+
 
 
    // update quantity

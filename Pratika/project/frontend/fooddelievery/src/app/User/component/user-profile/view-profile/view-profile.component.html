@@ -1,0 +1,43 @@
+    <div class="card mb-3">
+        <div class="card-body">
+        <div class="row">
+            <div class="col-sm-3">
+            <h3 class="mb-0">Full Name</h3>
+            </div>
+            <div class="col-sm-9 text-secondary">
+            {{userprofile.username}}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">  
+            <h3 class="mb-0">Email</h3>
+            </div>
+            <div class="col-sm-9 text-secondary">
+            {{userprofile.email}}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+            <h3 class="mb-0">Phone</h3>
+            </div>
+            <div class="col-sm-9 text-secondary">
+            {{userprofile.phone}}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+            <h3 class="mb-0">Address</h3>
+            </div>
+            <div class="col-sm-9 text-secondary" *ngFor='let addresslist of userprofile.address'>
+            {{addresslist.type}} : 
+            <br>      
+            <p>
+            {{addresslist.address}}
+            </p>
+            </div>
+        </div>
+        </div>
+    </div>
