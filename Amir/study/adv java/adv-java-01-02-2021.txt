@@ -1,0 +1,244 @@
+adv java
+--> servlet
+--> jsp
+
+
+software requirement
+--> jdk
+--> editor --> eclipse
+--> server --> tomcat
+--> database --> mysql 
+
+
+webapp
+--> WEB-INF
+--> WEB-INF/web.xml
+
+
+servlet  --> it is java class capable to listen incoming request and send responce
+jsp --> it is combination html + java code
+
+
+servlet
+
+context path : http://localhost:8091/web-example
+
+
+when we start application
+it will start tomcat
+deploy your application in tomcat
+tomcat will load all necessary classes
+it will create object for all necessary classes(servlet)
+tomcat will run existing jvm
+jvm on os
+os on hardware --> circuit --> electricity --> signal (0 , 1)
+
+ 
+
+session handling
+--> session is nothing but interval of time (between login and logout)
+--> why session ?
+--> http
+--> http is stateless protocol
+--> stateless --> there is no relation between prev and next request
+--> 
+
+protected page
+page1 (http)--> ask for username , password --> you entered username password --> will get access for page1
+page2 (http)--> 
+page3(http) --> 
+page4(http) --> 
+page5(http) --> 
+page6(http)--> 
+
+session tracking techniques
+1. httpsession (cookies)
+2. cookies
+3. url rewriting
+4. hidden form 
+
+
+
+filters
+--> 
+
+person(ui/presentation/view) --> ola (service) --> car(dao)
+
+user --> ui (mobile app, web app) -->(filter) controller (servlet) (filter)  --> service --> dao
+logging --> record incoming request info
+authentication -->
+
+
+questions?
+--> 
+
+ui --> format
+
+back end validation --> unique
+
+
+jsp
+--> java server pages
+--> it will contain html + java
+--> java code inside jsp will be converted into servlet
+--> servlet --> html + java 
+--> for ui --> jsp
+--> for controller --> servlet
+--> jsp  will be converted into servlet
+--> jsp compiled and converted into class file
+--> when we start container --> all the necessary classes will be loaded
+--> object will be created by server(tomcat) with the help of jvm
+--> initialization
+--> request processing
+
+package
+javax.servlet.jsp
+javax.servlet.jsp.tagext
+
+interface
+JspPage
+HttpJspPage
+
+classes
+JspWriter
+PageContext
+JspFactory
+JspEngineInfo
+JspException
+JspError
+
+jsp scriptlet tag --> scripting element
+scriptlet tag --> any java code
+expression --> only for printing value of variables
+declaration tag
+
+
+servlet lifecycle
+--> init
+--> service
+--> destroy
+
+servlet
+when we start container
+--> create servlet class
+--> class will be loaded in container(server/tomcat)
+--> object will be created (constructor)
+
+when we make first request
+init method --> only for one time
+service (doget, dopost, doput, dodelete)
+
+when we make second and further request
+service (doget, dopost, doput, dodelete)
+
+
+when we shut down or restart server
+destroy --> no called for every request, only when we restart container
+
+
+jspInit()
+_jspService()
+jspDestroy()
+
+out --> JspWriter
+request--> HttpServletRequest
+responce --> HttpServletResponce
+config --> ServletConfig
+application --> ServletContext
+session --> HttpSession
+exception --> Throwable
+pageContext --> PageContext
+page --> Object
+
+
+users --> ui 
+developers --> console
+
+
+jsp directives
+--> way to send information to container 
+--> page directive
+--> include directive
+--> taglib directive
+
+
+page directive
+<%@ page   attributes="value" %>
+
+include directive
+--> it is about include different resource during compilation
+--> resource s--> jsp, html ,etc
+--> resuability
+
+
+
+header
+main
+footer
+
+
+taglib
+--> it useful to add tag library in application
+--> library could be given by jsp or third party library
+--> jstl --> jsp tag library
+--> custom tag
+
+
+jsp action tags
+--> it is useful to control flow of application
+--> generally used during runtime
+--> jsp:forward
+--> jsp: include
+--> jsp:useBean
+--> jsp:setProperty
+--> jsp:getProperty
+
+
+expression language 
+${}
+<%@ page isELIgnored="false" %>
+
+jstl 
+--> jsp tag library
+--> more tags are provided to deal with jsp 
+--> useful to combine code from java to html 
+--> core, function, formatting, xml, sql
+
+
+case study
+--> user management
+--> create
+--> display
+--> delete
+--> update
+
+mvc architecture
+model --> pure java classes
+view --> html, jsp
+controller --> servlet
+user make request --> view --> servlet --> application/business (service)  layer --> dao layer --> db
+
+
+layered architecture
+presentation  layer (ui, view)--> application layer (business / service)--> database layer(dao/persistence) --> db
+
+
+classes
+--> user (model)
+
+servlet
+--> UserServlet
+
+jsp
+--> add user, display, update, delete
+
+service
+--> UserService, UserServiceImpl
+
+dao
+--> UserDao, UserDaoImpl
+
+dbutil
+--> getting connection through databsource, configuration through property file
+
+
