@@ -5,7 +5,7 @@ module.exports = function(app, Orders, Orderitems, Menu) {
             include: [{
                 model: Orderitems,
                 as: "items",
-                attributes: ["mid","quantity", "price"],
+                attributes: ["mid","quantity"],
                 include:[{
                     model: Menu,
                     as: "menu",
@@ -23,10 +23,11 @@ module.exports = function(app, Orders, Orderitems, Menu) {
     //find all orders if status is cart
     app.get('/cart', async (req, res) => {
         res.end(JSON.stringify(await Orders.findAll({
+            attributes: ["uid","oid"],
             include: [{
                 model: Orderitems,
                 as: "items",
-                attributes: ["mid","quantity", "price"],
+                attributes: ["mid","quantity","srno"],
                 include:[{
                     model: Menu,
                     as: "menu",
@@ -40,7 +41,7 @@ module.exports = function(app, Orders, Orderitems, Menu) {
     //find all orders acc to userID
     app.get('/orders/:id', async (req, res) => {
         var condition = {};
-        condition["oid"] = req.params.id;
+        condition["uid"] = req.params.id;
         condition["status"] = {
             [db.Sequelize.Op.not]: 'Cart'
         }
@@ -86,15 +87,22 @@ module.exports = function(app, Orders, Orderitems, Menu) {
         })
     });
 
-    // app.delete('/orders/:id', async (req, res) => {
-    //     await Orders.destroy({
-    //         where: {
-    //             oid: req.params.id,
-    //             status: "Cart"
-    //         }
-    //       }).then(()=>{
-    //            res.end("deleted")
-    //       });
-    // });
+
+   // update Status
+   app.patch('/orders/:id', async (req, res) => {
+    var values = {status:req.body.status};
+    var condition = { where: { 
+                     oid: req.params.id
+                } }; 
+    options = { multi: true };
+    
+    await Orders.update(values, condition , options) .then( ()=>{
+ 
+      
+    });
+
+   
+});
+
 }
 

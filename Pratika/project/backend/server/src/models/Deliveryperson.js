@@ -11,7 +11,6 @@ const DeliveryPersons =sequelize.define("deliveryPerson",
     contact:Sequelize.BIGINT,
     vehicleno:Sequelize.STRING,
     address:Sequelize.STRING,
-    username:Sequelize.STRING,
     password:Sequelize.STRING,
     email:Sequelize.STRING,
     rating:Sequelize.FLOAT  

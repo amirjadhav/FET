@@ -36,6 +36,12 @@ module.exports = (sequelize, Sequelize) => {
         },
         rating:{
             type: Sequelize.FLOAT
+        },
+        image:{
+            type: Sequelize.STRING(255)
+        },
+        perperson:{
+            type: Sequelize.INTEGER
         }
     });
 
