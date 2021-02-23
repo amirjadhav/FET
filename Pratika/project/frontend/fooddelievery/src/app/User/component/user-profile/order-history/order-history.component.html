@@ -1,0 +1,40 @@
+<h2>search order</h2>
+
+<div *ngFor="let order of userOrder">
+<div class="card mt-2">
+    <div class="card-body">
+     <div class=" d-flex justify-content-between align-items-center m-0">
+       <h4>Restaurant Name</h4>
+       <div *ngIf="order.status!=='Delivered'">
+        <button mat-button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="/">
+         <mat-icon>access_time</mat-icon>
+          Track Order   
+        </button>
+       </div>
+       <div *ngIf="order.status==='Delivered'">
+        <button mat-button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="/">
+            <mat-icon>description</mat-icon>
+            View Order
+        </button>
+  </div>
+    </div>  
+    <h5 class=" d-flex justify-content-between mb-3">
+      <h4 > {{order.price| currency:'INR'}}</h4>
+      <h4 > Status</h4>
+    </h5>
+      <hr>
+       <div *ngFor="let orderItem of order.items">
+        <h4> {{orderItem.menu.itemname}} x {{orderItem.quantity}}</h4>
+    </div>
+      <h4 class="text text-muted">{{order.orderdate}}</h4>
+    
+       <div class="card-footer ">
+        <h5 class=" d-flex justify-content-between mx-1 align-items-center">
+       .
+      
+        </h5>
+    </div>
+   </div>
+  </div>
+</div>  
+

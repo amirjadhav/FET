@@ -38,8 +38,30 @@ module.exports = function(app, Orders, Orderitems, Menu) {
         }), null, 2));
     });
 
-    //find all orders acc to userID
+    //find all orders acc to orderID
     app.get('/orders/:id', async (req, res) => {
+        var condition = {};
+        condition["uid"] = req.params.id;
+        condition["status"] = {
+            [db.Sequelize.Op.not]: 'Cart'
+        }
+        res.end(JSON.stringify(await Orders.findAll({
+            include: [{
+                model: Orderitems,
+                as: "items",
+                attributes: ["mid", "quantity"],
+                include:[{
+                    model: Menu,
+                    as: "menu",
+                    attributes: ["itemname", "price", "image"]
+                }]
+            }],
+            where: condition
+        }), null, 2));
+    });
+
+    //find all the orders acc to userID
+    app.get('/orders/uid/:id', async (req, res) => {
         var condition = {};
         condition["uid"] = req.params.id;
         condition["status"] = {
@@ -68,14 +90,6 @@ module.exports = function(app, Orders, Orderitems, Menu) {
  
         res.send(JSON.stringify(await Orders.create(order), null, 2)); 
         
-            // if (obj) {
-            //     // If user already exist, give error
-            //     res.end("address already exist");
-            // } else {
-            //     // If user doesn't exist, create a new user
-            //     res.end(JSON.stringify(await Address.create(address), null, 2));
-            // }
-        
     });
 
     //update order
@@ -88,9 +102,9 @@ module.exports = function(app, Orders, Orderitems, Menu) {
     });
 
 
-   // update Status
+   // update Order fields
    app.patch('/orders/:id', async (req, res) => {
-    var values = {status:req.body.status};
+    var values = req.body;
     var condition = { where: { 
                      oid: req.params.id
                 } }; 
@@ -98,7 +112,7 @@ module.exports = function(app, Orders, Orderitems, Menu) {
     
     await Orders.update(values, condition , options) .then( ()=>{
  
-      
+        res.end(JSON.stringify({"updated": "yes"}))
     });
 
    

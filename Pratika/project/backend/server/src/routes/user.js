@@ -52,4 +52,15 @@ module.exports = function(app, User, Address) {
             }
         })
     });
+
+    app.put('/user/:id', async (req, res)=> 
+    {
+       var user = req.body;
+        console.log(user)
+        
+            res.end(JSON.stringify(await User.update(user, {where: {userid: req.params.id}})
+               
+            ,null ,2));
+    });
 }
+
