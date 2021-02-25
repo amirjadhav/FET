@@ -16,7 +16,7 @@
 </head>
 <body>
 	<p class="h1">Product Management System</p>
-	<td><a href="<%=request.getContextPath()%>/products/add" class="btn btn-primary">Add</a></td>
+	<td><a href="<%=request.getContextPath()%>/products/add" class="btn btn-primary add-btn">Add</a></td>
 	<table class="table">
 		<thead>
 			<tr>

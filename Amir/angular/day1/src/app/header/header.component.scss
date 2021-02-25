@@ -1,0 +1,14 @@
+header {
+    display: flex;
+    background-color: lightblue;
+  }
+  nav {
+    flex: 80%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  nav a {
+    padding: 15px 20px;
+    cursor: pointer;
+    text-decoration: none;
+  }

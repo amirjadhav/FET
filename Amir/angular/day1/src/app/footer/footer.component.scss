@@ -1,0 +1,15 @@
+footer {
+  display: flex;
+  background-color: aqua;
+}
+div {
+  flex: 33.33%;
+  text-align: center;
+}
+ul {
+  list-style-type: none;
+}
+ul li:first-child {
+  font-weight: bold;
+  border-bottom: 1px solid grey;
+}
