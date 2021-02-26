@@ -1,0 +1,48 @@
+<h4 [ngClass]="'first'">Directives</h4>
+<h4 [ngStyle]="{ color: 'green', backgroundColor: 'red' }">this is ngstyle</h4>
+<hr />
+
+<button (click)="showhide()">show /hide hobbies</button>
+
+<!-- Display:none -->
+<!-- Display:block -->
+<!-- Display:inline -->
+<ul *ngIf="isvisible">
+  <li *ngFor="let h of hobby">{{ h }}</li>
+</ul>
+
+<!-- <h4>Pipe</h4>
+<p>date: {{ dob }}</p>
+<p>short date: {{ dob | date: "short" }}</p>
+<p>short date: {{ dob | date: "medium" }}</p>
+<p>custom date: {{ dob | date: "dd / MMM / yyyy" }}</p>
+
+<p>Remark : {{ remark | uppercase }}</p>
+<p>Remark : {{ remark | lowercase }}</p>
+<p>slice : {{ remark | slice: 10:20 }}</p>
+
+<p>currency : {{ 23455 | currency: "INR" }}</p>
+<p>currency : {{ 23455 | currency: "USD" }}</p>
+
+<p>Square : {{ 25 | mysquare }}</p>
+<p>USD price : {{ 75 | curconverter | currency: "USD" }}</p>
+<h1>Home</h1>
+<h3>Name: {{ name }} <br /></h3>
+<h3>Address : {{ address }} <br /></h3>
+<h3>dob :{{ dob }}</h3>
+<h3>Property binding</h3>
+<h3 [innerHTML]="name"></h3>
+<h3 [innerHTML]="address"></h3>
+<h3 [innerHTML]="dob"></h3>
+
+<input type="text" [value]="name" />
+
+<hr />
+
+<button (click)="fun1()">Send data to ts</button> <br />
+<button (mouseover)="fun1()">over</button> <br />
+<button (dblclick)="fun1()">double click</button> <br />
+
+<h1>Two way data binding</h1>
+<input type="text" [(ngModel)]="remark" />
+<h3>Remark :{{ remark }}</h3> -->
