@@ -1,0 +1,12 @@
+<div class="course-container">
+  <div *ngFor="let c of mycourses" class="course">
+    <p>{{ c.UserId }}</p>
+    <p>{{ c.title | slice: 0:10 }}</p>
+    <p>{{ c.body | slice: 0:10 }}</p>
+    <p>{{ c.id }}</p>
+    <p>{{ c.id }}</p>
+  </div>
+</div>
+
+<hr />
+<button (click)="sendDataToParent()">send data to parent</button>

@@ -1,0 +1,15 @@
+<p>userhome works!</p>
+
+<div class="user-container">
+    <div class="user" *ngFor="let u of users | async">
+        <h2>{{u.id}}</h2>
+        <p>{{u.name}}</p>
+        <p>{{u.role}}</p>
+        <button (click)="updateUser(u.id)">edit</button>
+        <button (click)="deleteUser(u.id)">Delete</button>
+    </div>
+</div>
+
+<!-- <ul>
+  <li *ngFor="let u of users | async">{{ u.id }}</li>
+</ul> -->

@@ -1,0 +1,14 @@
+<hr />
+data recieved from child: {{ cd.temp }}
+
+<br />
+
+data recieved from child(template reference varaible) :{{ cd.childData }}
+
+<app-coursedetails
+  [mycourses]="coursesList | async"
+  (childDataEm)="handleChildEvent($event)"
+  #cd
+></app-coursedetails>
+
+<!-- cd is refencing to child component -->
