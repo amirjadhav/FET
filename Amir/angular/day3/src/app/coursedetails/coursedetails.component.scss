@@ -1,0 +1,11 @@
+.course-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.course {
+  border: 1px solid lightgrey;
+  box-shadow: 5px 5px darkgrey;
+  margin: 10px;
+}

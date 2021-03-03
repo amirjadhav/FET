@@ -1,0 +1,32 @@
+<main>
+  <div class="text-right">
+    <a
+      href="#"
+      class="btn btn-info mt-3 mr-3 float-end"
+      (click)="toggleUsdInr()"
+      >{{btnname}}</a
+    >
+  </div>
+  <div id="cards">
+    <div class="card" *ngFor="let c of courses">
+      <img src="{{ c.url }}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ c.id }}. {{ c.name }}</h5>
+        <p class="card-text">
+          Duration: {{ c.duration }} hours <br />
+          <span *ngIf="usdinr">
+            Price: {{ c.price | currency: "INR" }} <br />
+          </span>
+          <span *ngIf="!usdinr">
+            Price: {{ c.price | curconvertor |currency: "USD" }} <br />
+          </span>
+          Start Date: {{ c.startDate | date: "dd / MMM / yyyy" }} <br />
+          {{ c.description }} <br />
+        </p>
+        <div class="text-center">
+          <a href="#" class="btn btn-primary">Add to cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
