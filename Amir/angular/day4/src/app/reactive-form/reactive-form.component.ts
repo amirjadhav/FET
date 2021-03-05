@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from '../user-service.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class ReactiveFormComponent implements OnInit {
 
   registerForm!: FormGroup;
 
-  constructor(private us: UserService) { }
+  constructor(private us: UserService, private router: Router) { }
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -28,6 +29,9 @@ export class ReactiveFormComponent implements OnInit {
     this.us.addUser(this.registerForm.value).subscribe({
       next: () => { console.log("user added") }
     });
+  }
+  goToHome() {
+    this.router.navigate(['/']);
   }
 
 }

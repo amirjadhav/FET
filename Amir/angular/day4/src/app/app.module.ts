@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { TempWorkComponent } from './temp-work/temp-work.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { HomepageComponent } from './homepage/homepage.component';
 @NgModule({
   declarations: [
     AppComponent,
     TempWorkComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
