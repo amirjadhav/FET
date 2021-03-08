@@ -26,9 +26,10 @@ export class ReactiveFormComponent implements OnInit {
 
   registerUser() {
     console.log(this.registerForm);
-    this.us.addUser(this.registerForm.value).subscribe({
-      next: () => { console.log("user added") }
-    });
+    // this.us.addUser(this.registerForm.value).subscribe({
+    //   next: () => { console.log("user added") }
+    // });
+    throw new Error('not able to process');
   }
   goToHome() {
     this.router.navigate(['/']);

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,6 +8,7 @@ import { TempWorkComponent } from './temp-work/temp-work.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { GobalErrorHandlerService } from './gobal-error-handler.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,12 @@ import { HomepageComponent } from './homepage/homepage.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: GobalErrorHandlerService
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
