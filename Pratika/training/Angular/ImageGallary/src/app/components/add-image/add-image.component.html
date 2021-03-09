@@ -40,7 +40,7 @@
 
     <td> 
         Image Id:</td>
-    <td>    <input type="text" #imgId= 'ngModel'[(ngModel)]="newImage.imgId" name="imgId"  pattern="[0-9]{3}" required></td>
+    <td>    <input type="text" #imgId= 'ngModel'[(ngModel)]="newImage.imgId" name="imgId"  pattern="[0-9]{16}" required></td>
     <td>
         <!-- {{ imgId.valid }} -->
         <span *ngIf='! imgId.valid'>  

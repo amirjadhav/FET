@@ -1,0 +1,18 @@
+<div class="container">
+<div class="row justify-content-center my-4">
+  <div class="col col-md-2  col-3 my-2  p-2 rounded text-center bg-secondary text-white" id="grid" [ngClass]="ratingClass">
+   <span><em class="fa fa-filter"></em>&nbsp;Filters</span>
+  </div>
+    <div class="col   col-md-2  col-4 my-2 ms-md-2 ms-2 p-2 rounded text-center" id="grid" [ngClass]="ratingClass">
+      <button class="button border-0 bg-transparent"  id="btn1"  (click)="sendStatus('rating')"><span><em class="fa fa-star"></em>&nbsp;Ratings</span></button>
+    </div>
+    <div class="col  col-md-2  col-3 my-2 mx-md-2 ms-2 p-2 rounded text-center" id="grid" [ngClass]="priceClass">
+      <button class="button border-0 bg-transparent text-center"  id="btn2"  (click)="sendStatus('perperson')"><span><em class="fa fa-rupee"></em>&nbsp;Price</span></button>
+    </div>
+    <div class="col  col-md-5  col-10 my-2  p-2 rounded" id="grid">
+      <span class="d-flex"><em class="fa fa-search icon"></em>&nbsp;
+      <input type="text" placeholder="Search a restaurant" [formControl] = 'search' ></span>   
+    </div>
+  </div>
+</div>
+<div class="filterMessage text-center lead">{{filterMessage}}</div>

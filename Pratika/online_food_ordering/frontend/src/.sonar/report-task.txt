@@ -1,0 +1,5 @@
+projectKey=ng1_food_Delivery
+serverUrl=http://172.27.12.78
+dashboardUrl=http://172.27.12.78/dashboard/index/ng1_food_Delivery
+ceTaskId=AXfzeWBvirXW5IlAPXEq
+ceTaskUrl=http://172.27.12.78/api/ce/task?id=AXfzeWBvirXW5IlAPXEq

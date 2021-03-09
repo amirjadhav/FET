@@ -1,0 +1,33 @@
+@import '/src/app/scss/variables';
+ 
+.modal-resp {
+    max-width: 200px !important;
+}
+  .delContainer
+{
+    background-color: $delContainer_color;
+}
+
+.deliveryOrderList_card
+{
+    background-color: $deliveryOrderList_card_color;
+    border: 3px solid $deliveryOrderList_card_border;
+}
+.acceptedOrderList_card
+{
+    border: 3px solid $acceptedOrderList_border;
+    background-color: $acceptedOrderList_card;
+}
+
+.pickup, .dropoff
+{
+    font-size: large;
+    color: navy;
+}
+.bikeimg 
+{
+    max-height: 70%;
+    max-width: 70%;
+}
+
+  

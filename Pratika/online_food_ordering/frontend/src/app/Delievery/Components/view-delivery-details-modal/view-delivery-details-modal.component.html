@@ -1,0 +1,27 @@
+    <div class="modal-header" *ngIf="order">
+        <h3 class="h3" id="exampleModalLabel"><strong>Order Details for Order #{{order.oid}}</strong></h3>
+        <button type="button" class="close" aria-label="Close" (click)="modal.close('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    <div class="modal-body" *ngIf="order">
+        <div class="d-flex justify-content-center align-items-center container">
+            <mat-card >
+                <mat-card-header>
+                  <div class="float-sm-right">OrderID: #{{order.oid}} </div>
+                  <mat-card-title >Pickup from: <label class="pickup">{{order.restaurant.name}} <p> {{order.restaurant.address}}</p></label></mat-card-title>
+                  <mat-card-title>Deliver at: <label class="dropoff">{{order.address}}</label></mat-card-title>
+                  </mat-card-header> <hr><hr>
+                  <mat-card-content>
+                  <div *ngFor="let item of order.items; let i = index" [attr.data-index]="i">
+                    <span>Item {{i+1}}: {{order.items[i].menu.itemname}}&emsp;&nbsp;&nbsp;x{{order.items[i].quantity}}</span> 
+                  </div>
+                  <p class="lead my-3">Total: Rs. {{order.price}}</p>
+                </mat-card-content>
+            
+            </mat-card>
+    </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Close</button>
+    </div>

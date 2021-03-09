@@ -1,0 +1,112 @@
+<div class="delContainer p-2 p-sm-5 mx-1 mx-sm-2 mx-md-5" *ngIf="isUser==='false'">
+    <div class="row">
+        <div class="lead col-sm-12 col-md-4">
+          
+          <a class="card shadow p-3 mb-5 bg-white rounded text-decoration-none" [routerLink]="['/deliveryProfile']">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                <div class="mt-3">
+                  <h4 class="mat-display-1 mb-3">{{deliveryPerson?.username}}</h4>
+                  <p class="text-secondary mb-1">Vehicle no.: {{deliveryPerson?.vehicleno}}</p><br>
+                  <p class="text-muted font-size-sm">Address: {{deliveryPerson?.address}}</p>
+
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <div class="card shadow p-3 mb-5 bg-white rounded">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
+                <mat-icon >notifications_active</mat-icon>
+                <div class="mt-3">
+                  <h2 class="mb-3">Currently Active Orders</h2>
+                  <p class="mat-display-1 text-secondary mb-1">{{acceptedOrderList?.length}}</p><br>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card shadow p-3 mb-5 bg-white rounded">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
+                <img src="/assets/images/deliveryIcon.png" width="20%" height="20%" alt="delIcon">
+                <div class="mt-3">
+                  <h2 class="mb-3">Total Number of Orders Delivered </h2>
+                  <p class="mat-display-1 text-secondary mb-1">{{completedOrderList?.length}}</p><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-8">
+            <!-- Template for orders accepted by this delivery guy -->
+            <div class="rounded" *ngIf="acceptedOrderList && acceptedOrderList.length">
+              <div class="display-6 py-1">Active Orders</div>
+              <div *ngFor="let order of acceptedOrderList;let j = index" [attr.data-index]="j">
+                  <mat-card class="acceptedOrderList_card mb-3">
+                    <mat-card-header>
+                      <img mat-card-avatar class="resto-image float-sm-left" src={{order.restaurant?.image}} alt="restaurantImg">
+                      <div class="col-7">
+                        <mat-card-title >Pickup from: <br><label class="pickup">{{order.restaurant?.name}}</label></mat-card-title>
+                        <mat-card-title>Deliver at: <br> <label class="dropoff">{{order.address}}</label></mat-card-title> 
+                      </div>
+
+                      <div class="text-right col-3">
+                        <mat-icon> fastfood</mat-icon>
+                        <p>OrderID: #{{order.oid}}</p> 
+                      </div>
+                    </mat-card-header>
+                    <mat-card-content class="align-items-center text-center">
+                      <button class="btn btn-md btn-info col-auto mx-3 my-2 p-2" mat-raised-button (click)='viewDetails(order)'>	 View Details <mat-icon>description</mat-icon></button>
+                      <button class="btn btn-md btn-success col-auto mx-3 my-2 p-2" mat-raised-button (click)='confirmOtp(order)'>Confirm OTP <mat-icon>verified_user</mat-icon></button>
+                    </mat-card-content>
+
+                </mat-card> <br>
+              </div>
+          </div>
+
+            <!-- Template for orders still available to be delivered -->
+            <div *ngIf="deliveryOrderList && deliveryOrderList.length; else elseBlock">
+                <div class="display-6 py-3">Orders Available to Deliver</div>
+                <div class="justify-content-between " *ngFor="let order of deliveryOrderList;">
+                    <mat-card class="deliveryOrderList_card mb-3">
+                      <mat-card-header>            
+                        <div class="col-8">
+                          <mat-card-title><span class="h5">Restaurant <br> <label class="blockquote pt-1 pickup">{{order.restaurant?.name}}</label></span> </mat-card-title>
+                          <mat-card-title><span class="h5"> Deliver at <br> <label class="blockquote pt-1 dropoff">{{order.address}}</label></span></mat-card-title>
+                        </div>
+                        <div class=" text-right col-3 mx-sm-5 p-0 d-inline-block">
+                          <img class="bikeimg p-md-3 me-sm-5 h-0" src="/assets/images/bike.svg" alt="bikeimg">
+                        </div>
+                        </mat-card-header>
+                        <mat-card-content>
+                        <mat-card-actions class="align-items-center text-center">
+                          <button class="btn btn-success mx-3 col-auto p-2" (click)='onAcceptOrder(order)' mat-raised-button>Accept Order Delivery</button>
+                        </mat-card-actions>
+                        </mat-card-content>
+
+                  </mat-card> <br>
+                </div>
+            </div>
+
+            <ng-template #elseBlock>
+              <div class="display-6 py-3">Orders Available to Deliver</div>
+              <mat-card class="deliveryOrderList_card mb-3">
+                  <mat-card-content>
+                    <div class="display-4 p-4 text-center align-items-center">
+                      CURRENTLY NO INCOMING ORDERS <br>
+                      Refresh after a while 
+                      <em class="fa fa-refresh"></em> 
+                      </div>
+ 
+                  </mat-card-content>
+
+            </mat-card>
+            </ng-template>
+
+        </div>
+    </div>
+</div>

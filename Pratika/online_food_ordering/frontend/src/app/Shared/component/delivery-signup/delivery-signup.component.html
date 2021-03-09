@@ -1,0 +1,108 @@
+<div class="bg-light signup-container">
+    <div class="container mb-0">
+        <div *ngIf='!this.isLogin'>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form class="rounded px-4 pb-4" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="text-center">
+                        <img class="logo" src="assets/images/delivery-icon.svg" alt="delivery-SignUp">
+                    </div>
+                    <h1 class="push-up">Signup</h1>
+                    <div class="form-group">
+                        <label class="h6">Full Name<span class="invalid"> *</span></label>
+                        <input type="text" formControlName="username" class="form-control"/>
+                        <div *ngIf="f.username.errors && (f.username.dirty || f.username.touched)" class="invalid">
+                            <p *ngIf="f.username.errors.required">
+                                Name is required!
+                            </p>   
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="h6">Vehicle no.<span class="invalid"> *</span></label>
+                        <input type="text" formControlName="vehicleno" class="form-control"/>
+                        <div *ngIf="f.vehicleno.errors && (f.vehicleno.dirty || f.vehicleno.touched)" class="invalid">
+                            <p *ngIf="f.vehicleno.errors.required">
+                                Vehical number is required!
+                            </p>
+                            <p *ngIf="f.vehicleno.errors?.pattern">
+                                Enter valid vehical number!
+                            </p> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="h6">Address<span class="invalid"> *</span></label>
+                        <textarea type="text" formControlName="address" class="form-control"></textarea>
+                        <div *ngIf="f.address.errors && (f.address.dirty || f.address.touched)" class="invalid">
+                            <p *ngIf="f.address.errors.required">
+                                Address is required!
+                            </p>   
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="h6">Email<span class="invalid"> *</span></label>
+                        <input type="text" formControlName="email" class="form-control"/>
+                        <div *ngIf="f.email.errors && (f.email.dirty || f.email.touched)" class="invalid">
+                            <p *ngIf="f.email.errors.required">
+                                Email is required!!!
+                            </p>   
+                            <p *ngIf="f.email.errors.email">Please enter valid email address!</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="h6">Password<span class="invalid"> *</span></label>
+                        <input type="password" formControlName="password" class="form-control"/>
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                            <div *ngIf="f.password.errors.pattern">Password must Contain At least 1 Number,1 Special Character,Uppercase,Lowercase and minimum 8 character</div>
+                        </div>
+                        <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)" class="invalid">
+                            <p *ngIf="f.password.errors.required">
+                                Password is required!
+                            </p>   
+                            <p *ngIf="f.password.errors.pattern">Password must Contain At least 1 Number,1 Special Character,Uppercase,Lowercase and minimum 8 character</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="h6">Confirm Password<span class="invalid"> *</span></label>
+                        <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"/>
+                        <div *ngIf="f.confirmPassword.errors && (f.confirmPassword.dirty || f.confirmPassword.touched)" class="invalid">
+                            <p *ngIf="f.confirmPassword.errors.required">
+                                Confirm password is required!
+                            </p>   
+                            <p *ngIf="f.confirmPassword.errors.mustMatch">Passwords Must Match!!!</p>                       
+                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="h6">Contact<span class="invalid"> *</span></label>
+                        <input type="tel" formControlName="contact" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contact.errors }" />
+                        <div *ngIf="submitted && f.contact.errors" class="invalid-feedback">
+                            <div *ngIf="f.contact.errors.required">Mobile number is required!</div>
+                        </div>
+                        <div *ngIf="f.contact.errors && (f.contact.dirty || f.contact.touched)" class="invalid">
+                            <p *ngIf="f.contact.errors.required">
+                                Mobile number is required!
+                            </p>
+                            <p *ngIf="f.contact.errors?.pattern">
+                                Please enter valid mobile number!
+                            </p>
+
+                        </div>
+                    </div>
+                    <label>Signup as user?<a class="align-center" routerLink='/userSignUp'><br>User SignUp</a></label><br>
+                    <div class="form-group">
+                        <div class="col-xs-4">
+                            <button class="btn btn-success"  type="submit" value="Save" id="userSave" [disabled]="!registerForm.valid">Sign Up
+                            </button>
+                            <button class="btn btn-dark" type="reset">Reset</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div class='col-md-4 offset-4 mt-5' *ngIf='this.isLogin'>
+    <h5>You are logged in</h5>
+</div>

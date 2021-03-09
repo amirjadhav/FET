@@ -1,0 +1,31 @@
+@import '/src/app/scss/variables';
+
+#login-box {
+  max-width: $login-max-width;
+  border: $login-border;
+  background-color:  $login-background-color;
+}
+
+.logo {
+  width: $login-logo-width;
+  transform: $login-logo-transform;
+  background-color: $login-logo-background-color;
+  padding: $login-logo-padding;
+  border-radius:  $login-border-radius;
+  border: $border-form-color;
+}
+
+.push-up {
+  margin-top: $login-margin-top;
+}
+
+.stub {
+  height: $login-user-height;
+}
+
+.invalid {
+    color: $signup-invalid-color;
+    width: $signup-invalid-width;
+    margin-top: $signup-invalid-margin-top;
+  }
+  

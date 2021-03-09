@@ -1,0 +1,17 @@
+<!--Select Month-->
+<div class="form-group">
+<select name="my-select" [(ngModel)]="mySelect" (change)="selectChange()" class="form-select mt-2">
+      <option [value]='i+1' *ngFor='let month of months; let i=index'>{{month}}</option>
+</select>
+</div>
+
+<!--Canvas to display Graph-->
+<div class="card shadow p-3 mb-5 bg-white rounded mt-3" id="GraphCard">
+      <div id="title" [ngClass]="{'d-none':!doDisplay}" class="mx-auto font-weight-bold h4">Monthly Ratings</div>
+      <canvas id="pieChart"></canvas>
+      <br>
+      <div id="avgrating" [ngClass]="{'d-none':!doDisplay}" class="text-right h5">Average Ratings:&nbsp;{{AverageRating}}</div>
+      <div id="no-data" [ngClass]="{'d-none':doDisplay}" class="text-center display-5">
+            No Data Available
+      </div>
+</div>

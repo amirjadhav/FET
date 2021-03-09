@@ -1,0 +1,214 @@
+
+<div class="container">
+    <div class="main-body">
+    
+          <div class="row gutters-sm mt-4">
+            <div class="col-md-4 mb-3">
+              <div class="card shadow p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h3 class="font-weight-bold">{{user.username}}</h3>
+                      <div class="text-secondary  mb-0"><mat-icon class="mx-1">phone_in_talk</mat-icon>{{user.phone}}</div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <div class="text-secondary mx-1"> <mat-icon>mail</mat-icon></div>
+                          <span class="text-secondary">{{user.email}}</span>
+                        </li>
+                      </ul>
+                     
+                      <!--profile modal start-->
+                      <!-- Button trigger modal -->
+                      <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#profileEditor">
+                       Update Profile
+                       </button>
+                
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--mat tab for profile tabs  -->
+            <div class="col-md-8  ">
+                    <mat-tab-group animationDuration="240ms"> 
+                    <mat-tab>
+                      <ng-template mat-tab-label>
+                      <mat-icon >face</mat-icon>
+                      &nbsp; Address List
+                      </ng-template>
+                        <app-view-profile (sendAddressIndex)="updateAddressForm($event)" (deleteAddressIndex) ="deleteAddressForm($event)" ></app-view-profile>
+                    </mat-tab>
+
+                    <mat-tab > 
+                        <ng-template mat-tab-label>
+                        <mat-icon > fastfood</mat-icon>
+                        &nbsp; Order History
+                        </ng-template>
+                          <app-order-history (orderindexEmitter)="updateOrderDetail($event)"></app-order-history>
+                      </mat-tab>
+
+                    <mat-tab >
+                        <ng-template mat-tab-label>
+                        <mat-icon >timeline</mat-icon>
+                        &nbsp; Report
+                        </ng-template>
+                        <app-user-graph></app-user-graph>
+                        </mat-tab>
+                            
+                    </mat-tab-group>    
+             </div>
+          </div>
+          <div class="extra">
+
+          </div>
+          </div>
+          </div>
+                   <!---->
+                    <!--profile editor  Modal -->
+                    <div class="modal fade" id="profileEditor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header d-block alert-secondary ">
+                          <h2  class ="text-center my-0" id="staticBackdropLabel">Update Profile</h2>
+                        </div>
+                                   
+                    <!--profile form editor-->
+                    <div class="modal-body">
+                    <app-profile-editor></app-profile-editor>
+                    </div>
+                      </div>
+                        </div>
+                        </div>
+                      <!----profile modal end-->
+
+<!-------->
+<!-- address editor Modal -->
+<!-------->
+  <div class="modal fade" id="addressEditor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header d-block alert-secondary ">
+          <h2  class ="text-center my-0" >Edit Address</h2>
+        </div>
+      <div class="modal-body">
+      <div class="mb-4 h6">
+      <form [formGroup]="editAddress">
+        <div class="mb-3">
+              <label for="addressEditorType" class="form-label"> Type<span class="text-danger"> *</span></label>
+              <input type="text" class="form-control"  formControlName="editAddressType"  placeholder="Enter address type" >
+          </div>
+          <div class="mb-3">
+              <label for="addressEditor" class="form-label">Address<span class="text-danger"> *</span></label>
+              <textarea rows="4" class="form-control"  formControlName="editAddressName"  placeholder="Enter new address" ></textarea>
+              </div>        
+      </form>
+      <div class="pt-4">
+        <button class="btn btn-success pull-right" (click)='onEditAddressSubmit()'>Save</button>
+        <button type="button" class="btn btn-secondary pull-left" data-bs-dismiss="modal">Close</button> 
+      </div>        
+      </div>
+      </div> 
+      </div>
+    </div>
+   </div>
+
+<!-------->
+<!---new address modal-->
+<!-------->
+<div class="modal fade" id="newAddressModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header d-block alert-secondary ">
+          <h2  class ="text-center my-0" >New Address</h2>
+      </div>
+      <div class="modal-body">
+        <div class="mb-4 h6">
+          <form [formGroup]="newAddress">
+            <div class="mb-3">
+              <label for="addressEditorType" class="form-label">Type<span class="text-danger"> *</span></label>
+              <input type="text" class="form-control" formControlName="newAddressType"   placeholder="Enter address type" >
+          </div>
+              <div class="mb-3">
+                  <label for="addressEditor" class="form-label">Address<span class="text-danger"> *</span></label>
+                  <textarea rows="4" class="form-control" formControlName="newAddressName"   placeholder="Enter new address" ></textarea>
+              </div>           
+          </form>     
+          <div class="pt-3">
+          <button class="btn btn-success pull-right" (click)='SaveNewAddress()'>Save</button>
+          <button type="button" class="btn btn-secondary pull-left" data-bs-dismiss="modal">Close</button>  
+        </div>
+        </div>
+        </div> 
+        </div>
+        </div>
+       </div>
+
+<!-------->
+<!--Track order Modal-->
+<!------>
+<div class="container" id="trackroder">
+<div class="modal fade" id="viewOrder" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header h5 pb-4 alert-secondary ">
+       ORDER SUMMARY
+      </div>
+      <div class="modal-body">
+        <div class="mb-4">
+             <!--restaurant details column-->
+            <div class="h6   mb-3 px-2">
+              {{currentOrderDetails?.Restaurant.name}}
+            </div>
+            <div class="mb-3 px-2">
+            <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+            <label  class=" h6 text-secondary"> <label class="text-dark" >Restaurant Address :</label> {{currentOrderDetails?.Restaurant.address}}</label> 
+            <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+            </div>
+            <div class="mb-3 px-2">
+            <label class="h6 d-flex justify-content-between"> Status 
+              <div *ngIf="currentOrderDetails?.status==='Delivered'"><span class="badge  bg-success">{{currentOrderDetails?.status}}</span></div>
+              <div *ngIf="currentOrderDetails?.status!=='Delivered'"><span class="badge  bg-danger">{{currentOrderDetails?.status}}</span></div></label>
+            </div>
+            <!--order details column-->
+               <div *ngFor="let foodItems of  currentOrderDetails?.items">
+              
+              <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+              <div class="mb-3 px-2"> 
+              <label class="form-label d-flex justify-content-between">
+              <h4 >
+                {{foodItems?.menu.itemname}}  x <span class="badge  bg-success">{{foodItems?.quantity}}</span> 
+              </h4>
+              <div> 
+                 {{(foodItems?.menu.price * foodItems?.quantity)|currency:'INR'}} 
+              </div>
+              </label>
+              </div>
+            </div>
+            
+             <!--price column-->
+            <div class="mb-3 px-2">
+            <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+            <div class="h6 d-flex justify-content-between">
+            <div class="form-label">Grand Total</div>
+            <label class="form-label"> {{currentOrderDetails?.price|currency:'INR'}}</label>
+            </div>
+            <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+          </div>
+            <!--extra details column--> 
+            <div class="mb-3 px-2">
+            <label  class=" h6 text-secondary"><label class="text-dark" >User Address:</label> {{currentOrderDetails?.address}}</label>
+            </div>         
+         </div> 
+         </div>
+         <div class="modal-footer">   
+          <button type="button" class="btn btn-secondary pull-right" data-bs-dismiss="modal">Close</button>
+        </div>   
+         </div>
+        </div>
+        </div>
+      </div>
+
+
+

@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Order Summary</h2>
+<mat-dialog-content>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Your Ratings</td>
+                <td><ngb-rating [max]="5" [(rate)]=dratings [readonly]="true"></ngb-rating></td>
+            </tr>
+            <tr>
+                <td>Delievered From</td>
+                <td>{{RestaurantAddress}}
+                </td>
+            </tr>
+            <tr>
+                <td>Delievered To</td>
+                <td>{{deliveryAddress}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>
+</mat-dialog-content>

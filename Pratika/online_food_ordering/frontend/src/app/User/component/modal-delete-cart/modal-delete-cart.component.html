@@ -1,0 +1,30 @@
+<!-- <div class="set-top m-0">
+    <div class="modal-header">
+        <div class="modal-title h5">Modal title</div>
+        <button type="button" class="btn-close" (click)="activeModal.close('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        ...
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
+        <button type="button" class="btn btn-primary" (click)="deleteAll()">Save changes</button>
+    </div>
+</div> -->
+
+<div class="modal-confirm border-0 p-4 text-center">
+    <div class="modal-header flex-column border-0">
+        <div class="icon-box">
+            <span>&#x2715;</span>
+        </div>						
+        <h4 class="modal-title w-100">Replace cart items?</h4>	
+        <button type="button" class="close" (click)="activeModal.close('Cross click')">&times;</button>
+    </div>
+    <div class="modal-body">
+        <p>Your cart contains dishes from different restaurant. Do you want to discard the selection and add new dishes?</p>
+    </div>
+    <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">No</button>
+        <button type="button" class="btn btn-danger" (click)="deleteAll()">Yes</button>
+    </div>
+</div>

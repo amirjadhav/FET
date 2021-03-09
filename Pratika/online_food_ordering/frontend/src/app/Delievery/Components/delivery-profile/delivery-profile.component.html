@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="main-body">
+        <div class="row gutters-sm mt-5">
+            <div class="col-md-4 mb-3">
+              <div class="card shadow p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h3 class="font-weight-bold h3">{{Executive.username}}</h3>
+                      <app-rating [size]=1.8 [selected]=Executive.rating></app-rating>
+                      <p class="text-secondary font-weight-normal">{{Executive.contact}}</p>
+                      <p class="text-muted font-size-sm font-weight-normal">{{Executive.address}}</p>
+
+                      <app-update-profile></app-update-profile>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+                <mat-tab-group [selectedIndex]="0" >
+                   <mat-tab >
+                    <ng-template mat-tab-label >
+                        <mat-icon>perm_identity</mat-icon>
+                    Profile
+                  </ng-template>
+                  <app-view-delivery-profile></app-view-delivery-profile>
+                  </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label >
+                          <mat-icon>fastfood</mat-icon>&nbsp;
+                          Delivered Orders
+                        </ng-template>
+                      <app-order-delivered></app-order-delivered>
+                    </mat-tab>
+                    <mat-tab label="Dashboard"> 
+                      <ng-template mat-tab-label >
+                        <mat-icon>timeline</mat-icon>
+                        Dashboard
+                      </ng-template>
+                        <app-profile-graph></app-profile-graph>    
+                    </mat-tab>
+                  </mat-tab-group>
+             
+            </div>
+         </div> 
+         <!--Additional Div-->  
+         <div class='addDiv'>
+
+         </div> 
+    </div>
+</div> 
+
+

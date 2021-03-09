@@ -1,0 +1,53 @@
+<button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#updateModal">Edit Profile</button>
+
+<!--Modal to Update User Profile Data-->
+<div class="modal fade" id="updateModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-hdft-bk-color">
+                <h1 class="modal-title text-center font-weight-bold" id="edit_profile">Edit Profile</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]='editProfile'>
+                    <div class="form-group">
+                        <label class="font-weight-bold float-left">Name&nbsp;<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="ProfileName" formControlName="ProfileName" required>
+                    </div>
+                    <span *ngIf="ProfileName && ProfileName.invalid && ProfileName.touched" class="text-danger float-left">
+                        Enter Correct Name
+                    </span>
+                    <br> 
+                    <div class="form-group">
+                        <label class="font-weight-bold float-left">Email&nbsp;<span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="ProfileEmail" formControlName='ProfileEmail'>
+                    </div>
+                    <span *ngIf="ProfileEmail && ProfileEmail.invalid && ProfileEmail.touched" class="text-danger float-left">
+                        Enter Email in Correct Format
+                    </span>
+                    <br>
+                    <div class="form-group">
+                        <label class="font-weight-bold float-left">Phone No&nbsp;<span class="text-danger">*</span></label>
+                        <input type="phone" class="form-control" id="ProfilePhone" formControlName='ProfilePhone' />
+                    </div>
+                    <span *ngIf="ProfilePhone && ProfilePhone.invalid && ProfilePhone.touched" class="text-danger float-left">
+                        Enter Phone No in Correct Format
+                    </span>
+                    <br>
+                    <div class="form-group">
+                        <label class="font-weight-bold float-left">Address</label>
+                        <textarea class="form-control" id="ProfileAddress" rows=4  formControlName='ProfileAddress'></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold float-left">Vehicle No</label>
+                        <input type="text" class="form-control" id="ProfileVehicle" formControlName='ProfileVehicle'/>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer modal-hdft-bk-color">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-success" id="editQuestion" (click)='updateProfile()' [disabled]="!editProfile.valid">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>

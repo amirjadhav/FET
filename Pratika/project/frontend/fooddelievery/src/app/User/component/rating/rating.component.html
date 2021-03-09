@@ -1,7 +1,0 @@
-<ngb-rating class="rating" [(rate)]="selected" [readonly]="readonly" [max]=5 (rateChange)="getRatings($event)">
-    <ng-template let-fill="fill" let-index="index">
-        <span class="star" [class.full]="fill === 100" [ngStyle]="{'font-size.rem': size}">
-            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
-        </span>
-    </ng-template>
-</ngb-rating>
