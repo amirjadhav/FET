@@ -1,0 +1,57 @@
+<form #loginForm="ngForm" (ngSubmit)="submitForm(loginForm)">
+  userid:
+  <input
+    type="text"
+    name="id"
+    ngModel
+    required
+    minlength="3"
+    #userid="ngModel"
+  />
+  <div *ngIf="userid?.invalid && userid?.touched" [ngStyle]="{ color: 'red' }">
+    Userid is not valid
+  </div>
+  <br />
+  name:
+  <input
+    type="text"
+    name="name"
+    ngModel
+    required
+    minlength="3"
+    #username="ngModel"
+  />
+  <div
+    *ngIf="username?.invalid && username?.touched"
+    [ngStyle]="{ color: 'red' }"
+  >
+    username is not valid
+  </div>
+  <br />
+  password:
+  <input
+    type="password"
+    name="password"
+    required
+    ngModel
+    minlength="5"
+    #pwd="ngModel"
+  />
+  <div *ngIf="pwd?.invalid && pwd?.touched" [ngStyle]="{ color: 'red' }">
+    password is not valid
+  </div>
+  <br />
+  userrole:
+  <select ngModel name="role" #userrole="ngModel">
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
+  <div
+    *ngIf="userrole?.invalid && userrole?.touched"
+    [ngStyle]="{ color: 'red' }"
+  >
+    select userrole
+  </div>
+  <br />
+  <input type="submit" value="add user" />
+</form>

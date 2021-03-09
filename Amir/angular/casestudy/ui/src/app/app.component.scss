@@ -1,0 +1,14 @@
+header nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: aquamarine;
+  padding: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  cursor: pointer;
+  padding: 15px 20px;
+}

@@ -1,0 +1,16 @@
+<p>reactive-form works!</p>
+<form [formGroup]="registerForm">
+  id: <input type="text" formControlName="id" />
+  <div *ngIf="registerForm.controls.id?.invalid && registerForm.controls.id?.touched" [ngStyle]="{ 'color': 'red' }">id is not valid</div>
+  <br />
+  name: <input type="text" formControlName="name" />
+  <br />
+  password: <input type="password" formControlName="password" />
+  <br />
+  role: <input type="text" formControlName="role" />
+  <br />
+  <input type="submit" value="register" (click)="registerUser()" />
+</form>
+
+
+<button (click)="goToHome()">Go to home</button>
