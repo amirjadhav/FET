@@ -1,0 +1,26 @@
+@import '/src/app/scss/variables';
+
+.icart{
+    color: $header-icart-color;
+}
+
+.borderBtn {
+    border: $header-border;
+    padding: $header-padding;
+    background-color: $header-background-color;
+}
+
+.header {
+    padding: $header-padding;
+    box-shadow: $header-box-shadow;
+}
+
+.app_name {
+    font-weight: $header-font-weight;
+    outline: none;
+    cursor: pointer;
+}
+
+.logout{
+    cursor: pointer;
+}

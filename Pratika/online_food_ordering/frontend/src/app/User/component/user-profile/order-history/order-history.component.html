@@ -1,0 +1,43 @@
+<div *ngIf='userOrder.length!==undefined && userOrder.length < 1'>
+  <div class="card shadow p-3 mb-2 bg-white rounded mt-3">
+  <div class="card-body">
+  <div class="row">
+  <div class="h5 text-center"> Orders Unavailable</div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+<div *ngFor="let order of userOrder.slice().reverse() ; index as i">
+<div class="card shadow p-3 mb-5 mt-3 bg-white rounded">
+    <div class="card-body">
+     <div class=" d-flex justify-content-between align-items-center m-0">
+       <div class="h5">{{order.Restaurant?.name}}</div>
+       <div>
+        <button mat-button type="button" class="btn btn-warning" (click)='sendOrderIndex(userOrder.length-i-1)' data-bs-toggle="modal" data-bs-target="#viewOrder">
+          <mat-icon>description</mat-icon>
+            View Order
+        </button>
+    </div>
+    </div>  
+    <div class="h6 d-flex justify-content-between mb-3 pt-2 text-secondary">
+      <div> {{order.price| currency:'INR'}}</div>
+      <div> Status: {{order.status}} </div>
+    </div>
+      <hr>
+      <h4 class="text text-muted">{{order.orderdate}}</h4>
+    
+       <div *ngIf="order.status==='Delivered'"class="card-footer" >
+        <h5 class=" d-flex justify-content-between mx-1 align-items-center">
+         <div class="text-center"> 
+           <div class="h6 ">Restaurant rating </div><app-rating [size]=1.8 [selected]=order.rrating [readonly]="(order.rrating!==null && order.rrating!==0) ? true : false" (rating)="updateRating($event, order.oid, order.rid, 'rrating')"></app-rating>
+          </div>
+          <div class="text-center">
+          <div class="h6 ">Delivery rating </div> <app-rating [size]=1.8 [selected]=order.drating [readonly]="(order.drating!==null &&  order.drating!==0) ? true : false" (rating)="updateRating($event, order.oid, order.did , 'drating')"></app-rating>
+        </div>
+        </h5>
+    </div>
+   </div>
+  </div>
+</div>  
+

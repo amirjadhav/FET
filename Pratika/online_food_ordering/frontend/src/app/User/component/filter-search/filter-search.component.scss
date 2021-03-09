@@ -1,0 +1,17 @@
+.col{
+    border: 2px solid gray;
+}
+
+div input{
+    border: none;
+    outline: none;
+}
+
+.btn-click{
+    background-color: rgb(245, 112, 112);
+    
+}
+
+div input::placeholder{
+    font-size: medium;
+}

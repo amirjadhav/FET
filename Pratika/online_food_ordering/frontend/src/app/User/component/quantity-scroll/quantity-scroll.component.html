@@ -1,0 +1,8 @@
+<div class="btn-group border qscroll" *ngIf="quantity === 0">
+    <button class="btn px-2 py-1" [ngClass]="{'disabled': (is_disabled || disable)}" (click)='addQuantity()'>Add</button>
+</div>
+<div class="btn-group border qscroll" role="group" *ngIf="quantity !== 0">
+    <button class="btn px-2 py-1" [ngClass]="{'disabled': (is_disabled || disable)}" (click)='minusQuantity()'>&minus;</button>
+    <span class="btn quantity px-2 py-1" [ngClass]="{'disabled': (is_disabled || disable)}">{{quantity}}</span>
+    <button class="btn px-2 py-1" [ngClass]="{'disabled': (is_disabled || disable)}" (click)='addQuantity()'>&#x2B;</button>
+</div>

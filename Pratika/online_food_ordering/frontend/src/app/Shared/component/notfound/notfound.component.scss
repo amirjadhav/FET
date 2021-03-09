@@ -1,0 +1,29 @@
+
+  $black: black;
+ .main_container{
+    min-height: calc(100% - 290px);
+  }
+  .notFound{
+    margin-top: 100px!important;
+   }
+ .err,.err2{
+      color: $black;
+      font-size: 11rem;
+     }
+  .far {
+   margin-top: -35px!important;
+    font-size: 8.5rem;
+    color: $black;
+  }
+  .msg {
+     margin-top: 30px;
+      text-align: center;
+      font-size: 1.4rem;
+    }
+  a {
+    text-decoration: underline;
+    color: $black;
+  }
+  a:hover {
+    color: #3770ec;
+  }

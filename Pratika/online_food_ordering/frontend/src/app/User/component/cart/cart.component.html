@@ -1,0 +1,198 @@
+<!-- execute when cart is empty and if user not logged in  -->
+<section class="cart mt-3" *ngIf="cartItems.length === 0 || uid === null">
+  <div class="empty-cart py-16">
+    <div class="container mx-auto text-center">
+      <h1 class="font-weight-bold mb-2">Cart Empty</h1>
+      <h2 class="font-weight-normal">
+        You probably haven't ordered yet or not logged in<br />To order go to Home Page.
+      </h2>
+      <img
+        class="empty_cart_img"
+        src="https://cdn.dribbble.com/users/204955/screenshots/4930541/emptycart.png"
+        alt="images"
+      /><br />
+      <div class="btn  btn-primary" routerLink="/"> Back to home</div>
+      <div *ngIf="uid===null"class="btn  ml-5 btn-primary"   routerLink="/userLogin">Login </div>
+    </div>
+  </div>
+</section>
+
+<!-- execute if cart is not empty -->
+<div class="main_container">
+ <div class="row w-100 justify-content-center mx-auto" *ngIf="cartItems && cartItems.length">
+  <div class="cart_container mt-4 card shadow  col-lg-7 col-11  mr-lg-3  mx-auto ">
+    <div class="order_summary mb-4 mt-3 text-center font-weight-normal display-4">
+      Your Order
+    </div>
+
+    <div class="shopping-cart ">
+      <div class="column-labels">
+        <label class="product-details ml-3">Product</label>
+        <label class="product-price ml-2">Price</label>
+        <label class="product-quantity ml-2">Quantity</label>
+        <label class="product-removal ml-3">Remove</label>
+        <label class="product-line-price">Total</label>
+      </div>
+
+      <div class="product text-center" *ngFor="let item of cartItems; let i = index" [attr.data-index]="i" >
+        <div class="product-details ml-3">
+          <div class="product-title">{{ item.menu.itemname }}</div>
+        </div>
+        <div class="product-price ml-2">
+          {{ item.menu.price | currency: "INR" }}
+        </div>
+        <div class="product-quantity ml-2"  *ngIf="restaurant_details" >
+          <app-quantity-scroll [quantity]="item.quantity" [allIds]="[cart.oid,item.mid]"  (value)="getQuantity($event,item.srno) "[disable]="(time | time: restaurant_details.starttime: restaurant_details.endtime: 'time-status') === 'true'" >
+          </app-quantity-scroll>
+        </div>
+        <div class="product-removal ml-3">
+      
+        <span class="ml-4 icon-remove font-weight-bold" (click)="deleteItem(item.mid,item.srno,true)">&#x2715;</span>
+         </div>
+        <div class="product-line-price ml-2">
+          {{ item_total[i] | currency: "INR" }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- delivery details card -->
+  <div class="totals card col-lg-4 col-11  shadow total-container mt-4 ml-lg-3 mx-auto" >
+    <div class="order_summary mb-4 mt-3 text-center font-weight-normal display-4">
+      Delivery Details
+    </div>
+
+    <div id="address" class="bg-light rounded mt-2">
+      <div class="address_container ">
+        <div class="h5 mt-1 mb-0 font-weight-normal ml-2  ps-lg-0 ps-3 pt-2 ">Address</div>
+        <div class="row ml-2 ps-lg-0 ps-3 pb-3">
+          <select class="btn dropdown btn-info dropdown-toggle w-50 mt-3 mb-1 " (change)="selecteAddress()"  [(ngModel)]="selectedType"> 
+            <option class="btn btn-light border-bottom-1" *ngFor="let address of address_array" [value]="address.type">{{address.type}}</option><hr><option class="btn btn-light border-bottom-1 "> Other</option> </select>
+            <p class="text-justify text-muted home_address  col-sm-11  col-md-11 col-lg-11 mt-2" *ngIf="!(selectedType=='Other')">{{ address }}</p>
+            <textarea   *ngIf="selectedType=='Other'" class="address-textarea form-control rounded-0 mb-2 col-sm-11 col-lg-11 mt-2"  [(ngModel)]="otherAddress" rows="3" placeholder="Enter Current Address"></textarea>
+            <span   *ngIf="openModal=== false" class="error">Enter Address</span>
+         </div>
+       </div>
+    </div>
+
+    <div class="totals-item mt-2 ">
+      <label>Subtotal</label>
+      <div class="totals-value" id="cart-subtotal">
+        {{ subtotal | currency: "INR" }}
+      </div>
+    </div>
+    <div class="totals-item">
+      <label>Tax (5%)</label>
+      <div class="totals-value" id="cart-tax">
+        {{ tax | currency: "INR" }}
+      </div>
+    </div>
+    <div class="totals-item">
+      <label>Delivery Charges</label>
+      <div class="totals-value" id="cart-shipping">
+        {{ 50 | currency: "INR" }}
+      </div>
+    </div>
+    <div class="totals-item totals-item-total grand-total">
+      <div class="totalAmount">
+      <label class="grand-total">Grand Total</label>
+      <div class="totals-value grand-total" id="cart-total grand-total">
+        {{ total | currency: "INR" }}
+      </div>
+    </div>
+   
+  
+    <button class="btn placeOrder mb-4 px-2 py-2 text-center btn-success " 
+    data-bs-toggle="modal" data-bs-target="#payment-modal" 
+    [ngClass]="{'disabled':(time | time: restaurant_details.starttime: restaurant_details.endtime: 'time-status') === 'true'}"
+      *ngIf="restaurant_details" (focus)="showModal()">
+        Proceed
+      </button>
+    </div>
+  </div>
+ </div>
+</div>
+
+<!-- loding spinner after order placed -->
+<div *ngIf="showLoader">
+  <ngx-spinner></ngx-spinner>
+</div>
+
+
+<!-- payment modal -->
+<div id="payment-modal" class="modal fade" tabindex="-1" *ngIf="openModal === true">
+  <div class="modal-dialog modal-content modal-body">
+    <div class="container panel">
+      <div class="panel-default">
+        <div class="text-center font-weight-normal h4">Payment Details</div>
+          <div class="btn-group mb-2 mt-3 text-center">
+          <input type="radio"class="btn-check text-center"name="options"[(ngModel)]="options"id="option1"[value]="true"[checked]="options"/>
+          <label class="btn btn-info text-center text-white" for="option1">Online Payment</label>
+         <input type="radio"class="btn-check text-center "name="options"[(ngModel)]="options"id="option2"[value]="false"[checked]="!options"/>
+          <label class="btn btn-info ml-5 text-center  text-white" for="option2"> Cash On Delivery </label>
+        </div>
+        <!-- Display when payment mode is Online -->
+        <form [formGroup]="paymentForm" role="form panel-body " *ngIf="options">
+          <div class="row col-lg-12 px-0 py-0">
+            <img class="img-responsive cc-img mb-1"src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png" alt=""/>
+            <label>CARD NUMBER  <span class="error">*</span></label> 
+            <div class="input-group form-group">
+              <input type="tel"class="form-control w-75"formControlName="cardNumber"placeholder="Card Number"required/>
+              <span *ngIf="cardNumber && cardNumber.invalid && cardNumber.touched"class="error">
+                enter correct card number
+              </span>
+             
+            </div>
+            
+          </div>
+          <div class="row">
+            <div class="col-lg-6 form-group">
+              <label> <span class="visible-xs-inline">EXPIRY</span> DATE <span class="error">*</span></label>
+              <input type="tel" class="form-control"formControlName="expiryDate" placeholder="MM / YY"required/>
+            </div>
+            <div class="col-lg-5 ml-1 pull-right form-group">
+              <label>CVV CODE <span class="error">*</span></label>
+              <input type="tel"class="form-control"placeholder="CVV"formControlName="CVV"required/>
+            </div>
+          </div>
+          <div class="row col-lg-12 form-group">
+            <label>CARD OWNER <span class="error">*</span></label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Card Owner Names"
+              formControlName="ownerName"
+              required
+            />
+          </div>
+          
+        <div class="panel-footer mb-5 text-center">
+          <input
+            type="submit"
+            class="btn btn-success btn-lg col-lg-6 mt-3  px-0 py-1"
+            value="Place order"
+            (click)="orderProcessing()"
+            data-bs-dismiss="modal"
+            [disabled]="!paymentForm.valid"
+          >
+        </div>
+        </form>
+          <!-- Display when payment mode is Cash On delivery -->
+          <div *ngIf="!options" class="h6 text-center">
+            You will need to pay cash when Delivery Man arrives.
+            <div class="panel-footer mb-5 text-center">
+              <input
+                type="submit"
+                class="btn btn-success btn-lg col-lg-6 mt-3 px-0 py-1"
+                value="Place order"
+                (click)="orderProcessing()"
+                data-bs-dismiss="modal" 
+              />
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>

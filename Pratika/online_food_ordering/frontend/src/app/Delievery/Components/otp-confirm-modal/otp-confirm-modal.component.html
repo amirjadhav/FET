@@ -1,0 +1,21 @@
+    <div class="">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-basic-title">Delivery OTP Confirmation for order #{{order?.oid}}</h3>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="d-flex justify-content-center align-items-center container">
+                <div class="card py-5 px-3">
+                    <h3 class="">Enter the OTP sent on customer's email address </h3>
+                    <div class="d-flex flex-row mt-5"><input type="text" [(ngModel)]="digit1" class="form-control" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');"><input type="text"  [(ngModel)]="digit2" class="form-control" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');"><input type="text"  [(ngModel)]="digit3" class="form-control" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');"><input type="text"  [(ngModel)]="digit4" class="form-control" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');"><input type="text"  [(ngModel)]="digit5" class="form-control" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');"></div>
+                    <!-- <div class="text-center mt-5"><span class="d-block mobile-text">Didn't receive the code?</span><span class="font-weight-bold text-danger cursor">Resend</span></div> -->
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="verifyOtp()">Confirm</button>
+            <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+        </div>
+    </div>

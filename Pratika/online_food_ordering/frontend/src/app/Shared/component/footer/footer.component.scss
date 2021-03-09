@@ -1,0 +1,13 @@
+@import '/src/app/scss/variables';
+
+.footer{
+  clear: both;
+  position: relative;
+  height: $footer-height;
+  width: $footer-width;
+  color: $footer-color;
+}
+
+p{
+  font-size: $foote-font-size;
+}

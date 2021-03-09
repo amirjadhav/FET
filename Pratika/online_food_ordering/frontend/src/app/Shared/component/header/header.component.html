@@ -1,0 +1,27 @@
+<nav class="navbar navbar-dark bg-dark header mb-2" [ngClass]="{'navbar-expand-sm': !loggedIn()}">
+  <div class="container-fluid">
+    <div class="navbar-brand shadow-none app_name"  [routerLink]='navigateHome()'>{{app_name}}</div>
+    <div>
+      <span [ngClass]="{'d-sm-none': !loggedIn(), 'd-none': !isUser()}">
+        <a mat-button class="icart" routerLink='/cart'><mat-icon [matBadge]="cart_count" matBadgeColor="warn" matBadgeSize="medium"> local_grocery_store</mat-icon></a>
+      </span>
+      <button class="navbar-toggler shadow-none" [ngClass]="{'borderBtn rounded-circle': loggedIn()}" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon" *ngIf="!loggedIn()"></span>
+        <span class="text-white" *ngIf="loggedIn()">{{initial | shortName | uppercase}}</span>
+      </button>
+    </div>  
+    <div class="collapse navbar-collapse justify-content-sm-end" id="navbarNav">
+      <span class="d-none" [ngClass]="{'d-sm-block': !loggedIn()}">
+        <a mat-button class="icart" routerLink='/cart'><mat-icon matBadge="" matBadgeColor="warn" matBadgeSize="medium"> local_grocery_store</mat-icon></a>
+      </span>
+      <div class="navbar-nav">
+        <div *ngFor="let element of tabs">
+          <a class="nav-link active dashboard" [routerLink]="[element.link]" data-bs-toggle="collapse" data-bs-target="#navbarNav" *ngIf="element.loggedin === loggedIn()">{{element.name}}</a>
+        </div>
+        <a class='nav-link active logout' data-bs-toggle="collapse" data-bs-target="#navbarNav" (click)='logout()' *ngIf='loggedIn()'>Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+

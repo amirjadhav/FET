@@ -1,0 +1,33 @@
+<div class="mb-4 h6">
+    <form [formGroup]="editForm"  >
+        <div class="mb-1">
+            <label >Username<span class="text-danger"> *</span></label>
+            <input type="text" class="form-control"  formControlName="uname"  >
+        </div>
+        <span class="h6" *ngIf="uname && uname.invalid && uname.touched" class="text-danger float-left">
+            Enter correct name 
+        </span>
+        <br>
+        <div class="mb-1">
+            <label >Email<span class="text-danger"> *</span></label>
+            <input type="text" class="form-control"  formControlName="uemail" >
+        </div>
+        <span *ngIf="uemail && uemail.invalid && uemail.touched" class="text-danger float-left">
+            Enter valid email
+        </span>
+        <br>
+        <div class="mb-1">
+            <label >Phone<span class="text-danger"> *</span></label>
+            <input type="text" class="form-control"  formControlName="uphone" >
+        </div>
+        <span *ngIf="uphone && uphone.invalid && uphone.touched" class="text-danger float-left">
+            Enter correct phone
+        </span>
+        <br>
+    </form> 
+</div>
+
+  <div class="pt-3">
+    <button type="button" class="btn btn-secondary    pull-left" data-bs-dismiss="modal">Close</button>
+    <button class="btn btn-success pull-right" value="edit" (click)='onSubmit()' [disabled]="!editForm.valid">Save</button>
+</div>

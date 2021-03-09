@@ -1,0 +1,154 @@
+.main_container{
+  box-sizing: border-box;
+  min-height: calc(87% );
+}
+// empty cart
+.empty_cart_img{
+  height: 30%;
+  width: 60%;
+ }
+$color-border: #eee;
+$color-label: rgb(110, 110, 110);
+$label-size: 17px;
+$item-detail-size: 16px;
+//Global "table" column settings
+.product-details{ 
+  float: left; 
+  width: 25%; 
+}
+.product-price{
+   float: left;
+    width: 15%; 
+  }
+.product-quantity{
+   float: left;
+    width: 15%;
+   }
+.product-removal{ 
+  float: left; 
+  width: 15%;
+ }
+.product-line-price{ 
+  float: left;
+   width: 17%;
+ }
+.group:before,.group:after{
+    content: '';
+    display: table;
+    clear: both;
+} 
+.order_summary{
+  font-size: 23px;
+}
+.shopping-cart, .column-labels, .product, .totals-item{
+  @extend .group;
+}
+label{
+  color: $color-label;
+}
+// Column headers 
+.column-labels{
+  label{
+    font-size: $label-size;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid $color-border;
+    text-align: center;
+  }
+}
+// Product entries 
+.product{
+  font-size: $item-detail-size;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $color-border; 
+  text-align: center;
+}
+.icon-remove{
+  color: #f15e5e;
+  font-size: 25px;
+  display: inline-block;
+  cursor: pointer;
+  &:hover{
+    color: #922e2e;
+  }
+  }
+.totals{
+  .totals-item{
+     label{
+      font-size: 16px;
+      float: left;
+      width: 60%;
+      text-align: right;
+     }
+     .totals-value{
+      font-size: 16px;
+      float: right;
+      width: 30%;
+      text-align: right;
+    }
+    .grand-total{
+      font-size: 17px;
+    }
+  }
+}
+.placeOrder{
+  width: 200px;
+  border: 0;
+  margin-top: 20px;
+  color: #fff;
+  font-size: 17px;
+  border-radius: 5px;
+  margin-left: 25%;
+}
+input.ng-invalid{
+  border-left: 6px solid red;
+}
+input.ng-valid{
+  border-left: 5px solid rgb(25, 95, 40);
+}
+.error{
+  color: red;
+  font-size: 16px;
+}
+  // Make more adjustments for phone 
+@media(max-width: 550px){
+ .main_container{
+   margin-left: 4%;
+ }
+.shopping-cart{
+    padding-top: 20px;
+    border-top: 1px solid $color-border;
+  }
+  .address-textarea{
+    width: 90%;
+  }
+.product-details{ 
+  float: left;
+  width: 30%;
+ }
+.product-price{
+   float: left;
+   width: 25%; 
+  }
+.product-quantity{ 
+  float: left;
+  width: 20%;
+ }
+.product-line-price{
+   float: left;
+   width: 30%;
+   margin-left: 20px!important;
+   margin-top: 20px!important;
+  }
+.product-removal{ 
+  float: right;
+  width: 20%;
+  margin-right: 60px!important; 
+  margin-top: 20px!important;
+}
+.column-labels{
+    display: none;
+  }
+}
+

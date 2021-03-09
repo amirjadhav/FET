@@ -1,0 +1,42 @@
+@import '/src/app/scss/variables';
+
+form {
+  background-color: $signup-formb-bgcolor;
+  padding: $signup-form-padding;
+  border: 1px solid $signup-border-form-color;
+}
+
+.signup-container {
+  padding: $signup-container-padding;
+}
+
+h1 {
+  text-align: center;
+}
+
+#userSave {
+  float: right;
+}
+
+.container {
+  margin-bottom: $signup-container-margin-bottom;
+}
+
+.invalid {
+  color: $signup-invalid-color;
+  width: $signup-invalid-width;
+  margin-top: $signup-invalid-margin-top;
+}
+
+.logo {
+  width: $signup-logo-width;
+  transform: $signup-logo-transform;
+  background-color: $signup-logo-background-color;
+  padding: $signup-logo-padding;
+  border-radius: $signup-logo-border-radius;
+  border: $signup-logo-border;
+}
+
+.push-up {
+  margin-top: $signup-margin-top;
+}

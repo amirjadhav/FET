@@ -1,0 +1,23 @@
+<div class="row text-center" *ngIf='orderdetails'>
+  <div class="col-md-6 mb-3" *ngFor='let ord of orderdetails'>
+    <div class="card text-center card shadow p-1 mb-5 bg-white rounded mt-3">
+      <div class="card-header">
+        <!--<img class="card-img-top" src={{ord.restaurant?.image}} alt='aaa'>-->
+        <div class="fw-bold text-center">{{ord.restaurant?.name}}</div>
+      </div>
+      <div class="card-body">
+        <label for="orderid" class="fw-bold">Order Id:</label>
+        <p class="card-text">{{ord.oid}}</p>
+        <label for="orderdate" class="fw-bold">Delivered On:</label>
+        <h4 class="card-title">{{ord.orderdate}}:{{ord.ordertime}}</h4>
+      </div>
+      <div class="card-footer text-muted">
+        <a class="btn btn-info" (click)="openDialog(ord.address,ord.restaurant?.address,ord.drating)">Details</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card text-center card shadow p-1 mb-5 bg-white rounded mt-3 h4" *ngIf='orderdetails && !orderdetails.length'>No Completed Deliveries Yet</div>
+
+   

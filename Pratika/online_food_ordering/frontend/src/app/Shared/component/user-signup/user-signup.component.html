@@ -1,0 +1,82 @@
+<div class="bg-light signup-container">
+    <div class="container mb-0">
+        <div *ngIf='!this.isLogin'>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form class="rounded px-4 pb-4" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="text-center">
+                        <img class="logo" src="assets/images/user-icon.svg" alt="User-SignUp" routerLink='/deliverySignUp'>
+                    </div>
+                    <h1 class="push-up">Signup</h1>
+                    <div class="form-group">
+                        <label class="h6">Full Name<span class="invalid"> *</span></label>
+                        <input type="text" formControlName="username" class="form-control" />
+                            <div *ngIf="f.username.errors && (f.username.dirty || f.username.touched)" class="invalid">
+                                <p *ngIf="f.username.errors.required">
+                                    Name is required!
+                                </p>   
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="h6">Email-ID<span class="invalid"> *</span></label>
+                        <input type="text" formControlName="email" class="form-control" />
+                        <div *ngIf="f.email.errors && (f.email.dirty || f.email.touched)" class="invalid">
+                            <p *ngIf="f.email.errors.required">
+                                Email is required!
+                            </p>
+                            <p *ngIf="f.email.errors?.email">
+                                This is not a valid Email!!!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="h6">Password<span class="invalid"> *</span></label>
+                        <input type="password" formControlName="password" class="form-control"/>
+                        <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)" class="invalid">
+                            <p *ngIf="f.password.errors.required">
+                                Password is required!
+                            </p>
+                            <p *ngIf="f.password.errors?.pattern">
+                                Please enter At least 1 Number,1 Special Character,Uppercase,Lowercase and minimum 8 character
+                            </p>
+                        </div><br>
+                    </div>
+                    <div class="form-group">
+                        <label class="h6">Confirm Password<span class="invalid"> *</span></label>
+                        <input type="password" formControlName="confirmPassword" class="form-control"/>
+                        <div *ngIf="f.confirmPassword.errors && (f.confirmPassword.dirty || f.confirmPassword.touched)" class="invalid">
+                            <p *ngIf="f.confirmPassword.errors.required">
+                                ConfirmPassword is required!
+                            </p>
+                            <p *ngIf="f.confirmPassword.errors?.mustMatch">
+                                Passwords must match
+                            </p>
+                        </div><br>
+                    </div>
+                    <div class="form-group">
+                        <label class="h6">Mobile No.<span class="invalid"> *</span></label>
+                        <input type="tel" formControlName="phone" class="form-control"/>
+                            <div *ngIf="f.phone.errors && (f.phone.dirty || f.phone.touched)" class="invalid">
+                                <p *ngIf="f.phone.errors.required">
+                                    Mobile Number is required!
+                                </p>
+                                <p *ngIf="f.phone.errors?.pattern">
+                                    Please Enter Valid Mobile Number!
+                                </p>
+                            </div>
+                    </div>
+                    <label>Work as Delivery Executive?<a class="align-center" routerLink='/deliverySignUp'><br>Delivery SignUp</a></label><br>
+                    <div class="col-xs-4">
+                        <button class="btn btn-success user-save"  type="submit" value="Save" id="userSave" [disabled]="!registerForm.valid">Sign Up
+                        </button>
+                        <button class="btn btn-dark" type="reset">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class='col-md-4 offset-4 mt-5' *ngIf='this.isLogin'>
+    <h5>You are logged in</h5>
+</div>

@@ -1,0 +1,35 @@
+.card-image {
+    width: 60%;
+}
+
+.logo {
+    width: 14px;
+    height: 14px;
+}
+
+.menu-list {
+    margin: auto 5% !important;
+}
+
+.categoryList {
+    position: fixed;
+    z-index: 10;
+}
+
+.categoryBtn {
+    width: 100%;
+    font-size: 19px;
+}
+
+div input{
+    border: none;
+    outline: none;
+}
+
+div input::placeholder{
+    font-size: medium;
+}
+
+.searchMenu{
+    border: 2px solid rgba(128, 128, 128, 0.596);
+}
