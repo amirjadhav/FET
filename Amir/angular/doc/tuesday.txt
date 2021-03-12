@@ -1,0 +1,422 @@
+[10:21 AM] Dadaram Manohar Jadhav
+    
+
+import {​​​​​​​​ HttpClient }​​​​​​​​ from'@angular/common/http';
+import {​​​​​​​​ Injectable }​​​​​​​​ from'@angular/core';
+import {​​​​​​​​ BehaviorSubject }​​​​​​​​ from'rxjs';
+import {​​​​​​​​ environment }​​​​​​​​ from'src/environments/environment.prod';
+import {​​​​​​​​ map }​​​​​​​​ from'rxjs/operators'
+ 
+@Injectable({​​​​​​​​
+  providedIn: 'root'
+}​​​​​​​​)
+exportclass AuthenticationService {​​​​​​​​
+ 
+  loginStatus = new BehaviorSubject<boolean>(false);
+  username = new BehaviorSubject<String>(sessionStorage.getItem('username'))
+  userrole = new BehaviorSubject<String>(sessionStorage.getItem('userrole'))
+
+constructor(private http: HttpClient) {​​​​​​​​ }​​​​​​​​
+  authenticate(username, password) {​​​​​​​​
+returnthis.http.post(environment.baseUserUrl + '/auth/authenticate',
+      {​​​​​​​​ username, password }​​​​​​​​
+    ).pipe(
+      map((userdata: any) => {​​​​​​​​
+        sessionStorage.setItem('username', userdata.username)
+        sessionStorage.setItem('userrole', userdata.roles[0])
+        sessionStorage.setItem('token', 'Bearer ' + userdata.token)
+ 
+this.loginStatus.next(true)
+this.username.next(sessionStorage.getItem('username'))
+this.userrole.next(sessionStorage.getItem('userrole'))
+ 
+return userdata
+      }​​​​​​​​)
+    )
+  }​​​​​​​​
+ 
+  isLoggedIn() {​​​​​​​​
+let user = sessionStorage.getItem('username')
+return !(user===null)
+  }​​​​​​​​
+  logout() {​​​​​​​​
+    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('userrole')
+    sessionStorage.removeItem('token')
+ 
+this.loginStatus.next(false)
+this.username.next(null)
+this.userrole.next(null)
+  }​​​​​​​​
+}​​​​​​​​
+
+​[10:23 AM] Dadaram Manohar Jadhav
+    
+
+import {​​​​​​​​ Component, OnInit }​​​​​​​​ from'@angular/core';
+import {​​​​​​​​ Observable }​​​​​​​​ from'rxjs';
+import {​​​​​​​​ AuthenticationService }​​​​​​​​ from'src/app/authentication.service';
+ 
+@Component({​​​​​​​​
+  selector: 'app-adminhome',
+  templateUrl: './adminhome.component.html',
+  styleUrls: ['./adminhome.component.scss']
+}​​​​​​​​)
+exportclass AdminhomeComponent implements OnInit {​​​​​​​​
+ 
+  username: Observable<String>
+constructor(private as: AuthenticationService) {​​​​​​​​
+this.username = this.as.username
+  }​​​​​​​​
+ 
+  ngOnInit() {​​​​​​​​
+  }​​​​​​​​
+ 
+}​​​​​​​​
+
+​[10:23 AM] Dadaram Manohar Jadhav
+    
+
+<p>adminhome works!</p>
+<h1>Welcome {​​​​​​​​{​​​​​​​​username | async}​​​​​​​​}​​​​​​​​</h1>
+
+​[10:45 AM] Dadaram Manohar Jadhav
+    
+
+import {​​​​​​​​ Injectable }​​​​​​​​ from'@angular/core';
+import {​​​​​​​​ CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router }​​​​​​​​ from'@angular/router';
+import {​​​​​​​​ AuthenticationService }​​​​​​​​ from'./authentication.service';
+ 
+@Injectable({​​​​​​​​
+  providedIn: 'root'
+}​​​​​​​​)
+exportclass AuthGuard implements CanActivate {​​​​​​​​
+ 
+  userrole: String
+constructor(private router: Router, private as: AuthenticationService) {​​​​​​​​
+this.as.userrole.subscribe(ur => {​​​​​​​​
+this.userrole = ur
+    }​​​​​​​​)
+  }​​​​​​​​
+ 
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot) {​​​​​​​​
+if (this.as.isLoggedIn()) {​​​​​​​​
+if (route.data.role && route.data.role.indexOf(this.userrole) === -1) {​​​​​​​​
+this.router.navigate(['/home'])
+returnfalse
+      }​​​​​​​​
+returntrue
+    }​​​​​​​​
+this.router.navigate(['/login'])
+returnfalse
+  }​​​​​​​​
+}​​​​​​​​
+
+​[10:45 AM] Dadaram Manohar Jadhav
+    
+
+import {​​​​​​​​ NgModule }​​​​​​​​ from'@angular/core';
+import {​​​​​​​​ Routes, RouterModule }​​​​​​​​ from'@angular/router';
+import {​​​​​​​​ AdminhomeComponent }​​​​​​​​ from'./admin/adminhome/adminhome.component';
+import {​​​​​​​​ AuthGuard }​​​​​​​​ from'./auth.guard';
+import {​​​​​​​​ ErrorComponent }​​​​​​​​ from'./error/error.component';
+import {​​​​​​​​ LandingComponent }​​​​​​​​ from'./landing/landing.component';
+import {​​​​​​​​ LoginComponent }​​​​​​​​ from'./login/login.component';
+import {​​​​​​​​ UserhomeComponent }​​​​​​​​ from'./user/userhome/userhome.component';
+ 
+const routes: Routes = [
+  {​​​​​​​​ path: '', component: LandingComponent }​​​​​​​​,
+  {​​​​​​​​ path: 'home', component: LandingComponent }​​​​​​​​,
+  {​​​​​​​​
+    path: 'user', component: UserhomeComponent,
+    canActivate: [AuthGuard],
+    data: {​​​​​​​​ role: 'ROLE_USER' }​​​​​​​​
+  }​​​​​​​​,
+  {​​​​​​​​
+    path: 'admin', component: AdminhomeComponent,
+    canActivate: [AuthGuard],
+    data: {​​​​​​​​ role: 'ROLE_ADMIN' }​​​​​​​​
+  }​​​​​​​​,
+  {​​​​​​​​ path: 'login', component: LoginComponent }​​​​​​​​,
+  {​​​​​​​​ path: '**', component: ErrorComponent }​​​​​​​​
+];
+ 
+@NgModule({​​​​​​​​
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+}​​​​​​​​)
+exportclass AppRoutingModule {​​​​​​​​ }​​​​​​​​
+
+
+[11:00 AM] Dadaram Manohar Jadhav
+    
+
+import {​​​​​​​​ HttpHandler, HttpInterceptor, HttpRequest }​​​​​​​​ from'@angular/common/http';
+import {​​​​​​​​ Injectable }​​​​​​​​ from'@angular/core';
+ 
+//this service will add token for every outgoing request from this application
+@Injectable({​​​​​​​​
+  providedIn: 'root'
+}​​​​​​​​)
+exportclass AuthInterceptorService implements HttpInterceptor {​​​​​​​​
+//interceptor --> applicable for every http request
+constructor() {​​​​​​​​ }​​​​​​​​
+  intercept(req: HttpRequest<any>, next: HttpHandler) {​​​​​​​​
+if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {​​​​​​​​
+      req = req.clone({​​​​​​​​
+        setHeaders: {​​​​​​​​
+          Authorization: sessionStorage.getItem('token')
+        }​​​​​​​​
+      }​​​​​​​​)
+    }​​​​​​​​
+return next.handle(req)   //here we are passing modified requet(token added in request)
+  }​​​​​​​​
+}​​​​​​​​
+
+​[11:00 AM] Dadaram Manohar Jadhav
+    
+
+import {​​​​​​​​ BrowserModule }​​​​​​​​ from'@angular/platform-browser';
+import {​​​​​​​​ NgModule }​​​​​​​​ from'@angular/core';
+ 
+import {​​​​​​​​ AppRoutingModule }​​​​​​​​ from'./app-routing.module';
+import {​​​​​​​​ AppComponent }​​​​​​​​ from'./app.component';
+import {​​​​​​​​ LandingComponent }​​​​​​​​ from'./landing/landing.component';
+import {​​​​​​​​ ErrorComponent }​​​​​​​​ from'./error/error.component';
+import {​​​​​​​​ AdminModule }​​​​​​​​ from'./admin/admin.module';
+import {​​​​​​​​ UserModule }​​​​​​​​ from'./user/user.module';
+import {​​​​​​​​ HttpClientModule, HTTP_INTERCEPTORS }​​​​​​​​ from'@angular/common/http';
+import {​​​​​​​​ LoginComponent }​​​​​​​​ from'./login/login.component';
+import {​​​​​​​​ ReactiveFormsModule }​​​​​​​​ from'@angular/forms';
+import {​​​​​​​​ AuthInterceptorService }​​​​​​​​ from'./auth-interceptor.service';
+ 
+@NgModule({​​​​​​​​
+  declarations: [
+    AppComponent,
+    LandingComponent,
+    ErrorComponent,
+    LoginComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AdminModule,
+    UserModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    {​​​​​​​​
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }​​​​​​​​
+  ],
+  bootstrap: [AppComponent]
+}​​​​​​​​)
+exportclass AppModule {​​​​​​​​ }​​​​​​​​
+
+​[11:04 AM] Dadaram Manohar Jadhav
+    
+package com.cybage.security;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RestController
+public class UserController {​​​​​​​
+
+
+    @Autowired
+    private UserRepository ur;
+
+
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
+    @RequestMapping(value="/users", method = RequestMethod.GET)
+    public List<User> listUser(){​​​​​​​
+        return ur.findAll();
+    }​​​​​​​
+
+
+    @PreAuthorize("hasRole('USER')")
+    @RequestMapping(value = "/users/{​​​​​​​id}​​​​​​​", method = RequestMethod.GET)
+    public Optional<User> getOne(@PathVariable(value = "id") int id){​​​​​​​
+        return ur.findById(id);
+    }​​​​​​​
+
+
+    @RequestMapping(value="/signup", method = RequestMethod.POST)
+    public User saveUser(@RequestBody User user){​​​​​​​
+        List<String> roles = new ArrayList<String>();
+        roles.add("USER");        //change this depending on roles
+        user.setRoles(roles);
+        return ur.save(user);
+    }​​​​​​​ 
+}​​​​​​​
+
+
+
+import { ErrorHandler, Injectable } from '@angular/core';
+ 
+//it will handle only exception from front end
+@Injectable()
+export class GlobalErrorHandlerService implements ErrorHandler {
+ 
+  constructor() { }
+  handleError(err: Error) {
+    alert(err.message)
+  }
+}
+
+
+
+
+
+
+
+[11:29 AM] Dadaram Manohar Jadhav
+    
+
+import {​​​​​​​​ BrowserModule }​​​​​​​​ from'@angular/platform-browser';
+import {​​​​​​​​ ErrorHandler, NgModule }​​​​​​​​ from'@angular/core';
+ 
+import {​​​​​​​​ AppRoutingModule }​​​​​​​​ from'./app-routing.module';
+import {​​​​​​​​ AppComponent }​​​​​​​​ from'./app.component';
+import {​​​​​​​​ LandingComponent }​​​​​​​​ from'./landing/landing.component';
+import {​​​​​​​​ ErrorComponent }​​​​​​​​ from'./error/error.component';
+import {​​​​​​​​ AdminModule }​​​​​​​​ from'./admin/admin.module';
+import {​​​​​​​​ UserModule }​​​​​​​​ from'./user/user.module';
+import {​​​​​​​​ HttpClientModule, HTTP_INTERCEPTORS }​​​​​​​​ from'@angular/common/http';
+import {​​​​​​​​ LoginComponent }​​​​​​​​ from'./login/login.component';
+import {​​​​​​​​ ReactiveFormsModule }​​​​​​​​ from'@angular/forms';
+import {​​​​​​​​ AuthInterceptorService }​​​​​​​​ from'./auth-interceptor.service';
+import {​​​​​​​​ GlobalErrorHandlerService }​​​​​​​​ from'./global-error-handler.service';
+ 
+@NgModule({​​​​​​​​
+  declarations: [
+    AppComponent,
+    LandingComponent,
+    ErrorComponent,
+    LoginComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AdminModule,
+    UserModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    {​​​​​​​​
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }​​​​​​​​,
+    {​​​​​​​​
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandlerService
+    }​​​​​​​​
+  ],
+  bootstrap: [AppComponent]
+}​​​​​​​​)
+exportclass AppModule {​​​​​​​​ }​​​​​​​​
+
+​[11:31 AM] Dadaram Manohar Jadhav
+    
+
+
+break 15 min
+
+
+
+[11:55 AM] Dadaram Manohar Jadhav
+    
+
+import {​​​​​​​​ HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest }​​​​​​​​ from'@angular/common/http';
+import {​​​​​​​​ Injectable }​​​​​​​​ from'@angular/core';
+import {​​​​​​​​ Observable, throwError }​​​​​​​​ from'rxjs';
+import {​​​​​​​​ catchError }​​​​​​​​ from'rxjs/operators';
+ 
+@Injectable()
+exportclass HttpErrorInterceptorService implements HttpInterceptor {​​​​​​​​
+ 
+constructor() {​​​​​​​​ }​​​​​​​​
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {​​​​​​​​
+return next.handle(request).pipe(catchError(err => {​​​​​​​​
+const error = err.error.message || err.statusText;
+      alert('http error: '+ err.error.status + error)
+return throwError(error);
+    }​​​​​​​​))
+  }​​​​​​​​
+}​​​​​​​​
+
+​[11:59 AM] Dadaram Manohar Jadhav
+    
+
+import {​​​​​​​​ BrowserModule }​​​​​​​​ from'@angular/platform-browser';
+import {​​​​​​​​ ErrorHandler, NgModule }​​​​​​​​ from'@angular/core';
+ 
+import {​​​​​​​​ AppRoutingModule }​​​​​​​​ from'./app-routing.module';
+import {​​​​​​​​ AppComponent }​​​​​​​​ from'./app.component';
+import {​​​​​​​​ LandingComponent }​​​​​​​​ from'./landing/landing.component';
+import {​​​​​​​​ ErrorComponent }​​​​​​​​ from'./error/error.component';
+import {​​​​​​​​ AdminModule }​​​​​​​​ from'./admin/admin.module';
+import {​​​​​​​​ UserModule }​​​​​​​​ from'./user/user.module';
+import {​​​​​​​​ HttpClientModule, HTTP_INTERCEPTORS }​​​​​​​​ from'@angular/common/http';
+import {​​​​​​​​ LoginComponent }​​​​​​​​ from'./login/login.component';
+import {​​​​​​​​ ReactiveFormsModule }​​​​​​​​ from'@angular/forms';
+import {​​​​​​​​ AuthInterceptorService }​​​​​​​​ from'./auth-interceptor.service';
+import {​​​​​​​​ GlobalErrorHandlerService }​​​​​​​​ from'./global-error-handler.service';
+import {​​​​​​​​ HttpErrorInterceptorService }​​​​​​​​ from'./http-error-interceptor.service';
+ 
+@NgModule({​​​​​​​​
+  declarations: [
+    AppComponent,
+    LandingComponent,
+    ErrorComponent,
+    LoginComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AdminModule,
+    UserModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    {​​​​​​​​
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }​​​​​​​​,
+    {​​​​​​​​
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandlerService
+    }​​​​​​​​,
+    {​​​​​​​​
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptorService,
+      multi: true
+    }​​​​​​​​
+  ],
+  bootstrap: [AppComponent]
+}​​​​​​​​)
+exportclass AppModule {​​​​​​​​ }​​​​​​​​
+
+
+
+

@@ -7,10 +7,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private snack: MatSnackBar) {}
+  constructor(private snack: MatSnackBar) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   openSnackBar() {
-    this.snack.open('Message archived', 'Undo');
+    this.snack.open('Message archived', 'Undo', { duration: 3000 });
   }
 }
